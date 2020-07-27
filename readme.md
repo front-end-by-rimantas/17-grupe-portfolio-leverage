@@ -8,7 +8,7 @@
 
 This project is for educational purposes only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
 
-Site published at https://front-end-by-rimantas.github.io/17-grupe-portfolio-leverage/index.html
+Site published at https://front-end-by-rimantas.github.io/17-grupe-portfolio-leverage/
 
 Design: [Laverage template](https://leverage.codings.dev/home-portfolio-2)
 
@@ -17,4 +17,4 @@ Design: [Laverage template](https://leverage.codings.dev/home-portfolio-2)
 - [LaurynasAnd](https://github.com/LaurynasAnd)
 - [TekkNow](https://github.com/Tekknow69)
 - [Vyrishkis](https://github.com/vyrishkis)
-- [Gee](https://github.com/belauzas)
+- [Gee](https://github.com/GiedriusTavaras)
