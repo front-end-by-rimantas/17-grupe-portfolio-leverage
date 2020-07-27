@@ -3,14 +3,14 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 [![HitCount](http://hits.dwyl.com/front-end-by-rimantas/17-grupe-portfolio-leverage.svg)](http://hits.dwyl.com/front-end-by-rimantas/17-grupe-portfolio-leverage)
 
-# Laverage
-### 17 group laverage website project
+# Leverage
+### 17 group leverage website project
 
 This project is for educational purposes only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
 
 Site published at https://front-end-by-rimantas.github.io/17-grupe-portfolio-leverage/
 
-Design: [Laverage template](https://leverage.codings.dev/home-portfolio-2)
+Design: [Leverage template](https://leverage.codings.dev/home-portfolio-2)
 
 ### Authors
 - [Edgaras](https://github.com/baroniunas91)
