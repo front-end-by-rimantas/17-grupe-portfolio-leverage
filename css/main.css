@@ -5,16 +5,16 @@
 
 @import './header.css';
 @import './hero.css';
-@import './services.css';
+@import './features.css';
 @import './about.css';
+@import './main-video.css';
+@import './skills.css';
+@import './services.css';
 @import './portfolio.css';
-@import './fun-facts.css';
-@import './team.css';
 @import './testimonials.css';
-@import './news.css';
 @import './contact.css';
-@import './clients.css';
 @import './footer.css';
+@import './section-center-dash.css';
 @import './back-to-top.css';
 
 @import './custom.css';
