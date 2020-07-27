@@ -13,7 +13,7 @@ Site published at https://front-end-by-rimantas.github.io/17-grupe-portfolio-lev
 Design: [Laverage template](https://leverage.codings.dev/home-portfolio-2)
 
 ### Authors
-- [Edgaras](https://github.com/belauzas)
+- [Edgaras](https://github.com/baroniunas91)
 - [LaurynasAnd](https://github.com/LaurynasAnd)
 - [TekkNow](https://github.com/Tekknow69)
 - [Vyrishkis](https://github.com/vyrishkis)
