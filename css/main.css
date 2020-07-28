@@ -1,6 +1,7 @@
 @import './reset.css';
 
 @import './button.css';
+@import './section-center-dash.css';
 @import './form.css';
 
 @import './header.css';
@@ -14,7 +15,6 @@
 @import './testimonials.css';
 @import './contact.css';
 @import './footer.css';
-@import './section-center-dash.css';
 @import './back-to-top.css';
 
 @import './custom.css';
