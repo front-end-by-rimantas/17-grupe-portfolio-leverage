@@ -1,8 +1,10 @@
 @import './reset.css';
+@import './layout.css';
 
 @import './button.css';
 @import './section-center-dash.css';
 @import './form.css';
+@import './font-awesome.min.css';
 
 @import './header.css';
 @import './hero.css';
