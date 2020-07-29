@@ -37,6 +37,7 @@ body {
         grid-column: 2 / 3;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
+        gap: 5px;
     }
 
     .container > .row > .col-1 {grid-column: span 1;}
