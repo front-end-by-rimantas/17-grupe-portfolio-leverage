@@ -1,0 +1,80 @@
+@font-face { font-family: Poppins; font-weight: 500; src: url('../fonts/Poppins-Medium.ttf'); }
+@font-face { font-family: Poppins; font-weight: 600; src: url('../fonts/Poppins-SemiBold.ttf'); }
+@font-face { font-family: Poppins; font-weight: 700; src: url('../fonts/Poppins-Bold.ttf'); }
+#main_header {
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+#main_header .header-line {
+    background-color: yellow;
+    height: 44px;
+    margin: 20px 0;
+}
+    #main_header .header-line > .logo {
+        display: inline-block;
+        vertical-align: baseline;
+        padding: 5px 0;
+        font-weight: 600;
+    }
+        #main_header .header-line > .logo  .name {
+            display: inline-block;
+            float: left;
+            background-color: greenyellow;
+            
+            font-size: 24px;
+            line-height: 30px;
+            color: #2F323A;
+
+        }
+        #main_header .header-line > .logo  .dot {
+            display: inline-block;
+            float: right;
+            background-color: greenyellow;
+            
+            font-size: 33px;
+            line-height: 24px;
+            color: #5900FF;
+            vertical-align: baseline;
+
+        }
+    
+    
+    #main_header .header-line > .navtab {
+        display: inline-block;
+    }
+        #main_header .navtab > .menu-element {
+            display: inline-block;
+            float: right;
+        }
+    #main_header .header-line > .fa {
+        display: inline-block;
+    }
+    #main_header .header-line > .socials {
+        display: inline-block;
+    }
+        #main_header .socials > a {
+            display: inline-block;
+        }
+    #main_header .header-line > .menu-button {
+        display: inline-block;
+    }
+        #main_header .menu-button > .menu-line {
+            display: inline-block;
+        }
+    #main_header .header-line > .header-button {
+        display: inline-block;
+        float: right;
+        background-color: #5900ff;
+        color: rgba(255, 255, 255, 0.9);
+        text-transform: uppercase;
+            font-size: 17px;
+            line-height: 22px;
+            padding: 10px 26px;
+    }
+        #main_header .header-button > i {
+            display: inline-block;
+        }
+        #main_header .header-button > span {
+            display: inline-block;
+            text-transform: uppercase;
+        }
