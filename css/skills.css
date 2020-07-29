@@ -1,0 +1,50 @@
+
+#skills {
+    text-align: center;
+}
+
+    #skills > .row > .skill-container-top  {
+        margin: 0 15px;
+    } 
+        #skills .skill-container-top > h1  {
+            /* background-color: brown; */
+            margin: 0 0 25px;
+            font-size: 40px;
+            color: rgb(47, 50, 58);
+        } 
+        #skills .skill-container-top > p  {
+            /* background-color: forestgreen; */
+            font-size: 20px;
+            max-width: 800px;
+            margin:auto;
+            color:rgb(111, 111, 111);
+        } 
+    #skills > .skill-container-bottom  {
+        /* background-color: fuchsia; */
+        gap: 0;
+    }
+        #skills > .skill-container-bottom > .item {
+            /* background-color: fuchsia; */
+        }
+
+            #skills .item > .skill-gauge  {
+                /* background-color: blue; */
+                height: 120px;
+                width: 120px;
+                margin: 30px calc(50% - 50px);
+                position: relative;
+            }
+                #skills .skill-gauge > .skill-gauge-value  {
+                    width: 100%;
+                    position: absolute;
+                    top: 40px;
+                    right: 0;
+                    font-size: 40px;
+
+                }
+
+            #skills .item > .skill-name  {
+                /* background-color: blue; */
+                margin: 24px 0;
+                font-size: 25px;
+            }
