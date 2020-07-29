@@ -3,78 +3,152 @@
 @font-face { font-family: Poppins; font-weight: 700; src: url('../fonts/Poppins-Bold.ttf'); }
 #main_header {
     padding: 0;
-    font-family: Poppins, sans-serif;
+    
 }
 #main_header .header-line {
     background-color: yellow;
     height: 44px;
     margin: 20px 0;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-template-areas: "logo navigation";
 }
-    #main_header .header-line > .logo {
-        display: inline-block;
-        vertical-align: baseline;
-        padding: 5px 0;
-        font-weight: 600;
-    }
-        #main_header .header-line > .logo  .name {
-            display: inline-block;
-            float: left;
-            background-color: greenyellow;
-            
-            font-size: 24px;
-            line-height: 30px;
-            color: #2F323A;
-
-        }
-        #main_header .header-line > .logo  .dot {
-            display: inline-block;
-            float: right;
-            background-color: greenyellow;
-            
-            font-size: 33px;
-            line-height: 24px;
-            color: #5900FF;
+        /* header logo */
+        #main_header .header-line > .logo {
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            grid-area: logo;
+            font-weight: 600;
             vertical-align: baseline;
-
         }
+            #main_header .header-line > .logo  .name {
+                display: inline-block;
+                float: left;
+                background-color: greenyellow;
+                font-family: Poppins, sans-serif;
+                font-size: 24px;
+                line-height: 44px;
+                color: #2F323A;
+                vertical-align: baseline;
+
+            }
+            #main_header .header-line > .logo  .dot {
+                display: inline-block;
+                float: right;
+                background-color: greenyellow;
+                font-family: Poppins, sans-serif;
+                font-size: 33px;
+                line-height: 38px;
+                color: #5900FF;
+                vertical-align: baseline;
+
+            }
+
+        /* header bar left side with links & navigation */
+        #main_header .header-line > .links{
+            grid-area: navigation;
+            text-align: right;
+        }
+           
+        /* all icons (which are as links */
+        #main_header .header-line a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 22px;
+        }
+        
     
-    
-    #main_header .header-line > .navtab {
+    /* navigation tab with dropdowns */
+    #main_header .links > .navtab {
         display: inline-block;
+        padding: 10px 0;
     }
         #main_header .navtab > .menu-element {
             display: inline-block;
-            float: right;
+            font-family: Poppins, sans-serif;
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            padding: 0 16px;
         }
-    #main_header .header-line > .fa {
+            #main_header .navtab > .menu-element:hover {
+                color: #6819fd;
+            }
+            #main_header .navtab > .menu-element > i {
+                font-size: 23px;
+                line-height: 24px;
+            }
+        /* search and social icons */
+    #main_header .links > .icons {
         display: inline-block;
+        text-align: center;
     }
-    #main_header .header-line > .socials {
-        display: inline-block;
-    }
-        #main_header .socials > a {
+        #main_header .icons > a {
             display: inline-block;
+            background-color: red;
+            width: 48px;
+            padding: 11px 0;
+            font-size: 19px;
         }
-    #main_header .header-line > .menu-button {
-        display: inline-block;
+        #main_header .links > .icons > a:hover {
+            color: #6819fd;
+        }
+    
+    /* menu button */
+    #main_header .links > .menu-button {
+        display: none;
+        width: 52px;
+        height: 44px;
+        background-color: lavender;
+        position: relative;
     }
         #main_header .menu-button > .menu-line {
             display: inline-block;
+            width: 20px;
+            height: 2px;
+            border-radius: 1px;
+            background-color: #444;
+            position: absolute;
+            left: 50%;
+            transform-origin: center;
         }
-    #main_header .header-line > .header-button {
+            #main_header .menu-button:hover > .menu-line {
+                background-color: #6819fd;
+            }
+            #main_header .menu-button > .menu-line.line1 {
+                top: 14px;
+                transform: translate(-50%);
+            }
+            #main_header .menu-button > .menu-line.line2 {
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #main_header .menu-button > .menu-line.line3 {
+                bottom: 14px;
+                transform: translate(-50%);
+            }
+        /* Header button "BUY NOW" */
+    #main_header .links > .header-button {
         display: inline-block;
-        float: right;
         background-color: #5900ff;
-        color: rgba(255, 255, 255, 0.9);
-        text-transform: uppercase;
-            font-size: 17px;
-            line-height: 22px;
-            padding: 10px 26px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        line-height: 22px;
+        padding: 11px 22px;
+        margin-left: 10px;
+        font-weight: 400;
     }
-        #main_header .header-button > i {
+        #main_header .header-button > .icon {
             display: inline-block;
+            color: inherit;
         }
         #main_header .header-button > span {
             display: inline-block;
             text-transform: uppercase;
+            margin-left: 4px;
         }
+    
