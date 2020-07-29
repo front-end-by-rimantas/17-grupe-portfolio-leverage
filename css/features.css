@@ -1,0 +1,34 @@
+#features  {
+}
+    .Image-Capture {
+        background-color: aquamarine;
+        padding: 35px;
+    }
+        .Image-Capture > i {
+            
+        }
+        .Image-Capture > h2 {
+            
+        }
+        .Image-Capture > p {
+            
+        }
+
+    .Customization {
+        background-color: brown;
+        padding: 35px;
+    }
+    .Customization > i {
+
+    }
+    .Customization > h2 {
+        
+    }
+    .Customization > p {
+        
+    }
+    .Data-Security {
+        background-color: chartreuse;
+        padding: 35px;
+        margin-top: 40px;
+    }
