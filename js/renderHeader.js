@@ -1,18 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
+function renderHeader(data, selector) {
+    const DOM = document.querySelector(selector),
+        logo = data.logoTab,
+        links = data.linksTab;
+    let HTML = `<div class="header-line col-12">
+                    <div class="${logo.class}">
+                        ${logo.content}
+                    </div>
+                    <div class="links">
+                        ${renderButton(links.button)}
+                        ${renderMenuButton(links.menuButton)}
+                        ${renderIcons(links.icons)}
+                        ${renderNavtab(links.navtab)}
+                    </div>
+                </div>`;
+    return DOM.innerHTML = HTML;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leverage</title>
-    <link rel="stylesheet" href="./css/main.css">
-</head>
 
-<body>
-    <!-- header: start -->
-    <header id="main_header" class="container bg-light-gray">
-        <div class="row">
-            <div class="header-line col-12">
+function renderButton(data){
+    return `<div class="${data.class}">
+                ${data.content}
+            </div>`;
+}
+
+
+function renderMenuButton(data){
+    return `<div class="${data.class}">
+                ${data.content}
+            </div>`;
+}
+
+
+function renderIcons(data){
+    const icons = data.icons,
+            size = icons.length;
+    let HTML = '';
+    for (let i = 0; i < size; i++) {
+        HTML += `<a href="#" class="fa fa-${icons[i]}" aria-hidden="true"></a>`
+    }
+    return `<div class="${data.class}">
+                ${HTML}
+            </div>`;
+}
+
+
+function renderNavtab(data){
+    const navtab = data.content,
+        size = navtab.length;
+    let HTML = '';
+
+    for (let i = 0; i < size; i++) {
+        const level1 = navtab[i];
+        let downArrow = (level1.dropDown) ? `<i class="fa fa-angle-down" aria-hidden="true"></i>` : '',
+            classExtra = (level1.dropDown) ? ' drop-down' : '';
+        let HTML1 = '';
+        if (level1.dropDown) {
+            const dropMenu1 = level1.dropDown,
+                size1 = dropMenu1.length;
+            let tempHTML1 = '';
+            for (let j = 0; j < size1; j++) {
+                const level2 = dropMenu1[j];
+                let rightArrow = (level2.dropDown) ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '';
+                let HTML2 = '';
+                if (level2.dropDown) {
+                    const dropMenu2 = level2.dropDown,
+                        size2 = dropMenu2.length
+                    let tempHTML2 = '';
+                    for (let k = 0; k < size2; k++) {
+                        const level3 = dropMenu2[k];
+                        tempHTML2 += `<div class="down-cont">
+                                        <a href="#" class="drop-link2">
+                                            ${level3.content}
+                                        </a>
+                                    </div>`
+                    }
+                    HTML2 = `<div class="drop-menu2">
+                                ${tempHTML2}
+                            </div>`
+                }
+                tempHTML1 += `<div class="drop-element">
+                                <div class="down-cont">
+                                    <a href="#" class="drop-link1">${level2.content}${rightArrow}</a>
+                                    ${HTML2}
+                                </div>
+                            </div>`
+            }
+            HTML1 = `<div class="drop-menu1">
+                        ${tempHTML1}
+                    </div>`
+        }
+        HTML += `<div class="menu-element${classExtra}">
+                        <a href="#" class="menu-link">${level1.content}${downArrow}</a>
+                        ${HTML1}
+                    </div>`;
+    }
+
+    
+
+
+
+
+    return `<div class="${data.class}">
+                ${HTML}
+            </div>`;
+}
+
+export {renderHeader};
+
+{/* <div class="header-line col-12">
                 <div class="logo">
                     <div class="name">Leverage<span class="dot">.</span></div>
                     
@@ -34,14 +129,6 @@
                         <a href="#" class="fa fa-instagram hidden" aria-hidden="true"></a>
                         
                     </div>
-
-
-
-
-
-
-
-
                     <div class="navtab go-right">
                         <div class="menu-element drop-down">
                             <a href="#" class="menu-link">
@@ -122,122 +209,5 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
                 </div>
-            </div>
-        </div>
-    </header>
-    <!-- header: end -->
-    <!-- hero: start -->
-    <div id="hero" class="container bg-light-gray">
-        <div class="row">HERO</div>
-    </div>
-    <!-- hero: end -->
-    <!-- features: start -->
-    <div id="features" class="container bg-dark-gray">
-        <div class="row">FEATURES</div>
-    </div>
-    <!-- features: end -->
-    <!-- about_us: start -->
-    <div id="about_us" class="container bg-light-gray">
-        <div class="row col-12 about">
-            <div class="row col-12 about-structure">
-                <h2>About us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam lacus,
-                    dapibus
-                    sed imperdiet consectetur.</p>
-
-                <div class="block">
-                    <div class="block-segment">
-                        <div class="icon">
-                            <i class="fa fa-th-large" aria-hidden="true"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content-title">
-                                Design
-                            </div>
-                            <div class="content-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block-segment">
-                        <div class="icon">
-                            <i class="fa fa-free-code-camp" aria-hidden="true"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content-title">
-                                Branding
-                            </div>
-                            <div class="content-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row col-12 about-image">
-                <a href="./img/about-3.jpg">
-                    <img src="./img/about-3.jpg" alt="about-img">
-                </a>
-            </div>
-        </div>
-        <div class="vertical-dash"></div>
-    </div>
-    <!-- about_us: end -->
-    <!-- main-video: start -->
-    <div id="main_video" class="container bg-gray-grad">
-        <div class="row">VIDEO</div>
-    </div>
-    <!-- main-video: end -->
-    <!-- skills: start -->
-    <div id="skills" class="container bg-dark-gray">
-        <div class="row">SKILLS</div>
-    </div>
-    <!-- skills: end -->
-    <!-- services: start -->
-    <div id="services" class="container bg-light-gray">
-        <div class="row">SERVICES</div>
-    </div>
-    <!-- services: end -->
-    <!-- portfolio: start -->
-    <div id="portfolio" class="container bg-dark-gray">
-        <div class="row">PORTFOLIO</div>
-    </div>
-    <!-- portfolio: end -->
-    <!-- testimonials: start -->
-    <div id="testimonials" class="container bg-light-gray">
-        <div class="row">TESTIMONIALS</div>
-    </div>
-    <!-- testimonials: end -->
-    <!-- contact: start -->
-    <div id="contact" class="container bg-dark-gray">
-        <div class="row">CONTACT</div>
-    </div>
-    <!-- contact: end -->
-    <!-- footer: start -->
-    <footer id="main_footer" class="container bg-black">
-        <div class="row">FOOTER</div>
-    </footer>
-    <!-- footer: end -->
-    <!-- back-to-top: start -->
-    <a href="#" id="back_to_top">UP</a>
-    <!-- back-to-top: end -->
-    <script src="./js/main.js" type="module"></script>
-</body>
-
-</html>
+            </div> */}

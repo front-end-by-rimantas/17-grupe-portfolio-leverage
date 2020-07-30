@@ -1,6 +1,6 @@
 "use strict";
 // import data
-// import header from '../data/header.js';
+import {header} from '../data/header.js';
 // import hero from '../data/hero.js';
 // import features from '../data/features.js';
 // import about from '../data/about.js';
@@ -15,7 +15,7 @@
 
 
 // import rendering functions
-// import renderHeader from './renderHeader.js';
+import {renderHeader} from './renderHeader.js';
 // import renderHero from './renderHero.js';
 // import renderFeatures from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
@@ -29,3 +29,5 @@
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute
+
+renderHeader(header, '#main_header > .row')
