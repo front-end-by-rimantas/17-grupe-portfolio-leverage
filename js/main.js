@@ -20,7 +20,7 @@
 // import renderFeatures from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
 // import renderMainVideo from './renderMainVideo.js';
-// import renderSkills from './renderSkills.js';
+import renderSkills from './renderSkills.js';
 // import renderServices from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
 // import renderTestimonials from './renderTestimonials.js';
@@ -29,3 +29,4 @@
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute
+renderSkills([42, 60, 84, 100]);
