@@ -1,0 +1,15 @@
+.container {position: relative;}
+    .container .vertical-dash {
+        display: inline-block;
+        width: 5px;
+        height: 100px;
+        position: absolute;
+        left: calc(50% - 2.5px);
+        bottom: -50px;
+        z-index: 10;
+        background: #8340ff;
+        background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+        background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+        background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
+    }
