@@ -27,7 +27,7 @@
         gap: 0;
     }
         #skills > .skill-container-bottom > .item {
-            /* background-color: fuchsia; */
+            background-color: fuchsia;
         }
 
             #skills .item > .skill-gauge  {
