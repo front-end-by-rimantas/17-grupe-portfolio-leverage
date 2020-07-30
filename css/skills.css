@@ -1,6 +1,8 @@
 
 #skills {
+    background-color: lightblue;
     text-align: center;
+    position: relative;
 }
 
     #skills > .row > .skill-container-top  {
@@ -11,6 +13,7 @@
             margin: 0 0 25px;
             font-size: 40px;
             color: rgb(47, 50, 58);
+            font-weight: 550;
         } 
         #skills .skill-container-top > p  {
             /* background-color: forestgreen; */
@@ -31,20 +34,34 @@
                 /* background-color: blue; */
                 height: 120px;
                 width: 120px;
-                margin: 30px calc(50% - 50px);
+                margin: 30px calc(50% - 60px) 0;
                 position: relative;
             }
                 #skills .skill-gauge > .skill-gauge-value  {
                     width: 100%;
                     position: absolute;
-                    top: 40px;
+                    top: 38px;
                     right: 0;
                     font-size: 40px;
-
+                    color: rgb(47, 50, 58);
                 }
 
             #skills .item > .skill-name  {
                 /* background-color: blue; */
                 margin: 24px 0;
-                font-size: 25px;
+                font-size: 28px;
+                color: rgb(47, 50, 58);
+                font-weight: 550;
+                text-align: center;
             }
+
+/* #skills .vertical-dash::after {
+    content: '';
+    width: 5px;
+    height: 60px;
+    background: rgb(131,64,255);
+    background: linear-gradient(90deg, rgba(131,64,255,1) 15%, rgba(89,0,255,1) 65%);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+} */
