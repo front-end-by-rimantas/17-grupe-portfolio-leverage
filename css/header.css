@@ -10,8 +10,9 @@
     height: 44px;
     margin: 20px 0;
     display: grid;
-    grid-template-columns: 121px 1fr;
+    grid-template-columns: 121px minmax(166px, 1fr);
     grid-template-areas: "logo navigation";
+    overflow: visible;
 }
         /* header logo */
         #main_header .header-line > .logo {
@@ -45,7 +46,7 @@
         /* header bar left side with links & navigation */
         #main_header .header-line > .links{
             grid-area: navigation;
-            overflow: visible;
+            
         }
         #main_header .header-line > .links > .go-right{
             float: right;
