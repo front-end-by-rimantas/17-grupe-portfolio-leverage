@@ -98,7 +98,7 @@ body {
 }
 @media (min-width: 1200px){
     .container {
-    grid-template-columns: 1fr 1170px 1fr ;
+    grid-template-columns: 1fr 1140px 1fr ;
     }
     .container > .row > .col-xl-1 {grid-column: span 1;}
     .container > .row > .col-xl-2 {grid-column: span 2;}
