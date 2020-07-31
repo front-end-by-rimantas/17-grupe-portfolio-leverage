@@ -2,6 +2,7 @@
 
 // import data
 
+
 import {header} from '../data/header.js';
 // import hero from '../data/hero.js';
 import features from '../data/features.js';
@@ -18,6 +19,7 @@ import features from '../data/features.js';
 
 // import rendering functions
 
+
 import {renderHeader} from './renderHeader.js';
 // import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
@@ -32,4 +34,7 @@ import { renderFeatures } from './renderFeatures.js';
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute functions
-renderHeader(header, '#main_header > .row')
+
+renderHeader(header, '#main_header > .row');
+renderFeatures('#features .row', features);
+
