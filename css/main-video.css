@@ -1,27 +1,124 @@
-#main_video {
-    background-color: chartreuse;
-    width: 1000px;
-    margin: 0 calc(50% - 500px);
-
-
-}
-.video-header {
-    width: 1000px;
+/* #main_video {
+} */
+#main_video  h2 {
     text-align: center;
-
-    margin-bottom: 50px;
-
+    margin-bottom: 40px;
+    font-size: 50px;
 
 }
 
-.video-header > h1 {
+#main_video p {
+
+    text-align: center;
+    width: calc(100% - 50px);
+    margin: 0 25px;
+    margin-bottom: 40px;
+}
+
+
+
+#videolink {
+    width: 100%;   
+}
+#videolink > img {
+    width: calc(100% - 50px);
+    margin: 0 25px;
+    
+}
+#buton {
+    color: red;
+    background-color: yellow;
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+/* .col-12 .Vpicture {
+    background-color: yellow;
+    height: 200px;
+    background-image: url('../img/news-4.jpg');
+    background-repeat: no-repeat;
+    width: calc(100% - 50px); 
+    margin: 0 25px;
+    vertical-align: middle;
+    background-size: 100% ;
+
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .video-header {
+    grid-area: hd;
+
+}
+
+.video-body {
+    grid-area: bd;
+} */
+
+
+
+    /* grid-template-columns: 500px 500px 50px 50px; */
+    /* grid-template-rows: auto; */
+    /* grid-template-areas: 
+        "hd hd hd hd"
+        "bd bd . bd"
+        "bd bd bd bd"; */
+      
+}
+
+/* .col-1 {
+    grid-area: header;
+  }
+  .col-2 {
+    grid-area: main;
+  }
+  .col-3 {
+    grid-area: sidebar;
+  }
+  .col-4 {
+    grid-area: footer;
+  }
+
+.video-header  {
+        grid-area: ;
+        grid-template-columns: 50px 50px 50px 50px;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "header header header header"
+          "main main . sidebar"
+          "footer footer footer footer";
+      }
+
+} */
+
+/* .video-header > h1 {
+    width: 100%;
     font-size: 50px;
     background-color: coral;
     margin: 0 25px 30px;
     width: calc(100% - 50px)
-}
+} */
 
-.video-header > p {
+
+
+/* .video-header > p {
     background-color: darkgray;
     margin: 0 200px;
     padding: 0px 10px;
@@ -47,4 +144,4 @@
     top: 150px;
     width: 100px;
     height: 100px;
-}
+} */
