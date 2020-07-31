@@ -1,9 +1,16 @@
 const header = {
+    // whole header is divided into two main parts: logo & linksTab.
+    
     logoTab: {
         class: 'logo',
         content: '<div class="name">Leverage<span class="dot">.</span></div>'
     },
+    
+    
+    // the latter contains all links: navigtion tab, social links, search icon, and header button.
     linksTab: {
+
+        //button, menu button & icons list are simple. They require just class & contents parameters to be filled in dinamically
         button: {
             class: 'button header-button go-right',
             content: '<span href="#" class="fa fa-rocket icon" aria-hidden="true"></span><span class="hidden">buy now</span>'
@@ -20,6 +27,16 @@ const header = {
                 'instagram hidden'
             ]
         },
+
+        /* navtab is more complex since it has not only navigation links,
+            but also some of them have drop down menus, some of which
+            have their own drop down menus which makes it 3 level problems*/
+
+        /* navtab content is area with 5 abjects.
+            each of them has content (which will be displayed in the page)
+            some of them have dropdown menus which are areas wich particular
+            amounts of objects which contain their own content. Some of those
+            also have their dropdowns  */
         navtab: {
             class: 'navtab go-right',
             content: [
