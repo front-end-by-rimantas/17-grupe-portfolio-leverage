@@ -32,5 +32,4 @@ import { renderFeatures } from './renderFeatures.js';
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute functions
-
 renderHeader(header, '#main_header > .row')
