@@ -1,6 +1,7 @@
 #features  {
 }
     .feature {
+        grid-column: span 12;
         padding: 35px;
     }
         #features  i {
@@ -35,18 +36,33 @@
         }
 
 @media (min-width: 768px) {
+    .image-capture {
+        grid-column: span 6;
+    }
+    .customization {
+        grid-column: span 6;
+    }
     .data-security {
-        margin-top: 20px;
-        max-width: 50%;
-        justify-self: center;
+        grid-column-start: 4; 
+        grid-column-end: 10; 
+        
+        
     }
 }
-@media (min-width: 1100px) {
-    .data-security {
-        margin-top: 0;
-        max-width: 100%;
+@media (min-width: 992px) {
+    .image-capture {
+        grid-column: span 4;
     }
-}
-
-
+    .customization {
+        grid-column: span 4;
+    }
+    .data-security {
+        grid-column: span 4;
        
+        
+    }
+}
+
+
+
+
