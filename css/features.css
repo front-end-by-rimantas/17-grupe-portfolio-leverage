@@ -3,7 +3,6 @@
     .feature {
         grid-column: span 12;
         padding: 35px;
-        font-family: 'Roboto', sans-serif;
     }
         #features  i {
             color: #8340ff;
@@ -20,20 +19,23 @@
         }
         #features  h3 {
             color: #2f323a;
-            font-size: 28px;
+            font-size: 24px;
             line-height: 30px;
             text-align: center;
-            padding: 18px 0;
+            padding: 16px 0;
             font-weight: 600;
             margin-top: 10px;
             margin-bottom: 10px;
             word-break: break-word;
+            font-family: Poppins, sans-serif;
         }
         #features  p {
             text-align: center;
+            line-height: 23px;
             color: #6f6f6f;
-            font-size: 20px;
+            font-size: 16px;
             word-break: break-word;
+            font-family: Poppins, sans-serif;
         }
 
 @media (min-width: 768px) {
