@@ -3,6 +3,7 @@
     .feature {
         grid-column: span 12;
         padding: 35px;
+        font-family: 'Roboto', sans-serif;
     }
         #features  i {
             color: #8340ff;
@@ -18,7 +19,7 @@
             
         }
         #features  h3 {
-            color:#6f6f6f;
+            color: #2f323a;
             font-size: 28px;
             line-height: 30px;
             text-align: center;
