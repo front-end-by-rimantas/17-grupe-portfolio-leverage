@@ -6,7 +6,11 @@
     top: 0;
     right: 0;
     height: 100vh;
-    /* display: none; */
+    z-index: 11;
+    display: none;
+}
+.light-box.show {
+    display: block;
 }
     .light-box img{
     height: 100vh;
@@ -38,6 +42,9 @@
             .light-box-header .icons .fa{
                 padding-left: 25px;
                 line-height: 30px;
+            }
+            .light-box-header .icons .fa:hover {
+                color: blue;
             }
     .light-box-footer{
         font-family: 'Roboto', sans-serif;
