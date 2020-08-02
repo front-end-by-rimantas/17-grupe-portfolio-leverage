@@ -12,15 +12,39 @@
 .light-box.show {
     display: block;
 }
-    .light-box img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100vh;
-    max-width: 100%;
-    animation: light-box 0.8s forwards;
+    .light-box .image{
+        position: absolute;
+        width: 800px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 100vh;
+        animation: light-box 0.8s forwards;
     }
+        .light-box .image img{
+            max-height: 100vh;
+            max-width: 100%;
+            animation: light-box 0.8s forwards;
+        }
+        .light-box .image i{
+            position: absolute;
+            font-size: 40px;
+            z-index: 1;
+            color: grey;
+            font-weight: 300;
+            cursor: pointer;
+        }
+        .light-box .image i:hover {
+            color: #5900ff;
+        }
+        .light-box .fa-angle-left{
+            top: 45%;
+            left: 5%;
+        }
+        .light-box .fa-angle-right{
+            top: 45%;
+            right: 5%;
+        }
     .light-box-header{
         position: absolute;
         display: inline-block;
@@ -34,6 +58,7 @@
         font-weight: 400;
         line-height: 30px;
         padding: 10px 20px;
+        z-index: 1;
     }
         .light-box-header .gallery{
             float: left;
@@ -52,7 +77,7 @@
                 cursor: pointer;
             }
             .light-box-header .icons .fa:hover {
-                color: blue;
+                color: #5900ff;
             }
     .light-box-footer{
         font-family: 'Roboto', sans-serif;
@@ -69,35 +94,47 @@
 
 @keyframes light-box {
     0% {
-        height: 0;
-        max-width: 0;
+        max-height: 0;
         opacity: 0;
     }
     100% {
         opacity: 1;
-        height: 100vh;
-        max-width: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .light-box .image {
+        width: 700px;
+    }
+    .light-box .image .fa-angle-left{
+        left: 10%;
+    }
+    .light-box .image .fa-angle-right{
+        right: 10%;
     }
 }
 
 @media (max-width: 750px) {
-    .light-box img {
-        height: unset;
+    .light-box .image {
         width: 500px;
+    }
+    .light-box .image img{
+        height: unset;
+        max-width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        animation: light-box 0.8s forwards;
     }
-    @keyframes light-box {
-        0% {
-            height: 0;
-            max-width: 0;
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-            max-width: 100%;
-        }
+}
+@media (max-width: 600px) {
+    .light-box .image {
+        width: 400px;
+    }
+}
+@media (max-width: 500px) {
+    .light-box .image {
+        width: 320px;
     }
 }

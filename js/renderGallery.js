@@ -5,7 +5,6 @@ function renderGallery(selector) {
     const size = gallery[0].children.length;
 
     function openOnClick(event) {
-        console.log(event);
         event.target.closest('body').querySelector('.light-box').classList.add('show');
     }
     function closeOnClick(event) {
@@ -16,7 +15,6 @@ function renderGallery(selector) {
         gallery[i].addEventListener('click', openOnClick)
     }
     galleryClose.addEventListener('click', closeOnClick);
-
     return;
 }
 export default renderGallery;
