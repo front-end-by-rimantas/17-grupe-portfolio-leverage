@@ -8,6 +8,9 @@
     object-fit: cover;
     box-shadow: 0px 0px 10px #ccc;
 }
+    #about_us .about-image img:hover {
+        cursor: pointer;
+    }
     #about_us h2 {
         margin: 0;
         font-size: 40px;

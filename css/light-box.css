@@ -43,6 +43,9 @@
                 padding-left: 25px;
                 line-height: 30px;
             }
+            .light-box-header .icons .fa:hover{
+                cursor: pointer;
+            }
             .light-box-header .icons .fa:hover {
                 color: blue;
             }
