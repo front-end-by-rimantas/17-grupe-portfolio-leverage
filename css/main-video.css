@@ -1,5 +1,4 @@
-/* #main_video {
-} */
+
 #main_video  h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -10,29 +9,56 @@
 #main_video p {
 
     text-align: center;
-    width: calc(100% - 50px);
-    margin: 0 25px;
-    margin-bottom: 40px;
+    width: calc(100% - 100px);
+    margin: 0 50px;
+    /* margin-bottom: 40px; */
 }
 
+#main_video >.row > a {
+    margin-top: 50px;
 
+}
 
 #videolink {
-    width: 100%;   
+    width: 100%;  
+    position: relative; 
 }
 #videolink > img {
+
     width: calc(100% - 50px);
     margin: 0 25px;
-    
-}
-#buton {
-    color: red;
-    background-color: yellow;
-    position: relative;
-    width: 100px;
-    height: 100px;
+    opacity: 1.0;
+
 }
 
+#videolink > img:hover {
+        opacity: 0.5;
+}
+#buton {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    color: red;
+    width: calc(100%/5);
+    
+}
+#buton > img {
+    width: 100%;
+    transition: transform .5s;
+
+    
+}
+
+#buton > img:hover {
+    transform: scale(1.2); 
+
+
+
+}
 
 
 /* .col-12 .Vpicture {
