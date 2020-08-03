@@ -9,7 +9,7 @@ import features from '../data/features.js';
 // import about from '../data/about.js';
 // import mainVideo from '../data/main-video.js';
 // import skills from '../data/skills.js';
-// import services from '../data/services.js';
+    import services from '../data/services.js';
 // import portfolio from '../data/portfolio.js';
 // import testimonials from '../data/testimonials.js';
 // import contact from '../data/contact.js';
@@ -26,7 +26,7 @@ import { renderFeatures } from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
 // import renderMainVideo from './renderMainVideo.js';
 // import renderSkills from './renderSkills.js';
-// import renderServices from './renderServices.js';
+    import { renderServices } from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
 // import renderTestimonials from './renderTestimonials.js';
 // import renderContact from './renderContact.js';
@@ -34,10 +34,12 @@ import { renderFeatures } from './renderFeatures.js';
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute functions
-
 renderHeader(header, '#main_header > .row');
-
 renderFeatures('#features .row', features);
+
+renderServices('#services .row', services);
+
+// event listeners & other stuff
 
 const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
 for (let i = 0; i < headerDOM.length; i++) {
