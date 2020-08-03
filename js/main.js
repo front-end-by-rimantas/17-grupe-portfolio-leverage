@@ -20,7 +20,7 @@ import features from '../data/features.js';
 // import rendering functions
 
 
-import {renderHeader} from './renderHeader.js';
+import {renderHeader, dropMenuLevel1} from './renderHeader.js';
 // import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
@@ -36,5 +36,10 @@ import { renderFeatures } from './renderFeatures.js';
 // execute functions
 
 renderHeader(header, '#main_header > .row');
+
 renderFeatures('#features .row', features);
 
+const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
+for (let i = 0; i < headerDOM.length; i++) {
+    headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
+}

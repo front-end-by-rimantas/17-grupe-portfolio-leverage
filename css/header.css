@@ -68,6 +68,8 @@
     }
     #main_header .navtab > .menu-element {
         display: inline-block;
+        padding-bottom: 5px;
+        transition: all 5s;
         
     }
         #main_header .navtab > .menu-element > .menu-link {
@@ -79,6 +81,7 @@
             line-height: 24px;
             padding: 0 16px;
             cursor: pointer;
+            
         }
             #main_header .navtab > .menu-element > .menu-link:hover {
                 color: #6819fd;
@@ -87,6 +90,7 @@
             #main_header .navtab > .menu-element > .menu-link > .fa {
                 font-size: 23px;
                 line-height: 24px;
+                margin-left: 3px;
             }
         /* search and social icons */
     #main_header .links > .icons {
@@ -166,20 +170,28 @@
         /* drop down menu (appears only after hover) */
         .drop-down {
             position: relative;
+            
         }
             .drop-down > .drop-menu1 {
-                display: none;
-            }
-            .drop-down > .drop-menu1,
-            .drop-down.active > .drop-menu1 {
+                display: inline-block;
+                transition: all 0.3s;
+                transition-timing-function: ease;
+
                 background-color: #eee;
                 display: inline-block;
                 position: absolute;
                 z-index: 1;
-                top: 130%;
+                top: 100%;
                 left: 0;
                 width: fit-content;
                 box-shadow: 0 0 8px #bbb;
+                opacity: 0;
+                visibility: hidden;
+                
+            }
+            .drop-down.active > .drop-menu1 {
+                visibility: unset;
+                opacity: 1;
                 
             }
                 .drop-down > .drop-menu1 > .drop-element {
@@ -211,17 +223,23 @@
                             margin-top: 4px;
                             margin-left: 5px;
                         }
-                    .drop-down > .drop-menu1 > .drop-element > .drop-menu2 {
-                        display: none;
-                    }
-                    .drop-down > .drop-menu1 > .drop-element  .drop-menu2,
-                    .drop-down.active > .drop-menu1 > .drop-element.active  .drop-menu2 {
+                    .drop-down > .drop-menu1 > .drop-element  .drop-menu2 {
                         display: inline-block;
+                        opacity: 0;
+                        visibility: hidden;
                         position: absolute;
                         left: 100%;
                         top: 0;
                         box-shadow: 0 0 8px #bbb;
                         background-color: #eee;
+                        transition: all 0.3s;
+                        transition-timing-function: ease;
+                    }
+                    /* .drop-down > .drop-menu1 > .drop-element  .drop-menu2, */
+                    .drop-down.active > .drop-menu1 > .drop-element.active  .drop-menu2 {
+                        visibility: unset;
+                        opacity: 1;
+                        
                     }
                     .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont {
                         width: 100%;

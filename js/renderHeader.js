@@ -139,6 +139,36 @@ function renderNavtab(data){
             </div>`;
 }
 
+// function for event listener that shows drop menu level 1
+function dropMenuLevel1(event) {
+    // const DOM = document.querySelector('#main_header .drop-down');
+    const DOM = event.target;   // event.target is selector that has event listener
+    DOM.classList.add('active');     //
+    if(DOM.querySelector('.drop-menu2')) {
 
-export {renderHeader};
+        const hoverDOM = DOM.querySelectorAll('.drop-menu2');
+        for (let i = 0; i < hoverDOM.length; i++) {
+            hoverDOM[i].closest('.drop-element').addEventListener('mouseenter', dropMenuLevel2);
+        }
+    }
+    DOM.addEventListener('mouseleave', dropMenuLeave);
+    return;
+}
+// function for evemt listener that works when level 1 menu
+function dropMenuLeave(event) {
+    event.target.classList.remove('active');
+    return;
+}
+function dropMenuLevel2(event) {
+    event.target.classList.add('active');
+    event.target.addEventListener('mouseleave', dropMenuLeave);
+    return;
+}
+
+// const headerDOM = document.querySelectorAll('#main_header .drop-menu1 > .drop-element');
+// for (let i = 0; i < headerDOM.length; i++) {
+//     headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
+// }
+
+export {renderHeader, dropMenuLevel1};
 
