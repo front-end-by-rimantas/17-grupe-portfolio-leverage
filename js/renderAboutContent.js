@@ -8,6 +8,7 @@ function renderAbout(selector, data) {
                     </div>
                     <div class="row col-12 about-image">
                         <img src="${data.image}" data-type="gallery1" alt="about-img">
+                        <img src="./img/background2.jpg" data-type="gallery1" alt="about-img">
                     </div>
                 </div>
                 <div class="vertical-dash"></div>`;

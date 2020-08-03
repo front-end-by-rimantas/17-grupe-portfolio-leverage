@@ -118,15 +118,22 @@
     .light-box .image {
         width: 500px;
     }
-    .light-box .image img{
-        height: unset;
-        max-width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: light-box 0.8s forwards;
-    }
+        .light-box .image img{
+            height: unset;
+            max-width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: light-box 0.8s forwards;
+        }
+        .light-box .image .fa-angle-left {
+            left: 10%;
+        }
+        .light-box .image .fa-angle-right {
+            right: 10%;
+        }
+
 }
 @media (max-width: 600px) {
     .light-box .image {
