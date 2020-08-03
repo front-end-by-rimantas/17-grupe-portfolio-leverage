@@ -3,7 +3,6 @@
     text-align: center;
     margin-bottom: 40px;
     font-size: 50px;
-
 }
 
 #main_video p {
@@ -11,7 +10,6 @@
     text-align: center;
     width: calc(100% - 100px);
     margin: 0 50px;
-    /* margin-bottom: 40px; */
 }
 
 #main_video >.row > a {
@@ -31,35 +29,40 @@
 
 }
 
-#videolink > img:hover {
-        opacity: 0.5;
-}
-#buton {
 
+#videolink > img:hover {
+    opacity: 0.5;
+
+
+}
+
+
+#buton {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-
     color: red;
-    width: calc(100%/5);
+ 
+    /* width: calc(100%/5); */
     
 }
-#buton > img {
+
+
+#buton > i {
+    font-size: 15vw;
+    color: dodgerblue;
     width: 100%;
-    transition: transform .5s;
-
-    
+    transition: transform .5s; 
 }
 
-#buton > img:hover {
-    transform: scale(1.2); 
-
-
-
+#buton > i:hover {
+        transform: scale(1.2); 
 }
-
+/* #frame {
+    width: 30px;
+    height: 30px;
+} */
 
 /* .col-12 .Vpicture {
     background-color: yellow;
