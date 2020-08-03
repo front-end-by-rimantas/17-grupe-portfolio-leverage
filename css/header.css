@@ -2,6 +2,11 @@
     padding: 0;
     
 }
+    #main_header > .row {
+        opacity: 0;
+        animation: headerAppear 0.4s ease 0.8s 1 normal forwards;
+        animation: name duration timing-function delay iteration-count direction fill-mode;
+    }
 #main_header div {
     font-family: Poppins, sans-serif;
 }
@@ -295,3 +300,15 @@
     }
     
 }
+
+@keyframes headerAppear {
+    0% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
