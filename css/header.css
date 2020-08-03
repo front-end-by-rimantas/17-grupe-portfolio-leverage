@@ -186,6 +186,9 @@
                     display: inline-block;
                     width: 100%;
                 }
+                    .drop-down > .drop-menu1 > .drop-element:hover  .drop-link1 {
+                        color: #6819fd;
+                    }
                     .drop-down  .down-cont {
                         display: inline-block;
                         float: left;
@@ -224,6 +227,9 @@
                         width: 100%;
                         cursor: pointer;
                     }
+                        .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont:hover .drop-link2 {
+                            color: #6819fd;
+                        }
                     .drop-down > .drop-menu1 .down-cont > .drop-link2 {
                         display: inline-block;
                         font-family: Poppins, sans-serif;
