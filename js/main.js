@@ -8,7 +8,7 @@
 // import about from '../data/about.js';
 // import mainVideo from '../data/main-video.js';
 // import skills from '../data/skills.js';
-// import services from '../data/services.js';
+    import services from '../data/services.js';
 // import portfolio from '../data/portfolio.js';
 // import testimonials from '../data/testimonials.js';
 // import contact from '../data/contact.js';
@@ -24,7 +24,7 @@
 // import renderAbout from './renderAbout.js';
 // import renderMainVideo from './renderMainVideo.js';
 // import renderSkills from './renderSkills.js';
-// import renderServices from './renderServices.js';
+    import { renderServices } from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
 // import renderTestimonials from './renderTestimonials.js';
 // import renderContact from './renderContact.js';
@@ -36,3 +36,5 @@
 // const { features } = data;
 
 renderFeatures('#features .row', features);
+
+renderServices('#services .row', services);

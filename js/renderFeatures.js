@@ -1,6 +1,5 @@
 
 function renderFeatures( selector, data ) {
-    console.log('labas');
     const DOM = document.querySelector(selector);
     let HTML = '';
     const size = data.length;
