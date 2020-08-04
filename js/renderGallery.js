@@ -1,10 +1,9 @@
 import renderLightBox from './renderLightBox.js';
 
-function renderGallery(selector, dataType) {
-
+function renderGallery(dataType) {
     const galleryBack = document.querySelector('.light-box .fa-angle-left');
     const galleryForward = document.querySelector('.light-box .fa-angle-right');
-    const imagesArray = document.querySelectorAll('[data-type="gallery1"]');
+    const imagesArray = document.querySelectorAll(`[data-type="${dataType}"]`);
     let lightBoxImage = [];
     for (let i = 0; i < imagesArray.length; i++) {
         if (i != imagesArray.length - 1) {
@@ -13,7 +12,6 @@ function renderGallery(selector, dataType) {
             lightBoxImage.push(img);
         }
     }
-
     let count = 0;
     function backOnClick(event) {
         count = count - 1;
@@ -25,7 +23,6 @@ function renderGallery(selector, dataType) {
             renderLightBox((lightBoxImage[count].outerHTML), count, lightBoxImage.length);
         }
     }
-
     function forwardOnClick(event) {
         count = count + 1;
 
@@ -36,12 +33,8 @@ function renderGallery(selector, dataType) {
             renderLightBox((lightBoxImage[count].outerHTML), count, lightBoxImage.length);
         }
     }
-
     galleryBack.addEventListener('click', backOnClick);
     galleryForward.addEventListener('click', forwardOnClick);
-
-
-
     return;
 }
 export default renderGallery;

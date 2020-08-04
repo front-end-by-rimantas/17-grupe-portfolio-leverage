@@ -30,10 +30,11 @@ import renderAbout from './renderAbout.js';
 // import renderContact from './renderContact.js';
 // import renderFooter from './renderFooter.js';
 // import renderBackToTop from './renderBackToTop.js';
-
+import renderLightBoxGallery from './renderLightBoxGallery.js';
 // execute functions
 
 // const { features } = data;
 
 renderFeatures('#features .row', features);
-renderAbout('#about_us', about, 'gallery1');
+renderAbout('#about_us', about);
+renderLightBoxGallery('gallery1');
