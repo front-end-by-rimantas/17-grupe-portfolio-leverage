@@ -1,0 +1,99 @@
+#main_footer {
+}
+    .footer {
+        
+    }
+        .company {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+            .lever {
+                font-family: Poppins, sans-serif;
+                font-size: 30px;
+            }
+            .company p {
+                margin-top: 20px;
+                font-family: Poppins, sans-serif;
+                text-align: center;
+
+            }
+            .social {
+                margin-top: 20px;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+                .social a {
+                    font-family: Poppins, sans-serif;
+                    text-align: center;
+                }
+        .get-in-touch {
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+            .get-in-touch h2 {
+                font-family: Poppins, sans-serif;
+                text-align: center;
+            }
+            .get-in-touch a {
+                font-family: Poppins, sans-serif;
+                text-align: center;
+                padding: 10px;
+            }
+            .get-in-touch >.send-a-message-button {
+                font-family: Poppins, sans-serif;
+                text-align: center;
+                grid-column: span 12;
+                font-size: 16px;
+                line-height: 24px;
+                padding: 10px;
+                font-weight: 400;
+                width: 145px;
+                margin: auto;
+                margin-bottom: 50px;
+        }
+        .our-services {
+            font-family: Poppins, sans-serif;
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+            .our-services h2 {
+                font-family: Poppins, sans-serif;
+                text-align: center;
+            }
+            .our-services a {
+                grid-column: span 12;
+                font-family: Poppins, sans-serif;
+                text-align: center;
+                padding: 10px;
+            }
+        .popular-tags {
+            font-family: Poppins, sans-serif;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+            .popular-tags h3 {
+                font-family: Poppins, sans-serif;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .popular-tags a {
+                display: inline-block;
+                font-family: Poppins, sans-serif;
+                border: 2px solid white;
+                padding: 5px 20px;
+            }
+    .rigts {
+        text-align: center;
+        margin-top: 20px;
+    }
+        .left {
+            font-family: Poppins, sans-serif;
+        }
+        .right {
+            font-family: Poppins, sans-serif;
+        }
