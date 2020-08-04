@@ -4,32 +4,37 @@ function renderGallery(selector, dataType) {
 
     const galleryBack = document.querySelector('.light-box .fa-angle-left');
     const galleryForward = document.querySelector('.light-box .fa-angle-right');
-    const imagesArray = document.querySelectorAll(`[data-type="${dataType}"]`);
-
+    const imagesArray = document.querySelectorAll('[data-type="gallery1"]');
+    let lightBoxImage = [];
+    for (let i = 0; i < imagesArray.length; i++) {
+        if (i != imagesArray.length - 1) {
+            let img = '';
+            img = imagesArray[i];
+            lightBoxImage.push(img);
+        }
+    }
 
     let count = 0;
     function backOnClick(event) {
         count = count - 1;
 
-        if (count >= 0 && count < imagesArray.length) {
-            renderLightBox((imagesArray[count].outerHTML), count, imagesArray.length);
+        if (count >= 0 && count < lightBoxImage.length) {
+            renderLightBox((lightBoxImage[count].outerHTML), count, lightBoxImage.length);
         } else if (count < 0) {
-            count = imagesArray.length - 1;
-            renderLightBox((imagesArray[count].outerHTML), count, imagesArray.length);
+            count = lightBoxImage.length - 1;
+            renderLightBox((lightBoxImage[count].outerHTML), count, lightBoxImage.length);
         }
-        console.log(count);
     }
 
     function forwardOnClick(event) {
         count = count + 1;
 
-        if (count >= 0 && count < imagesArray.length) {
-            renderLightBox((imagesArray[count].outerHTML), count, imagesArray.length);
-        } else if (count >= imagesArray.length) {
+        if (count >= 0 && count < lightBoxImage.length) {
+            renderLightBox((lightBoxImage[count].outerHTML), count, lightBoxImage.length);
+        } else if (count >= lightBoxImage.length) {
             count = 0;
-            renderLightBox((imagesArray[count].outerHTML), count, imagesArray.length);
+            renderLightBox((lightBoxImage[count].outerHTML), count, lightBoxImage.length);
         }
-        console.log(count);
     }
 
     galleryBack.addEventListener('click', backOnClick);

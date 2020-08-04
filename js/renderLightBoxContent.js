@@ -1,6 +1,7 @@
 import renderGallery from './renderGallery.js';
 
 function renderLightBoxContent(size, imageClicked) {
+    console.log();
     let DOM = document.querySelector('.light-box');
     const HTML = `<div class="light-box-header">
                     <div class="gallery">1/${size}</div>
@@ -22,6 +23,14 @@ function renderLightBoxContent(size, imageClicked) {
                 </div>
                 <div class="light-box-footer">Fit image</div>`;
     DOM.innerHTML = HTML;
+
+    const galleryClose = document.querySelector('.light-box .fa-times');
+
+    function closeOnClick(event) {
+        event.target.closest('body').querySelector('.light-box').classList.remove('show');
+    }
+    galleryClose.addEventListener('click', closeOnClick);
+
     renderGallery('.about-image', 'gallery1');
 
     return;

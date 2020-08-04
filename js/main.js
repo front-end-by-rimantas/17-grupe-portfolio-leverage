@@ -36,4 +36,4 @@ import renderAbout from './renderAbout.js';
 // const { features } = data;
 
 renderFeatures('#features .row', features);
-renderAbout('#about_us', about);
+renderAbout('#about_us', about, 'gallery1');
