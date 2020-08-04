@@ -5,27 +5,77 @@
     font-family: 'FontAwesome';
 }
 #testimonials {
-
+    padding: 130px 0;
 }
 
-    #testimonials .intro {}
-        #testimonials .intro > h2 {}
-        #testimonials .intro > p {
-            color: #6f6f6f;
+    #testimonials .intro {
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+    }
+        #testimonials .intro > h2 {
+            font-size: 48px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 24px;
         }
-    #testimonials .testimonials {}
-        #testimonials .testimonials > .overflow-holder {}
+        #testimonials .intro > p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #6f6f6f;
+            max-width: 800px;
+            align-self: center;
+        }
+    #testimonials .testimonials {
+        width: 100vw;
+        padding: 0 50px;
+        overflow: hidden;
+    }
+        #testimonials .testimonials > .overflow-holder {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: visible;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: 10px;
+        }
             #testimonials .overflow-holder > .testimonial {
                 margin-right: 30px;
+                flex-shrink: 0;
+                margin-top: 10px;
+                
             }
+                #testimonials .testimonial > .card:hover {
+                    transform: translate(0, -2%);
+                    color: #fff;
+                    background: #8340ff;
+                    background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
+                }
+                #testimonials .testimonial > .card:hover p {
+                    color: #fff;
+                }
+                #testimonials .testimonial > .card:hover .fa {
+                    color: #fff;
+                }
                 #testimonials .testimonial > .card {
-                    padding: 35px;
+                    padding: 35px 50px;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-content: center;
                     text-align: center;
                     box-shadow: 0 0 15px #0000001a;
+                    min-height: max-content;
+                    transition: transform 0.8s;
                 }
                     #testimonials .card > .person {
                         width: 100px;
@@ -46,6 +96,7 @@
                         text-transform: capitalize;
                     }
                     #testimonials .card > p {
+                        height: 75px;
                         margin-bottom: 24px;
                         font-size: 16px;
                         font-weight: 400;
@@ -61,14 +112,26 @@
                             width: 38px;
                             color: #5900ff;
                         }
-        #testimonials .testimonials > .navbar {}
+        #testimonials .testimonials > .navbar {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
             #testimonials .navbar > .nav-line {
+                background-color: #d3d3d3;
                 width: 50px;
                 height: 5px;
                 margin: 5px 10px;
-                background: #8340ff;
-                background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
-                background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
-                background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
+                cursor: pointer;
             }
+                #testimonials .navbar > .nav-line:hover {
+                    background-color: #6f6f6f;
+                }
+                #testimonials .navbar > .nav-line:first-child {
+                    background: #8340ff;
+                    background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
+                }

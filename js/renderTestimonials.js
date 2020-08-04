@@ -13,7 +13,6 @@ function renderTestimonials(data, selector) {
         for (let j = 0; j < data[i].rating; j++) {
             rate += '<i class="fa fa-star-o" aria-hidden="true"></i>';
         }
-        console.log(rate);
         testimonial += `<div class="testimonial" style="width: ${width}px;">
                             <div class="card">
                                 <div class="person"><img src="./img/${data[i].picture}.jpg" alt="persons picture"></div>
