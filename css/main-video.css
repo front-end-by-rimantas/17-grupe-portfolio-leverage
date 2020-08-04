@@ -25,17 +25,10 @@
 
     width: calc(100% - 50px);
     margin: 0 25px;
-    opacity: 1.0;
+    /* opacity: 1.0; */
+;
 
 }
-
-
-#videolink > img:hover {
-    opacity: 0.5;
-
-
-}
-
 
 #buton {
     position: absolute;
@@ -56,9 +49,20 @@
     transition: transform .5s; 
 }
 
-#buton > i:hover {
-        transform: scale(1.2); 
+
+#videolink:hover > img {
+    opacity: 0.5;
+    transition: .5s;
+    
+  
 }
+
+#videolink:hover> #buton >i {
+    transform: scale(1.2); 
+}
+
+
+
 /* #frame {
     width: 30px;
     height: 30px;

@@ -4,7 +4,8 @@
 // import hero from '../data/hero.js';
 // import features from '../data/features.js';
 // import about from '../data/about.js';
-// import mainVideo from '../data/main-video.js';
+import data from '../data/main-video.js';
+
 // import skills from '../data/skills.js';
 // import services from '../data/services.js';
 // import portfolio from '../data/portfolio.js';
@@ -29,3 +30,15 @@
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute
+
+
+data()
+
+// onclick="document.getElementById('main_video').style.color = 'red'">
+
+
+
+
+
+
+
