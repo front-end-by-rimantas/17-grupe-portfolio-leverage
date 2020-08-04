@@ -24,7 +24,7 @@ function renderTestimonials(data, selector) {
     }
     let navbar = '';
     for (let i = 0; i < data.length; i++){
-        navbar += '<div class="nav-line"></div>';
+        navbar += `<div class="nav-line line${i+1}"></div>`;
     }
 
     
@@ -43,6 +43,20 @@ function renderTestimonials(data, selector) {
     return DOM.innerHTML = HTML;
 }
 
+function testimonialsEvents(){
+    // testimonials event listener to resize cards
+    const cards = document.querySelectorAll('#testimonials .testimonial');
+    window.addEventListener('resize', ()=> resizeCard(cards));
+
+    // testimonials event to scroll cards
+    const navbar = document.querySelectorAll('#testimonials .nav-line');
+    for (const navLine of navbar) {
+        const number = parseInt((navLine.classList)[1].match(/[0-9]/g));
+        navLine.addEventListener('click', () => scrollTestimonials(navLine))
+    }
+}
+
+//function to resize card when changing screen size
 function resizeCard(cards) {
     const winWidth = window.innerWidth;
     let width = 0;
@@ -53,7 +67,12 @@ function resizeCard(cards) {
     for(const card of cards) {
         card.style.width = `${width}px`;
     }
-
 }
 
-export {renderTestimonials, resizeCard};
+
+// function for event listener 'click'
+function scrollTestimonials(DOM) {
+    console.log('click');
+}
+
+export {renderTestimonials, testimonialsEvents};
