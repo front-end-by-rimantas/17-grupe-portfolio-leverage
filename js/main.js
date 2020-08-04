@@ -20,7 +20,7 @@ import features from '../data/features.js';
 // import rendering functions
 
 
-import {renderHeader, dropMenuLevel1} from './renderHeader.js';
+import {renderHeader, dropMenuLevel1, windowScrolling} from './renderHeader.js';
 // import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
@@ -45,3 +45,13 @@ const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down')
 for (let i = 0; i < headerDOM.length; i++) {
     headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
 }
+// let headHeight = document.querySelector('#main_header').get
+// const headDOM = document.querySelector('#main_header');
+const startPosition = window.pageYOffset;
+console.log(startPosition);
+window.addEventListener('scroll',function() {
+        const startPosition = window.pageYOffset;
+        windowScrolling(startPosition);
+    });
+// let top = document.querySelector('body');
+// console.log(window.scrollY);

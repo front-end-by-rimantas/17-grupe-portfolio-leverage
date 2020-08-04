@@ -164,11 +164,43 @@ function dropMenuLevel2(event) {
     event.target.addEventListener('mouseleave', dropMenuLeave);
     return;
 }
+// function that acts on windows scroll
+function windowScrolling(startPosition) {
+    let position = window.scrollY;
+    const DOM = document.querySelector('#main_header');
+    console.log(startPosition, position);
+    const hidden = document.querySelector('#main_header.hidden') ? document.querySelector('#main_header.hidden') : null;
+    const sticky = document.querySelector('#main_header.sticky-line') ? document.querySelector('#main_header.sticky-line') : null;
+    if (window.scrollY > 0 && !sticky) {
+        DOM.classList.add('sticky-line');
+        return;
+    }
+    if (window.scrollY < 50 && sticky) {
+        DOM.classList.remove('sticky-line');
+        return;
+    }
+    if (window.scrollY > window.innerHeight && !hidden) {
+        DOM.classList.add('hidden');
+        return;
+    }
+    if (window.scrollY <= window.innerHeight) {
+        DOM.classList.remove('hidden');
+        return;
+    }
+    
+    // check();
+    //scroll up
+    if (position < startPosition) {
+        console.log('up');
+        DOM.classList.remove('hidden');
+        return;
+    } else if (position > startPosition && !hidden && sticky) {
+        console.log('down');
+        DOM.classList.add('hidden');
+        return;
+    }
+    return;
+}
 
-// const headerDOM = document.querySelectorAll('#main_header .drop-menu1 > .drop-element');
-// for (let i = 0; i < headerDOM.length; i++) {
-//     headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
-// }
-
-export {renderHeader, dropMenuLevel1};
+export {renderHeader, dropMenuLevel1, windowScrolling};
 
