@@ -1,3 +1,5 @@
+import renderGallery from './renderGallery.js';
+
 function renderLightBoxContent(size, imageClicked) {
     let DOM = document.querySelector('.light-box');
     const HTML = `<div class="light-box-header">
@@ -18,7 +20,10 @@ function renderLightBoxContent(size, imageClicked) {
                     </div>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </div>
-                <div class="light-box-footer">Fit image</div>`
-    return DOM.innerHTML = HTML;
+                <div class="light-box-footer">Fit image</div>`;
+    DOM.innerHTML = HTML;
+    renderGallery('.about-image', 'gallery1');
+
+    return;
 }
 export default renderLightBoxContent;
