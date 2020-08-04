@@ -47,11 +47,10 @@ for (let i = 0; i < headerDOM.length; i++) {
 }
 // let headHeight = document.querySelector('#main_header').get
 // const headDOM = document.querySelector('#main_header');
-const startPosition = window.pageYOffset;
-console.log(startPosition);
+let startPosition = window.pageYOffset;
 window.addEventListener('scroll',function() {
-        const startPosition = window.pageYOffset;
-        windowScrolling(startPosition);
+    windowScrolling(startPosition);
+    startPosition = window.scrollY; 
     });
 // let top = document.querySelector('body');
 // console.log(window.scrollY);
