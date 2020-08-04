@@ -167,7 +167,6 @@ function dropMenuLevel2(event) {
 // function that acts on windows scroll
 function windowScrolling(startPosition) {
     let position = window.scrollY;
-    console.log('start',startPosition, 'now', position);
     const DOM = document.querySelector('#main_header');
     const hidden = document.querySelector('#main_header.hidden') ? document.querySelector('#main_header.hidden') : null;
     const sticky = document.querySelector('#main_header.sticky-line') ? document.querySelector('#main_header.sticky-line') : null;
@@ -184,7 +183,6 @@ function windowScrolling(startPosition) {
     } 
     //scroll down
     else {
-        console.log('go down');
         //jei uz hero ir matomas
         if(position > window.innerHeight && !hidden){
             DOM.classList.add('hidden');
