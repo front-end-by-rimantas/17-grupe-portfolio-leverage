@@ -41,16 +41,14 @@ renderServices('#services .row', services);
 
 // event listeners & other stuff
 
+// header event listener for drop down menus
 const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
 for (let i = 0; i < headerDOM.length; i++) {
     headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
 }
-// let headHeight = document.querySelector('#main_header').get
-// const headDOM = document.querySelector('#main_header');
+// header event listener for scrolling
 let startPosition = window.pageYOffset;
 window.addEventListener('scroll',function() {
     windowScrolling(startPosition);
     startPosition = window.scrollY; 
     });
-// let top = document.querySelector('body');
-// console.log(window.scrollY);

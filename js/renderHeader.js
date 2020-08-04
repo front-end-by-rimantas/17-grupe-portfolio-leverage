@@ -177,7 +177,6 @@ function windowScrolling(startPosition) {
         if (position > window.innerHeight && hidden) {
             DOM.classList.remove('hidden');
         }
-        //jei grizta i hero
         //jei grizta i pradzia
         else if (position < 50) {
             DOM.classList.remove('sticky-line');
@@ -190,42 +189,13 @@ function windowScrolling(startPosition) {
         if(position > window.innerHeight && !hidden){
             DOM.classList.add('hidden');
         }
-        //jei nueina uz hero
         //jei pajuda is vietos
         else if (position > 0 && !sticky) {
             DOM.classList.add('sticky-line');
         }
 
     }
-    // if (position > 0 && !sticky) {
-    //     DOM.classList.add('sticky-line');
-    //     return;
-    // }
-    // if (position < 50 && sticky) {
-    //     DOM.classList.remove('sticky-line');
-    //     return;
-    // }
-    // if (position > window.innerHeight && !hidden) {
-    //     DOM.classList.add('hidden');
-    //     return;
-    // }
-    // if (position <= window.innerHeight) {
-    //     DOM.classList.remove('hidden');
-    //     return;
-    // }
     
-    // // check();
-    // //scroll up
-    // if (position < startPosition) {
-    //     console.log('up');
-    //     DOM.classList.remove('hidden');
-    //     return;
-    // } else if (position > startPosition && !hidden && sticky) {
-    //     console.log('down');
-    //     DOM.classList.add('hidden');
-    //     return;
-    // }
-    // return;
 }
 
 export {renderHeader, dropMenuLevel1, windowScrolling};

@@ -1,11 +1,3 @@
 #hero {
-    /* background-color: lightblue; */
     height: 100vh;
 }
-    #hero > .row {
-        display: flex;
-    }
-        #hero > .row > .hero-cont > .content {
-            width: 100%;
-            height: 1vh;
-        }
