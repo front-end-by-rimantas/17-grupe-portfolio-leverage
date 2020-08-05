@@ -53,7 +53,7 @@ export default function mainVideo(){
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora at laudantium doloribus voluptas, porro aliquid.
         </p>
     </div>
-        <a  target="_blank" href="#" id='videolink' class="col-12">
+        <a   href="#" id='videolink' class="col-12">
             <img  src="./img/news-4.jpg" alt="Picture of video" id ='videoImg' class="col-12">
             <div id=buton >
                     <i class="fa fa-play-circle"></i>
@@ -63,7 +63,7 @@ export default function mainVideo(){
         
     </div>`;
 
-    console.log(DOM,HTML);
+    // console.log(DOM,HTML);
 
     return DOM.innerHTML = HTML
 

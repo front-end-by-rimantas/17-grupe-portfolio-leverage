@@ -33,6 +33,13 @@ import data from '../data/main-video.js';
 
 
 data()
+document.getElementById("buton").addEventListener("click", event);
+
+
+function event(){
+    console.log('vyksta js')
+
+}
 
 // onclick="document.getElementById('main_video').style.color = 'red'">
 
