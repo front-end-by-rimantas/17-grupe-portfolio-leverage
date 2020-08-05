@@ -1,7 +1,22 @@
 // Main function to render Skill container
-function renderSkillContent(data) {
+function renderSkillContent(data, selector) {
+    if (selector === undefined) {
+        return console.error("ERROR: Please give me selector / no selector was given!");
+    }
+    if(typeof selector !== "string")
+    {
+        return console.error("ERROR: Slector should be string!");
+    }
+    if(selector.length === 0) {
+        return console.error("ERROR: I think you forgot to write selecotr/ empty selector were given");
+    }
+    const DOM = document.querySelector(selector);
+    if(DOM === null){
+        return console.error("ERROR: Please give me valid selector!");
+    }
+
+    givenSelector = selector;
     skillData = data;
-    const DOM = document.querySelector("#skills");
     let HTML = `
     ${renderTop(data.title, data.description)}
     ${renderBottom(data.skills)}
@@ -60,10 +75,24 @@ function renderVerticalDash() {
 }
 
 // Checking is container visible to run animation
-let startCircleAnimation = function (e) {
-    
+let contentIsVisible = function (e) {
+    if (givenSelector === undefined) {
+        return console.error("ERROR: Please give me valid selector / no selector was given!");
+    }
+    if(typeof givenSelector !== "string")
+    {
+        return console.error("ERROR: Selector should be string!");
+    }
+    if(givenSelector.length === 0) {
+        return console.error("ERROR: I think you forgot to write selector/ empty selector were given");
+    }
+    const DOM = document.querySelector(givenSelector);
+    if(DOM === null){
+        return console.error("ERROR: Please give me valid selector!");
+    }
+
     let top = window.pageYOffset + window.innerHeight,
-        isVisible = top > document.querySelector('#skills').offsetTop + window.innerHeight - 350;
+        isVisible = top > document.querySelector(givenSelector).offsetTop + window.innerHeight - 350;
     if (isVisible && singleRun) {
         let skillArr = [];
         singleRun = false;
@@ -72,7 +101,7 @@ let startCircleAnimation = function (e) {
             skillArr.push(skillData.skills[i].value);
         }
         skillGaugeAnimation(skillArr);
-        let skill = document.querySelector('.skill-container-bottom');
+        let skill = document.querySelector(`${givenSelector} .skill-container-bottom`);
         skill.classList.add('animate');
     }
 }
@@ -80,7 +109,8 @@ let startCircleAnimation = function (e) {
 // For event listene listener
 let skillData;
 let singleRun = true;
-document.addEventListener('scroll', startCircleAnimation );
+let givenSelector;
+document.addEventListener('scroll', contentIsVisible );
 // Circle animation 
 function skillGaugeAnimation(percent) {
     const numberText = document.querySelectorAll(".skill-gauge-value > .value");
@@ -148,4 +178,4 @@ function delayRender(percent) {
     setTimeout(renderNumbers, 1000, percent);
 }
 
-export {startCircleAnimation, renderSkillContent};
+export {contentIsVisible, renderSkillContent};
