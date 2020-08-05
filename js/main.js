@@ -2,7 +2,8 @@
 
 // import data
 
-// import header from '../data/header.js';
+
+import {header} from '../data/header.js';
 // import hero from '../data/hero.js';
 import features from '../data/features.js';
 import about from '../data/about.js';
@@ -18,7 +19,8 @@ import services from '../data/services.js';
 
 // import rendering functions
 
-// import renderHeader from './renderHeader.js';
+
+import {renderHeader, dropMenuLevel1, windowScrolling} from './renderHeader.js';
 // import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
 import renderAbout from './renderAbout.js';
@@ -32,10 +34,22 @@ import { renderServices } from './renderServices.js';
 // import renderBackToTop from './renderBackToTop.js';
 import renderLightBoxGallery from './renderLightBoxGallery.js';
 // execute functions
-
-// const { features } = data;
-
+renderHeader(header, '#main_header > .row');
 renderFeatures('#features .row', features);
-renderServices('#services .row', services);
 renderAbout('#about_us', about);
 renderLightBoxGallery('gallery1');
+renderServices('#services .row', services);
+
+// event listeners & other stuff
+
+// header event listener for drop down menus
+const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
+for (let i = 0; i < headerDOM.length; i++) {
+    headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
+}
+// header event listener for scrolling
+let startPosition = window.pageYOffset;
+window.addEventListener('scroll',function() {
+    windowScrolling(startPosition);
+    startPosition = window.scrollY; 
+    });
