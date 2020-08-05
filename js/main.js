@@ -25,7 +25,7 @@ import {renderHeader, dropMenuLevel1, windowScrolling} from './renderHeader.js';
 import { renderFeatures } from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
 // import renderMainVideo from './renderMainVideo.js';
-import renderSkills from './renderSkills.js';
+import {startCircleAnimation, renderSkillContent} from './renderSkills.js';
 import { renderServices } from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
 // import renderTestimonials from './renderTestimonials.js';
@@ -36,9 +36,9 @@ import { renderServices } from './renderServices.js';
 // execute
 
 //Redners Skill content 
-renderSkills.renderSkillContent(skills[0]);
+renderSkillContent(skills[0]);
 // If page is refreshed and it shows skill container is visible runs animation 
-renderSkills.startCircleAnimation();
+startCircleAnimation();
 // execute functions
 renderHeader(header, '#main_header > .row');
 renderFeatures('#features .row', features);

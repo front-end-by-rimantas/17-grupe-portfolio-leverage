@@ -148,10 +148,4 @@ function delayRender(percent) {
     setTimeout(renderNumbers, 1000, percent);
 }
 
-// Objecto to return two functions to run
-let renderAndAnimation = {
-    startAnimation,
-    startCircleAnimation,
-}
-
-export default renderAndAnimation;
+export {startCircleAnimation, renderSkillContent};
