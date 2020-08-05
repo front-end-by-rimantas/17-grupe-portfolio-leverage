@@ -1,99 +1,125 @@
-#main_footer {
+#main_footer * {
+    font-family: Poppins, sans-serif;
 }
-    .footer {
+#main_footer .fa {
+    font-family: 'FontAwesome';
+}
+    #main_footer .footer {
         
     }
-        .company {
-            margin-bottom: 30px;
+        #main_footer .company {
+            margin-bottom: 50px;
             text-align: center;
         }
-            .lever {
-                font-family: Poppins, sans-serif;
-                font-size: 30px;
+            #main_footer .lever {
+                font-family: ;
+                color: #8340ff;
+                color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
+                text-decoration: none;
+                font-size: 35px;
+                font-weight: 700;
             }
-            .company p {
+            #main_footer .company p {
                 margin-top: 20px;
-                font-family: Poppins, sans-serif;
                 text-align: center;
+                color: #6f6f6f;
+                font-size: 16px;
+                line-height: 30px;
 
             }
-            .social {
+            #main_footer .social {
                 margin-top: 20px;
                 margin-bottom: 40px;
                 text-align: center;
             }
-                .social a {
-                    font-family: Poppins, sans-serif;
+                #main_footer .social a {
+                    color: #8340ff;
+                    color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
                     text-align: center;
+                    line-height: 20px;
+                    font-size: 20px;
+                    padding: 8px 16px;
+                    
                 }
-        .get-in-touch {
+            #main_footer .get-in-touch {
             text-align: center;
             margin-bottom: 50px;
             display: flex;
             flex-direction: column;
         }
-            .get-in-touch h2 {
-                font-family: Poppins, sans-serif;
+            #main_footer .get-in-touch h2 {
                 text-align: center;
+                font-size: 24px;
+                margin-bottom: 10px;
             }
-            .get-in-touch a {
-                font-family: Poppins, sans-serif;
+            #main_footer .get-in-touch a {
                 text-align: center;
                 padding: 10px;
+                text-decoration: none;
+                color: #6f6f6f;
             }
-            .get-in-touch >.send-a-message-button {
-                font-family: Poppins, sans-serif;
+                #main_footer .get-in-touch > a > .fa {
+                    margin-right: 5px;
+                    margin-top: 3px;
+                    padding: 0 7px;
+                }
+            #main_footer .get-in-touch >.send-a-message-button {
                 text-align: center;
                 grid-column: span 12;
                 font-size: 16px;
                 line-height: 24px;
                 padding: 10px;
                 font-weight: 400;
-                width: 145px;
+                width: 200px;
                 margin: auto;
                 margin-bottom: 50px;
-        }
-        .our-services {
-            font-family: Poppins, sans-serif;
+                margin-top: 20px;
+
+            }
+                #main_footer .get-in-touch >.send-a-message-button > .fa-commenting-o {
+                    padding: 3px 5px;
+                }
+        #main_footer .our-services {
             text-align: center;
             margin-bottom: 50px;
             display: flex;
             -ms-flex-direction: column;
             flex-direction: column;
+            text-transform: capitalize;
         }
             .our-services h2 {
-                font-family: Poppins, sans-serif;
-                text-align: center;
+                margin-bottom: 20px;
             }
             .our-services a {
                 grid-column: span 12;
-                font-family: Poppins, sans-serif;
                 text-align: center;
-                padding: 10px;
+                text-decoration: none;
+                padding: 8px;
+                color: #6f6f6f;
             }
         .popular-tags {
-            font-family: Poppins, sans-serif;
             text-align: center;
             margin-bottom: 50px;
+            text-transform: capitalize;
         }
-            .popular-tags h3 {
-                font-family: Poppins, sans-serif;
+            .popular-tags h2 {
                 text-align: center;
                 margin-bottom: 20px;
             }
             .popular-tags a {
                 display: inline-block;
-                font-family: Poppins, sans-serif;
-                border: 2px solid white;
-                padding: 5px 20px;
+                border: 1px solid #6f6f6f;;
+                padding: 5px 16px;
+                text-decoration: none;
+                color: #6f6f6f;
+                margin-left: 3px;
+                margin-bottom: 3px;
             }
     .rigts {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 70px;
     }
         .left {
-            font-family: Poppins, sans-serif;
         }
         .right {
-            font-family: Poppins, sans-serif;
         }
