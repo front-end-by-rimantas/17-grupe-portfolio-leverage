@@ -6,56 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leverage</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <!-- header: start -->
-    <header id="main_header" class="container bg-light-gray">
-        <div class="row">
-            <div class="header-line col-12">
-                <div class="logo">
-                    <div class="name">Leverage<span class="dot">.</span></div>
-                    
-                </div>
-                <div class="links">
-                    <div class="button header-button go-right">
-                        <span href="#" class="fa fa-rocket icon" aria-hidden="true"></span>
-                        <span class="hidden">buy now</span>
-                    </div>
-                    
-                    <div class="menu-button go-right">
-                        <div class="menu-line line1"></div>
-                        <div class="menu-line line2"></div>
-                        <div class="menu-line line3"></div>
-                    </div>
-                    <div class="icons go-right">
-                        <a href="#" class="fa fa-search" aria-hidden="true"></a>
-                        <a href="#" class="fa fa-twitter hidden" aria-hidden="true"></a>
-                        <a href="#" class="fa fa-instagram hidden" aria-hidden="true"></a>
-                        
-                    </div>
-                    <div class="navtab go-right">
-                        <div class="menu-element">home <i class="fa fa-angle-down" aria-hidden="true"></i></div>
-                        <div class="menu-element">about</div>
-                        <div class="menu-element">services</div>
-                        <div class="menu-element">inner pages <i class="fa fa-angle-down" aria-hidden="true"></i></div>
-                        <div class="menu-element">blog <i class="fa fa-angle-down" aria-hidden="true"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">HEADER</div>
+    <header id="main_header" class="main-header container bg-light-gray">
+        <div class="row on-scroll">HEADER</div>
     </header>
     <!-- header: end -->
     <!-- hero: start -->
     <div id="hero" class="container bg-light-gray">
-        <div class="row">HERO</div>
+        <div class="row"><div class="hero-cont col-12"><div class="content">HERO</div></div></div>
     </div>
     <!-- hero: end -->
     <!-- features: start -->
     <div id="features" class="container bg-dark-gray">
         <div class="row">FEATURES</div>
+        <div class="vertical-dash"></div>
     </div>
     <!-- features: end -->
     <!-- about_us: start -->
@@ -98,9 +67,12 @@
                 </div>
             </div>
             <div class="row col-12 about-image">
-                <img src="./img/about-3.jpg" alt="about-img">
+                <a href="./img/about-3.jpg">
+                    <img src="./img/about-3.jpg" alt="about-img">
+                </a>
             </div>
         </div>
+        <div class="vertical-dash"></div>
     </div>
     <!-- about_us: end -->
     <!-- main-video: start -->
@@ -115,7 +87,17 @@
     <!-- skills: end -->
     <!-- services: start -->
     <div id="services" class="container bg-light-gray">
-        <div class="row">SERVICES</div>
+        <div class="row best-services">
+            <div class="title">
+                <h2>Best Services</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="button services-button">
+                <i class="fa fa-th-large" aria-hidden="true"></i>
+                <span class="hidden">view all</span>
+            </div>
+        </div>
+        <div class="vertical-dash"></div>
     </div>
     <!-- services: end -->
     <!-- portfolio: start -->

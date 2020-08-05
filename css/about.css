@@ -65,7 +65,7 @@
             width: 50px;
             height: 5px;
             background: rgb(131,64,255);
-            background: linear-gradient(90deg, rgb(131, 64, 255) 15%, rgba(89,0,255,1) 65%);
+            background: linear-gradient(90deg, rgba(131,64,255,1) 15%, rgba(89,0,255,1) 65%);
             position: absolute;
             top: -22px
         }
