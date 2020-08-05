@@ -41,13 +41,26 @@
                     width: 33%;
                     float: left;
                     text-align: center;
+                    margin-bottom: 20px;
                 }
                 #contact .contacts-content .action-progress > .steps > .step > .number {
                     display: inline-block;
-                    width: 100%;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    color: white;
+                    border-radius: 50%;
+                    background-color: #5900ff;
+                    font-family: 'Roboto', sans-serif;
+                    margin-bottom: 10px;
+                    font-weight: 500;
                 }#contact .contacts-content .action-progress > .steps > .step > .step-name {
                     display: inline-block;
                     width: 100%;
+                    color: #2f323a;;
+                    text-transform: capitalize;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500;
                 }
             #contact .contacts-content .action-progress > .progress-bar {
             }
