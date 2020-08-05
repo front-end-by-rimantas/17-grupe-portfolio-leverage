@@ -4,7 +4,7 @@ function renderLightBox(image, count, size) {
     const HTML = image;
     const domImage = DOM.innerHTML = HTML;
     const text = count + 1 + "/" + size;
-    const domSize = ArraySize.innerText = text;
+    const domSize = arraySize.innerText = text;
     return;
 }
 export default renderLightBox;
