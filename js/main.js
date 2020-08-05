@@ -4,7 +4,7 @@
 // import hero from '../data/hero.js';
 // import features from '../data/features.js';
 // import about from '../data/about.js';
-import data from '../data/main-video.js';
+import videodata from '../data/main-video.js';
 
 // import skills from '../data/skills.js';
 // import services from '../data/services.js';
@@ -20,7 +20,7 @@ import data from '../data/main-video.js';
 // import renderHero from './renderHero.js';
 // import renderFeatures from './renderFeatures.js';
 // import renderAbout from './renderAbout.js';
-// import renderMainVideo from './renderMainVideo.js';
+import renderMainVideo from './renderMainVideo.js';
 // import renderSkills from './renderSkills.js';
 // import renderServices from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
@@ -30,16 +30,12 @@ import data from '../data/main-video.js';
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute
+renderMainVideo.mainVideo()
+document.getElementById("videolink").addEventListener("click", renderMainVideo.click);
+// document.getElementById("videocont").addEventListener("click", renderMainVideo.mainVideo);
 
+// data()
 
-data()
-document.getElementById("buton").addEventListener("click", event);
-
-
-function event(){
-    console.log('vyksta js')
-
-}
 
 // onclick="document.getElementById('main_video').style.color = 'red'">
 
