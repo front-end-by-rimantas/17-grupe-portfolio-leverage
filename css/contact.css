@@ -130,6 +130,15 @@
             transform: translate(-50%, -50%);
         }
 @media (max-width: 767px) {
+    #contact .contacts::before {
+        display: none;
+    }
+    #contact .contacts-content .contacts-title {
+        text-align: center;
+    }
+    #contact .contacts-content .contacts-description {
+        text-align: center;
+    }
     #contact .contacts-video {
         display: none;
     }
@@ -139,13 +148,12 @@
     #contact .contacts-content .action-progress .progress-bar .fill{
         width: 15%;
     }
-}
-@media (max-width: 767px) {
     #contact .contacts-content .button {
         width: calc(50% - 12px);
         margin-top: 10px;
     }
 }
+
 
 @media (max-width: 1199px) {
     #contact .contacts-video > .play-button {
