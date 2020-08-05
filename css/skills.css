@@ -1,6 +1,6 @@
 
 #skills {
-    /* background-color: lightblue; */
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     position: relative;
 }
@@ -9,76 +9,95 @@
         margin: 0 15px;
     } 
         #skills .skill-container-top > h1  {
-            /* background-color: brown; */
             margin: 0 0 25px;
-            font-size: 40px;
+            font-size: 48px;
             color: rgb(47, 50, 58);
             font-weight: 550;
         } 
         #skills .skill-container-top > p  {
-            /* background-color: forestgreen; */
-            font-size: 20px;
+            font-size: 18px;
             max-width: 800px;
             margin:auto;
             color:rgb(111, 111, 111);
         } 
     #skills > .skill-container-bottom  {
-        /* background-color: fuchsia; */
+        opacity: 0;
         gap: 0;
     }
+    #skills > .skill-container-bottom.animate {
+        opacity: 1;
+
+        animation: show;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+    }
+    @keyframes show {
+        from {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
             #skills  .skill-name  {
-                /* background-color: blue; */
-                margin: 24px 0;
-                font-size: 28px;
+                margin: 24px 0 30px;
+                font-size: 25px;
                 color: rgb(47, 50, 58);
                 font-weight: 550;
                 text-align: center;
             }
 
-            .percent {
+            #skills .skill-gauge >.percent {
                 position: relative;
-              }
-              .percent .skill-gauge-value {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center ;
-                /* border-radius: 50%; */
-              }
-          
-              .percent .skill-gauge-value h2 {
-                color: #777;
-                font-weight: 700;
-                font-size: 40px;
-                transition: 0.5s;
-              }
+                margin: 25px 0 20px;
+            }
+                #skills .percent > .skill-gauge-value {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center ;
+                }
+                    #skills .skill-gauge-value > h2 {
+                        color: #777;
+                        font-weight: 700;
+                        font-size: 30px;
+                        transition: 0.5s;
+                    }
+                    #skills .skill-gauge-value > span {
+                        margin-top: 10px;
 
-                svg {
+                        color: #777;
+                        font-weight: 700;
+                        transition: 0.5s;
+                    }
+
+                #skills .percent > svg {
                     position: relative;
                     width: 120px;
                     height: 120px;
                     z-index: 1000;
                 }
-                    svg circle {
-                    width: 100px;
-                    height: 100px;
-                    fill: none;
-                    stroke: #dadada;
-                    stroke-width: 10;
-                    stroke-linecap:butt;
+                    #skills svg > circle {
+                        width: 100px;
+                        height: 100px;
+                        fill: none;
+                        stroke-width: 10;
+                        stroke-linecap:butt;
                     }
                 
-                .progress-ring__circle {
-                    stroke-dashoffset: 345;
-                    transition: 4s stroke-dashoffset;
-                    transition-timing-function: cubic-bezier(.56,0,.42,.99);
-                    transform: rotate(-180deg);
-                    transform-origin: 50% 50%;
-                    stroke: url(#gradient);
-                    stroke-width: 10;
-                    fill: none;
-                }
+                        #skills svg > .progress-ring-circle {
+                            stroke-dashoffset: 345;
+                            transition: 4s stroke-dashoffset;
+                            transition-delay: 1s;
+                            transition-timing-function: cubic-bezier(.5,0,.5,1);
+                            transform: rotate(-180deg);
+                            transform-origin: 50% 50%;
+                            stroke-width: 10;
+                            fill: none;
+                        }

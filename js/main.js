@@ -5,7 +5,7 @@
 // import features from '../data/features.js';
 // import about from '../data/about.js';
 // import mainVideo from '../data/main-video.js';
-// import skills from '../data/skills.js';
+import skills from '../data/skills.js';
 // import services from '../data/services.js';
 // import portfolio from '../data/portfolio.js';
 // import testimonials from '../data/testimonials.js';
@@ -29,4 +29,8 @@ import renderSkills from './renderSkills.js';
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute
-renderSkills([42, 60, 84, 100]);
+
+//Redners Skill content 
+renderSkills.renderSkillContent(skills[0]);
+// If page is refreshed and it shows skill container is visible runs animation 
+renderSkills.startCircleAnimation();
