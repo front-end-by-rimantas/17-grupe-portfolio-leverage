@@ -34,10 +34,8 @@ import { renderServices } from './renderServices.js';
 // import renderBackToTop from './renderBackToTop.js';
 
 // execute
-
 //Renders Skill content 
-//renderSkillContent(skills[0], "#skills");
-renderSkillContent(skills[0], "#sk1ills");
+renderSkillContent(skills[0], "#skills");
 // If page is refreshed and skill container is visible then runs animation
 contentIsVisible();
 // execute functions

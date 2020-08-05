@@ -9,12 +9,14 @@
         margin: 0 15px;
     } 
         #skills .skill-container-top > h1  {
+            font-family: 'Roboto', sans-serif;
             margin: 0 0 25px;
             font-size: 48px;
             color: rgb(47, 50, 58);
             font-weight: 550;
         } 
         #skills .skill-container-top > p  {
+            font-family: 'Roboto', sans-serif;
             font-size: 18px;
             max-width: 800px;
             margin:auto;
@@ -47,6 +49,7 @@
                 color: rgb(47, 50, 58);
                 font-weight: 550;
                 text-align: center;
+                font-family: 'Roboto', sans-serif;
             }
 
             #skills .skill-gauge >.percent {
@@ -64,6 +67,7 @@
                     align-items: center ;
                 }
                     #skills .skill-gauge-value > h2 {
+                        font-family: 'Roboto', sans-serif;
                         color: #777;
                         font-weight: 700;
                         font-size: 30px;
@@ -71,7 +75,7 @@
                     }
                     #skills .skill-gauge-value > span {
                         margin-top: 10px;
-
+                        font-family: 'Roboto', sans-serif;
                         color: #777;
                         font-weight: 700;
                         transition: 0.5s;
