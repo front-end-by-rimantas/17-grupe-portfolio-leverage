@@ -1,5 +1,5 @@
 function renderHeader(data, selector) { //main function to render header content
-    const DOM = document.querySelector(selector),   
+    const DOM = document.querySelector(selector),
         logo = data.logoTab,                        //variable  with information about header logo
         links = data.linksTab;                      //variable  with information about header links tab (see header.js)
     let HTML = `<div class="header-line col-12">
@@ -19,23 +19,23 @@ function renderHeader(data, selector) { //main function to render header content
 }
 
 // function to render "BUY NOW" button
-function renderButton(data){
+function renderButton(data) {
     return `<div class="${data.class}">
                 ${data.content}
             </div>`;
 }
 
 // function to render menu button "burger", which will be visible after navtab disappears
-function renderMenuButton(data){
+function renderMenuButton(data) {
     return `<div class="${data.class}">
                 ${data.content}
             </div>`;
 }
 
 // function to render icons tab with search icon and social links icons
-function renderIcons(data){
+function renderIcons(data) {
     const icons = data.icons,
-            size = icons.length;
+        size = icons.length;
     let HTML = '';
     // for cycle is used, because in header.js there is an icon list.
     for (let i = 0; i < size; i++) {
@@ -49,12 +49,12 @@ function renderIcons(data){
 /* this function is used to render navtab
     navtab has 3 lavels of rendering, since some items
     have dropdown menus inside of them */
-function renderNavtab(data){
+function renderNavtab(data) {
     const navtab = data.content,    //navtab variable accesses an area in description (see header.js)
         size = navtab.length;
-    let HTML = '';                  
+    let HTML = '';
     //Main HTML that will be included in return & which will return 5 items of navtab
-    
+
     //main for cycle to add 5 navtab items
     for (let i = 0; i < size; i++) {
         const level1 = navtab[i];           //level1 accesses each object in  the area
@@ -64,7 +64,7 @@ function renderNavtab(data){
         let downArrow = (level1.dropDown) ? `<i class="fa fa-angle-down" aria-hidden="true"></i>` : '',
             //in case there is "dropdown" parameter in the object classExtra adds extra class in the menu-element
             classExtra = (level1.dropDown) ? ' drop-down' : '';
-        let HTML1 = '';     
+        let HTML1 = '';
         // this html the will be inserted into main HTML (empty if there is no drowdown menu)
 
         //checks if dropdown exists in the object
@@ -129,7 +129,7 @@ function renderNavtab(data){
                     </div>`;
     }
 
-    
+
 
 
 
@@ -144,7 +144,7 @@ function dropMenuLevel1(event) {
     // const DOM = document.querySelector('#main_header .drop-down');
     const DOM = event.target;   // event.target is selector that has event listener
     DOM.classList.add('active');     //
-    if(DOM.querySelector('.drop-menu2')) {
+    if (DOM.querySelector('.drop-menu2')) {
 
         const hoverDOM = DOM.querySelectorAll('.drop-menu2');
         for (let i = 0; i < hoverDOM.length; i++) {
@@ -167,12 +167,12 @@ function dropMenuLevel2(event) {
 // function that acts on windows scroll
 function windowScrolling(startPosition) {
     let position = window.scrollY;
-    console.log('start',startPosition, 'now', position);
+    // console.log('start',startPosition, 'now', position);
     const DOM = document.querySelector('#main_header');
     const hidden = document.querySelector('#main_header.hidden') ? document.querySelector('#main_header.hidden') : null;
     const sticky = document.querySelector('#main_header.sticky-line') ? document.querySelector('#main_header.sticky-line') : null;
     //scroll up
-    if (position < startPosition){
+    if (position < startPosition) {
         //jei uz hero ir pasleptas
         if (position > window.innerHeight && hidden) {
             DOM.classList.remove('hidden');
@@ -181,12 +181,12 @@ function windowScrolling(startPosition) {
         else if (position < 50) {
             DOM.classList.remove('sticky-line');
         }
-    } 
+    }
     //scroll down
     else {
-        console.log('go down');
+        // console.log('go down');
         //jei uz hero ir matomas
-        if(position > window.innerHeight && !hidden){
+        if (position > window.innerHeight && !hidden) {
             DOM.classList.add('hidden');
         }
         //jei pajuda is vietos
@@ -195,8 +195,8 @@ function windowScrolling(startPosition) {
         }
 
     }
-    
+
 }
 
-export {renderHeader, dropMenuLevel1, windowScrolling};
+export { renderHeader, dropMenuLevel1, windowScrolling };
 

@@ -11,3 +11,7 @@
 .bg-gray-grad {
     background-image: linear-gradient(#eeee, #f5f5f5);
 }
+
+#contact .contacts-content .button {
+    margin-top: 10px;
+}

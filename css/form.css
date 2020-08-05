@@ -1,0 +1,13 @@
+#contact .contacts-content input {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: transparent;
+    border: 1px solid #c3c3c3;
+    color: #c3c3c3;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
