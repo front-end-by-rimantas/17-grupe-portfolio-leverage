@@ -1,0 +1,163 @@
+#contact .contacts {
+    position: relative;
+    gap: 45px;
+}
+#contact .contacts::before {
+    content: '';
+    width: 50px;
+    height: 5px;
+    background: rgb(131,64,255);
+    background: linear-gradient(90deg, rgba(131,64,255,1) 15%, rgba(89,0,255,1) 65%);
+    position: absolute;
+    top: -22px
+}
+    #contact .contacts-content {
+
+    }
+        #contact .contacts-content .contacts-title {
+            margin: 0;
+            font-size: 40px;
+            line-height: 50px;
+            color: #2f323a;;
+            text-transform: capitalize;
+            font-family: 'Roboto', sans-serif;
+        }
+        #contact .contacts-content .contacts-description {
+            margin: 30px 0;
+            font-size: 18px;
+            line-height: 25px;
+            color: #6f6f6f;
+            font-family: 'Roboto', sans-serif;
+        }
+        #contact .contacts-content .action-progress {
+            position: relative;
+            z-index: 1;
+        }
+            #contact .contacts-content .action-progress .progress-bar {
+                position: absolute;
+                height: 6px;
+                width: 100%;
+                background-color: #ddd;
+                z-index: -1;
+                top: 17px;
+            }
+                #contact .contacts-content .action-progress .progress-bar .fill{
+                    height: 6px;
+                    background-color: #5900ff;
+                    width: 20%;
+                }
+            #contact .contacts-content .action-progress > .steps {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+                #contact .contacts-content .action-progress > .steps > .step {
+                    width: 33%;
+                    float: left;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                #contact .contacts-content .action-progress > .steps > .step > .number {
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    color: white;
+                    border-radius: 50%;
+                    background-color: #5900ff;
+                    font-family: 'Roboto', sans-serif;
+                    margin-bottom: 10px;
+                    font-weight: 500;
+                }
+                    #contact .contacts-content .action-progress > .steps > .step > .number.deactive {
+                        background-color: #ddd;
+                        color: black;
+                    }
+                #contact .contacts-content .action-progress > .steps > .step > .step-name {
+                    display: inline-block;
+                    width: 100%;
+                    color: #2f323a;;
+                    text-transform: capitalize;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500;
+                }
+        #contact .contacts-content .button {
+            margin-top: 10px;
+        }
+            #contact .contacts-content .button i {
+                font-size: 18px;
+                line-height: 26px;
+            }
+    #contact .contacts-video {
+        padding-left: 30px;
+        position: relative;
+    }
+        #contact .contacts-video video {
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+        #contact .contacts-video > .mask-radius {
+            position: absolute;
+            cursor: pointer;
+            height: 58%;
+            width: calc(58% + 15px);
+            right: 0;
+            bottom: 0;
+            background: rgb(131,64,255, 0.3);
+            border-radius: 100% 0 0 0;
+        }
+        #contact .contacts-video > .play-button {
+            position: absolute;
+            cursor: pointer;
+            right: 80px;
+            bottom: 80px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgb(89,0,255);
+            background: linear-gradient(270deg, rgba(89,0,255,1) 15%, rgba(131,64,255,1) 65%);
+        }
+        #contact .contacts-video > .play-button i {
+            position: absolute;
+            font-size: 40px;
+            color: white;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+        }
+@media (max-width: 767px) {
+    #contact .contacts::before {
+        display: none;
+    }
+    #contact .contacts-content .contacts-title {
+        text-align: center;
+    }
+    #contact .contacts-content .contacts-description {
+        text-align: center;
+    }
+    #contact .contacts-video {
+        display: none;
+    }
+    #contact .contacts-content {
+        grid-column: span 12;
+    }
+    #contact .contacts-content .action-progress .progress-bar .fill{
+        width: 15%;
+    }
+    #contact .contacts-content .button {
+        width: calc(50% - 12px);
+        margin-top: 10px;
+    }
+}
+
+
+@media (max-width: 1199px) {
+    #contact .contacts-video > .play-button {
+        right: 40px;
+        bottom: 30px;
+    }
+}
