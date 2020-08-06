@@ -137,3 +137,10 @@
                     background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
                     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
                 }
+
+
+@media (max-width: 380px) {
+    #testimonials .card > p {
+        height: unset;
+    }
+}
