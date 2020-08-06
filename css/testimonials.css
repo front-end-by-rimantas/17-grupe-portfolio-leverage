@@ -139,8 +139,18 @@
                 }
 
 
+@media (max-width: 420px) {
+    #testimonials .intro > h2 {
+        font-size: 35px;
+    }
+}
 @media (max-width: 380px) {
     #testimonials .card > p {
         height: unset;
+    }
+}
+@media (max-width: 330px) {
+    #testimonials .intro > h2 {
+        font-size: 30px;
     }
 }
