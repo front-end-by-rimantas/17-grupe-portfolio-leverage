@@ -21,18 +21,48 @@ const videoHtml =
     <div id=videocont>
         <button> <i class="fa fa-times-circle"></i> </button>
     </div>  
-    <iframe src="https://www.youtube.com/embed/d-ABIIZV3vA?autoplay=0&start=68" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    <iframe src="https://www.youtube.com/embed/d-ABIIZV3vA?autoplay=1&start=68" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>    
 </div>`
 
 
+function mainVideo(){
+    
+    const DOM = document.getElementById('main_video');
 
+    let HTML = primaryHtml;
 
+    DOM.innerHTML = HTML
 
+    document.getElementById("videolink").addEventListener("click",click);
+
+    return 
+
+}
+
+function click() {
+
+    const DOM = document.getElementById('main_video');
+
+    let HTML = videoHtml;
+
+    DOM.innerHTML = HTML 
+
+    document.getElementById("videocont").addEventListener("click", mainVideo);
+    
+    return 
+
+}
 
 
 export default {
-    primaryHtml,videoHtml
-};
+    mainVideo, click
+}
+
+
+
+
+
+
 
 
