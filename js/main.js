@@ -11,7 +11,7 @@ import about from '../data/about.js';
 import skills from '../data/skills.js';
 import services from '../data/services.js';
 // import portfolio from '../data/portfolio.js';
-// import testimonials from '../data/testimonials.js';
+import {testimonials} from '../data/testimonials.js';
 // import contact from '../data/contact.js';
 // import footer from '../data/footer.js';
 // import backToTop from '../data/back-to-top.js';
@@ -28,7 +28,7 @@ import renderAbout from './renderAbout.js';
 import { contentIsVisible, renderSkillContent } from './renderSkills.js';
 import { renderServices } from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
-// import renderTestimonials from './renderTestimonials.js';
+import {renderTestimonials, testimonialsEvents} from './renderTestimonials.js';
 // import renderContact from './renderContact.js';
 // import renderFooter from './renderFooter.js';
 // import renderBackToTop from './renderBackToTop.js';
@@ -46,6 +46,7 @@ renderFeatures('#features .row', features);
 renderAbout('#about_us', about);
 renderLightBoxGallery('gallery1');
 renderServices('#services .row', services);
+renderTestimonials(testimonials, '#testimonials')
 
 // event listeners & other stuff
 
@@ -58,5 +59,8 @@ for (let i = 0; i < headerDOM.length; i++) {
 let startPosition = window.pageYOffset;
 window.addEventListener('scroll', function () {
     windowScrolling(startPosition);
-    startPosition = window.scrollY;
-});
+    startPosition = window.scrollY; 
+    });
+
+// function to create testimonials event listeners
+testimonialsEvents();

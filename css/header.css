@@ -15,7 +15,7 @@
         /* animation: name duration timing-function delay iteration-count direction fill-mode; */
     }
 #main_header div {
-    font-family: Poppins, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 #main_header .header-line {
     height: 44px;
@@ -43,7 +43,7 @@
             #main_header .header-line > .logo  .name {
                 display: inline-block;
                 float: left;
-                font-family: Poppins, sans-serif;
+                font-family: 'Poppins', sans-serif;
                 font-size: 24px;
                 line-height: 44px;
                 color: #2F323A;
@@ -53,7 +53,7 @@
             #main_header .header-line > .logo  .dot {
                 display: inline-block;
                 float: right;
-                font-family: Poppins, sans-serif;
+                font-family: 'Poppins', sans-serif;
                 font-size: 33px;
                 line-height: 38px;
                 color: #5900FF;
@@ -93,7 +93,7 @@
     }
         #main_header .navtab > .menu-element > .menu-link {
             display: inline-block;
-            font-family: Poppins, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-transform: capitalize;
             font-size: 16px;
             font-weight: 600;
@@ -230,7 +230,7 @@
                         .drop-down > .drop-menu1 > .drop-element .down-cont > .drop-link1 {
                                 display: inline-block;
                                 float: left;
-                                font-family: Poppins, sans-serif;
+                                font-family: 'Poppins', sans-serif;
                                 font-size: 16px;
                                 line-height: 24px;
                                 font-weight: 400;
@@ -269,7 +269,7 @@
                         }
                     .drop-down > .drop-menu1 .down-cont > .drop-link2 {
                         display: inline-block;
-                        font-family: Poppins, sans-serif;
+                        font-family: 'Poppins', sans-serif;
                         font-size: 16px;
                         line-height: 24px;
                         font-weight: 400;
