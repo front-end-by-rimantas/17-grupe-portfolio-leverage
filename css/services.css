@@ -49,7 +49,7 @@
             margin-bottom: 20px;
             transition: transform 1s;
         }
-            .logo {
+            #services .logo {
                 color: #8340ff;
                 color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
                 width: 44px;
