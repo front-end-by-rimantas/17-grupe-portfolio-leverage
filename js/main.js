@@ -3,12 +3,12 @@
 // import data
 
 
-import {header} from '../data/header.js';
+import { header } from '../data/header.js';
 // import hero from '../data/hero.js';
 import features from '../data/features.js';
 import about from '../data/about.js';
 // import mainVideo from '../data/main-video.js';
-// import skills from '../data/skills.js';
+import skills from '../data/skills.js';
 import services from '../data/services.js';
 // import portfolio from '../data/portfolio.js';
 // import testimonials from '../data/testimonials.js';
@@ -20,12 +20,12 @@ import services from '../data/services.js';
 // import rendering functions
 
 
-import {renderHeader, dropMenuLevel1, windowScrolling} from './renderHeader.js';
+import { renderHeader, dropMenuLevel1, windowScrolling } from './renderHeader.js';
 // import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
 import renderAbout from './renderAbout.js';
 // import renderMainVideo from './renderMainVideo.js';
-// import renderSkills from './renderSkills.js';
+import { contentIsVisible, renderSkillContent } from './renderSkills.js';
 import { renderServices } from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
 // import renderTestimonials from './renderTestimonials.js';
@@ -33,7 +33,14 @@ import { renderServices } from './renderServices.js';
 // import renderFooter from './renderFooter.js';
 // import renderBackToTop from './renderBackToTop.js';
 import renderLightBoxGallery from './renderLightBoxGallery.js';
-// execute functions
+
+// execute
+
+//Renders Skill content 
+renderSkillContent(skills[0], "#skills");
+// If page is refreshed and skill container is visible then runs animation
+contentIsVisible();
+
 renderHeader(header, '#main_header > .row');
 renderFeatures('#features .row', features);
 renderAbout('#about_us', about);
@@ -49,7 +56,7 @@ for (let i = 0; i < headerDOM.length; i++) {
 }
 // header event listener for scrolling
 let startPosition = window.pageYOffset;
-window.addEventListener('scroll',function() {
+window.addEventListener('scroll', function () {
     windowScrolling(startPosition);
-    startPosition = window.scrollY; 
-    });
+    startPosition = window.scrollY;
+});
