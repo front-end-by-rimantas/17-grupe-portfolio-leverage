@@ -1,0 +1,181 @@
+#main_footer * {
+    font-family: Poppins, sans-serif;
+}
+#main_footer .fa {
+    font-family: 'FontAwesome';
+}
+    #main_footer .footer {
+        
+    }
+        #main_footer .company {
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 16px;
+        }
+            #main_footer .lever {
+                color: #8340ff;
+                color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
+                text-decoration: none;
+                font-size: 35px;
+                font-weight: 700;
+                line-height: 44px;
+            }
+            #main_footer .company p {
+                margin-top: 20px;
+                text-align: center;
+                color: #6f6f6f;
+                font-size: 16px;
+                line-height: 30px;
+
+            }
+            #main_footer .social {
+                margin-top: 20px;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+                #main_footer .social a {
+                    color: #8340ff;
+                    color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
+                    line-height: 20px;
+                    font-size: 24px;
+                    width: 70px;
+                    height: 26px;
+                    padding: 0 12px;
+                }
+                #main_footer .social a:first-of-type {
+                    padding: 0 12px 0 0;
+                }
+            #main_footer .get-in-touch {
+            text-align: center;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+        }
+            #main_footer .get-in-touch h2 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+            #main_footer .get-in-touch a {
+                text-align: center;
+                padding: 8px;
+                text-decoration: none;
+                color: #6f6f6f;
+            }
+                #main_footer .get-in-touch a:hover {
+                    color: #5900ff;
+                }
+                #main_footer .get-in-touch > a > .fa {
+                    margin-right: 5px;
+                    margin-top: 3px;
+                    padding: 0 7px;
+                }
+            #main_footer .get-in-touch >.send-a-message-button {
+                text-align: center;
+                grid-column: span 12;
+                font-size: 16px;
+                line-height: 24px;
+                padding: 9px 17px;
+                font-weight: 400;
+                width: fit-content;
+                margin: auto;
+                margin-bottom: 40px;
+                margin-top: 20px;
+
+            }
+                #main_footer .get-in-touch >.send-a-message-button > .fa-commenting-o {
+                    padding: 3px 5px;
+                }
+        #main_footer .our-services {
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            text-transform: capitalize;
+            padding: 16px;
+        }
+            #main_footer .our-services h2 {
+                margin-bottom: 20px;
+            }
+            #main_footer .our-services a {
+                grid-column: span 12;
+                text-align: center;
+                text-decoration: none;
+                padding: 8px;
+                color: #6f6f6f;
+            }
+                #main_footer .our-services a:hover {
+                    color: #5900ff;
+                }
+        #main_footer .popular-tags {
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: capitalize;
+            padding: 16px;
+        }
+            #main_footer .popular-tags h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            #main_footer .popular-tags a {
+                display: inline-block;
+                border: 1px solid #6f6f6f;
+                padding: 5px 16px;
+                text-decoration: none;
+                color: #6f6f6f;
+                margin-left: 3px;
+                margin-bottom: 4px;
+            }
+                #main_footer .popular-tags a:hover {
+                    color: #5900ff;
+                    border: 1px solid #5900ff;
+                }
+    .rigts {
+        background-color: #00000040;
+        text-align: center;
+        color: #6f6f6f; 
+        font-family: Poppins, sans-serif;
+        font-size: 15px;
+    }
+        .rigts > .left {
+            font-family: Poppins, sans-serif;
+            padding: 16px 30px;
+        }
+        .rigts > .right {
+            padding: 17px;
+            font-family: Poppins, sans-serif;
+            }
+            .right a {
+            text-decoration: none;
+            color: #5900ff;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+@media (min-width: 992px) {
+    #main_footer .company {
+        grid-column: span 3;
+    }
+        #main_footer .lever {
+            text-align: left;
+        }
+        #main_footer .company p {
+            text-align: left;
+        }
+        #main_footer .social {
+            text-align: left;
+        }
+            #main_footer .social a {
+            }
+    #main_footer .get-in-touch {
+        grid-column: span 3;
+    }
+    #main_footer .our-services {
+        grid-column: span 3;
+    }
+    #main_footer .popular-tags {
+        grid-column: span 3;
+    }
+}
