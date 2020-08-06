@@ -44,6 +44,7 @@
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: 10px;
+            transition: transform 0.5s;
         }
             #testimonials .overflow-holder > .testimonial {
                 margin: 10px 0 0;
@@ -113,6 +114,8 @@
                             width: 38px;
                             color: #5900ff;
                         }
+
+        /* navigation bar for cards */
         #testimonials .testimonials > .navbar {
             margin-top: 35px;
             display: flex;
@@ -129,7 +132,7 @@
                 #testimonials .navbar > .nav-line:hover {
                     background-color: #6f6f6f;
                 }
-                #testimonials .navbar > .nav-line:first-child {
+                #testimonials .navbar > .nav-line.active {
                     background: #8340ff;
                     background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
                     background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
