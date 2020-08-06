@@ -1,0 +1,327 @@
+#main_header {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: 0.3s;
+}
+    #main_header > .row {
+        opacity: 0;
+        z-index: 2;
+        animation: headerAppear 0.4s ease 0.8s 1 normal forwards;
+        transition-property: opacity, transform;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+#main_header div {
+    font-family: 'Poppins', sans-serif;
+}
+#main_header .header-line {
+    height: 44px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 121px minmax(166px, 1fr);
+    grid-template-areas: "logo navigation";
+    overflow: visible;
+}
+    #main_header.sticky-line {
+        box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
+        
+    }
+    #main_header.sticky-line.hidden {
+        transform: translate(0, -101%);
+    }
+        /* header logo */
+        #main_header .header-line > .logo {
+            display: flex;
+            align-items: center;
+            grid-area: logo;
+            font-weight: 600;
+            vertical-align: baseline;
+        }
+            #main_header .header-line > .logo  .name {
+                display: inline-block;
+                float: left;
+                font-family: 'Poppins', sans-serif;
+                font-size: 24px;
+                line-height: 44px;
+                color: #2F323A;
+                vertical-align: baseline;
+
+            }
+            #main_header .header-line > .logo  .dot {
+                display: inline-block;
+                float: right;
+                font-family: 'Poppins', sans-serif;
+                font-size: 33px;
+                line-height: 38px;
+                color: #5900FF;
+                vertical-align: baseline;
+
+            }
+
+        /* header bar left side with links & navigation */
+        #main_header .header-line > .links{
+            grid-area: navigation;
+            
+        }
+        #main_header .header-line > .links > .go-right{
+            float: right;
+        }
+           
+        /* all icons (which are as links */
+        .header-line a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 22px;
+        }
+        
+    
+    /* navigation tab with dropdowns */
+    #main_header .links > .navtab {
+        display: none;
+        padding: 10px 0;
+    }
+    #main_header .navtab > .menu-element {
+        display: inline-block;
+        padding-bottom: 5px;
+        transition: all 5s;
+        
+    }
+        #main_header .navtab > .menu-element > .menu-link {
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            padding: 0 16px;
+            cursor: pointer;
+            
+        }
+            #main_header .navtab > .menu-element > .menu-link:hover {
+                color: #6819fd;
+            }
+            
+            #main_header .navtab > .menu-element > .menu-link > .fa {
+                font-size: 23px;
+                line-height: 24px;
+                margin-left: 3px;
+            }
+        /* search and social icons */
+    #main_header .links > .icons {
+        display: inline-block;
+        text-align: center;
+    }
+        #main_header .icons > a {
+            display: inline-block;
+            width: 48px;
+            padding: 11px 0;
+            font-size: 19px;
+        }
+        #main_header .links > .icons > a:hover {
+            color: #6819fd;
+        }
+        #main_header .icons > a.hidden {
+            display: none;
+        }
+    
+    /* menu button */
+    #main_header .links > .menu-button {
+        display: inline-block;
+        width: 52px;
+        height: 44px;
+        position: relative;
+        cursor: pointer;
+    }
+        #main_header .menu-button > .menu-line {
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            border-radius: 1px;
+            background-color: #444;
+            position: absolute;
+            left: 50%;
+            transform-origin: center;
+        }
+            #main_header .menu-button:hover > .menu-line {
+                background-color: #6819fd;
+            }
+            #main_header .menu-button > .menu-line.line1 {
+                top: 14px;
+                transform: translate(-50%);
+            }
+            #main_header .menu-button > .menu-line.line2 {
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #main_header .menu-button > .menu-line.line3 {
+                bottom: 14px;
+                transform: translate(-50%);
+            }
+        /* Header button "BUY NOW" */
+    #main_header .links > .header-button {
+        display: inline-block;
+        background-color: #5900ff;
+        color: #f5f5f5;
+        font-size: 16px;
+        line-height: 16px;
+        padding: 5px 10px;
+        margin: 9px 0;
+        margin-left: 10px;
+        font-weight: 400;
+    }
+        #main_header .header-button > .icon {
+            display: inline-block;
+            color: inherit;
+        }
+        #main_header .header-button > .hidden {
+            display: none;
+            text-transform: uppercase;
+            margin-left: 4px;
+        }
+    
+
+
+        /* drop down menu (appears only after hover) */
+        .drop-down {
+            position: relative;
+            
+        }
+            .drop-down > .drop-menu1 {
+                display: inline-block;
+                transition: all 0.3s;
+                transition-timing-function: ease;
+
+                background-color: #eee;
+                display: inline-block;
+                position: absolute;
+                z-index: 1;
+                top: 100%;
+                left: 0;
+                width: fit-content;
+                box-shadow: 0 0 8px #bbb;
+                opacity: 0;
+                visibility: hidden;
+                
+            }
+            .drop-down.active > .drop-menu1 {
+                visibility: unset;
+                opacity: 1;
+                
+            }
+                .drop-down > .drop-menu1 > .drop-element {
+                    display: inline-block;
+                    width: 100%;
+                }
+                    .drop-down > .drop-menu1 > .drop-element:hover  .drop-link1 {
+                        color: #6819fd;
+                    }
+                    .drop-down  .down-cont {
+                        display: inline-block;
+                        float: left;
+                        width: 100%;
+                        cursor: pointer;
+                        position: relative;
+                    }    
+                        .drop-down > .drop-menu1 > .drop-element .down-cont > .drop-link1 {
+                                display: inline-block;
+                                float: left;
+                                font-family: 'Poppins', sans-serif;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-weight: 400;
+                                padding: 10px 15px;
+                                width: max-content;
+                                text-transform: capitalize;
+                            }
+                        .drop-down > .drop-menu1 > .drop-element  .drop-link1 > .fa {
+                            margin-top: 4px;
+                            margin-left: 5px;
+                        }
+                    .drop-down > .drop-menu1 > .drop-element  .drop-menu2 {
+                        display: inline-block;
+                        opacity: 0;
+                        visibility: hidden;
+                        position: absolute;
+                        left: 100%;
+                        top: 0;
+                        box-shadow: 0 0 8px #bbb;
+                        background-color: #eee;
+                        transition: all 0.3s;
+                        transition-timing-function: ease;
+                    }
+                    /* .drop-down > .drop-menu1 > .drop-element  .drop-menu2, */
+                    .drop-down.active > .drop-menu1 > .drop-element.active  .drop-menu2 {
+                        visibility: unset;
+                        opacity: 1;
+                        
+                    }
+                    .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont {
+                        width: 100%;
+                        cursor: pointer;
+                    }
+                        .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont:hover .drop-link2 {
+                            color: #6819fd;
+                        }
+                    .drop-down > .drop-menu1 .down-cont > .drop-link2 {
+                        display: inline-block;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 16px;
+                        line-height: 24px;
+                        font-weight: 400;
+                        padding: 10px 15px;
+                        text-transform: capitalize;
+                        width: max-content;
+                    }
+
+
+
+
+@media (min-width: 768px) {
+    #main_header .links > .header-button {
+        display: inline-block;
+        background-color: #5900ff;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        line-height: 22px;
+        padding: 11px 22px;
+        margin: 0;
+        margin-left: 10px;
+        font-weight: 400;
+    }
+        #main_header .links > .header-button > .hidden {
+            display: inline-block;
+        }
+        #main_header .header-button > .icon {
+            display: inline-block;
+            color: inherit;
+            margin: 3px 0;
+        }
+}
+@media (min-width: 1200px) {
+    #main_header .links > .navtab {
+        display: inline-block;
+    }
+    #main_header .links > .icons > a.hidden {
+        display: inline-block;
+    }
+    #main_header .links > .menu-button {
+        display: none;
+    }
+    
+}
+
+@keyframes headerAppear {
+    0% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: translateZ(0) scale(1);
+        opacity: 1;
+    }
+}
