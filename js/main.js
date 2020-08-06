@@ -24,7 +24,7 @@ import { renderHeader, dropMenuLevel1, windowScrolling } from './renderHeader.js
 // import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
 import renderAbout from './renderAbout.js';
-// import renderMainVideo from './renderMainVideo.js';
+import renderMainVideo from './renderMainVideo.js';
 import { contentIsVisible, renderSkillContent } from './renderSkills.js';
 import { renderServices } from './renderServices.js';
 // import renderPortfolio from './renderPortfolio.js';
@@ -60,7 +60,11 @@ let startPosition = window.pageYOffset;
 window.addEventListener('scroll', function () {
     windowScrolling(startPosition);
     startPosition = window.scrollY; 
-    });
+});
+
+
+// execute
+renderMainVideo()
 
 // function to create testimonials event listeners
 testimonialsEvents();
