@@ -39,7 +39,8 @@
         #testimonials .testimonials > .overflow-holder {
             display: flex;
             width: 100%;
-            flex-directioble;
+            flex-direction: row;
+            flex-wrap: nowrap;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;

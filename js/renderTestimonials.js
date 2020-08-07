@@ -12,7 +12,7 @@ function renderTestimonialsStructure(data, selector) {
     else if (winWidth < 1023) cardsShown = 2;
     else cardsShown = 3;
     let navbar = '';
-    for (let i = 0; i < data.length -cardsShown + 1; i++){
+    for (let i = 0; i < data.length; i++){
         navbar += `<div class="nav-line line${i}${i===0 ? ' active' : ''}"></div>`;
     }
     let HTML = `<div class="row">
@@ -34,46 +34,102 @@ function renderCards(data){
     const size = data.length;
     let HTML = '';
     const width = getCardWidth();
-    for (let i = 0; i < size; i++ ) {
+    const howMuch = size < 4 ? 4 : size;
+    /*  since max cards shown are 3, we make sure, 
+        there's at least 1 card on the right hidden
+        with howMuch */
+    for (let i = -1; i < howMuch+2; i++ ) {
+        let iteration = i;
+        if (i < 0) {iteration = size+i;}
+        else if (i >= size) {iteration = i - size}
+        // const iteration = i < 0 ? size-i-1 : (i>=size ? i-size : i);
         let rate = '';
-        for (let j = 0; j < data[i].rating; j++) {
+        for (let j = 0; j < data[iteration].rating; j++) {
             rate += '<i class="fa fa-star-o" aria-hidden="true"></i>';
         }
         HTML += `<div class="testimonial" style="width: ${width}px;">
                             <div class="card">
-                                <div class="person"><img src="./img/${data[i].picture}.jpg" alt="persons picture"></div>
-                                <h4>${data[i].name}</h4>
-                                <p>${data[i].content}</p>
+                                <div class="person"><img src="./img/${data[iteration].picture}.jpg" alt="persons picture"></div>
+                                <h4>${data[iteration].name}</h4>
+                                <p>${data[iteration].content}</p>
                                 <div class="rating">${rate}</div>
                             </div>
                         </div>`;
     }
+    DOM.style.transform = `translate(-${width}px)`;
     return DOM.innerHTML = HTML;
 }
 
 function testimonialsEvents(){
     // testimonials event listener to resize cards and change navbar size
     const cards = document.querySelectorAll('#testimonials .testimonial');
-    const bars = document.querySelectorAll('#testimonials .nav-line');
-    window.addEventListener('resize', ()=> resizeCard(cards, bars));
+    const bars = document.querySelector('#testimonials .navbar');
+    const winWidth = window.innerWidth;
+    let cardsCount = winWidth < 768 ? 1 : winWidth < 1100 ? 2 : 3;
+    window.addEventListener('resize', ()=> {
+        
+        cardsCount = resizeCard(cards, bars, cardsCount);
+        // cardsCount = winWidth < 768 ? 1 : winWidth < 1100 ? 2 : 3;
+    });
 
     // testimonials event to scroll cards with buttons
     const navbar = document.querySelectorAll('#testimonials .nav-line');
     for (const navLine of navbar) {
+        /* with following we find the number of bar clicked
+            every bar has class with a "serial" number  */
         const number = parseInt((navLine.classList)[1].match(/[0-9]/g));
-        navLine.addEventListener('click', () => scrollTestimonials(navLine, number))
+        navLine.addEventListener('click', () => scrollTestimonials(navLine, number));
     }
 }
 
 
 //function to resize card when changing screen size
-function resizeCard(cards, bars) {
+function resizeCard(cards, bars, count) {
+
+    //resize cards
     const width = getCardWidth();
     for(const card of cards) {
         card.style.width = `${width}px`;
     }
+    //move first card appropriate amount
+    const overflowHolder = document.querySelector('#testimonials .overflow-holder');
+    console.log(overflowHolder.style);
+    overflowHolder.style.transform = `translate(-${width}px)`;
 
-    return;
+
+
+
+    // attempt to make "correct" amount of bars
+
+    //find out how much cards are displayed
+    const winWidth = window.innerWidth;
+    const cardsCount = winWidth < 768 ? 1 : winWidth < 1100 ? 2 : 3;
+    // //check if there was increase or decrease in amount shown
+    // if (cardsCount === count) return count;
+    // else {
+    //     let barsList = bars.querySelectorAll('.nav-line'),
+    //             size = barsList.length;
+    //     if (cardsCount < count) { //descrease
+    //         //add a bar
+    //         bars.insertAdjacentHTML('beforeend', `<div class="nav-line line${size}"></div>`);
+    //         //new list now and diffent size
+    //         barsList = bars.querySelectorAll('.nav-line');
+    //         size++;
+    //         //a number of the new added bar
+    //         const number = parseInt((barsList[size-1].classList)[1].match(/[0-9]/g));
+    //         // add event listener for the new bar
+    //         barsList[size-1].addEventListener('click', () => scrollTestimonials(barsList[size-1], number));
+    //     } else {                        //increase
+    //         const isActive = barsList[size-1].classList;
+    //         if(isActive[2]) {
+    //             barsList[size-2].classList.add('active');
+    //         } 
+    //         barsList[size-1].remove(); //delete a bar
+    //     } 
+    // }
+    //reikia suzinoti, kiek korteliu rodoma ir kiek tagu atvaizduoti
+
+    return cardsCount;
 }
 
 //function to get width
@@ -83,7 +139,7 @@ function getCardWidth(){
     const winWidth = window.innerWidth;
     let width = 0;
     if (winWidth < 768) width = holderWidth;
-    else if (winWidth < 1023) width = holderWidth/2;
+    else if (winWidth < 1100) width = holderWidth/2;
     else  width = (Math.floor(holderWidth/3));
     return width;
 }
@@ -93,14 +149,11 @@ function getCardWidth(){
 function scrollTestimonials(DOM, number) {
     const beforeDOM = DOM.closest('.navbar').querySelector('.active');
     const beforeNumber = parseInt((beforeDOM.classList)[1].match(/[0-9]/g));
-    const difference = beforeNumber - number;
     const cardWidth = getCardWidth();
-    const overflowHolder = document.querySelector('#testimonials .overflow-holder')
+    const overflowHolder = document.querySelector('#testimonials .overflow-holder');
     if (number === beforeNumber) return;
-    console.log('before',beforeDOM, beforeNumber,'after', DOM, number);
-    console.log('click');
     beforeDOM.classList.remove('active');
-    overflowHolder.style.transform = `translate(-${cardWidth*number}px)`;
+    overflowHolder.style.transform = `translate(-${cardWidth+cardWidth*number}px)`;
     DOM.classList.add('active');
 }
 
