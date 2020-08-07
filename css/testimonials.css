@@ -45,7 +45,8 @@
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: 10px;
-            transition: transform 0.5s;
+            /* transition-duration: 3s; */
+            /* transition: transform 0.3s; */
         }
             #testimonials .overflow-holder > .testimonial {
                 margin: 10px 0 0;
@@ -63,7 +64,7 @@
                     text-align: center;
                     box-shadow: 0 0 15px #0000001a;
                     min-height: max-content;
-                    transition: transform 0.8s;
+                    /* transition: transform 0.3s; */
                     }
                     #testimonials .testimonial > .card:hover {
                         transform: translate(0, -2%);

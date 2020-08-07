@@ -63,28 +63,36 @@ function renderCards(data){
 function testimonialsEvents(){
     // testimonials event listener to resize cards and change navbar size
     const cards = document.querySelectorAll('#testimonials .testimonial');
-    const bars = document.querySelector('#testimonials .navbar');
     const winWidth = window.innerWidth;
-    let cardsCount = winWidth < 768 ? 1 : winWidth < 1100 ? 2 : 3;
+    const overflowHolder = document.querySelector('#testimonials .overflow-holder');
+    const translate = parseInt((overflowHolder.style.transform).match(/[0-9]/g).join(''));
+    const cardWidth = getCardWidth();
+    let cardsCount = Math.round(translate / cardWidth);
     window.addEventListener('resize', ()=> {
-        
-        cardsCount = resizeCard(cards, bars, cardsCount);
-        // cardsCount = winWidth < 768 ? 1 : winWidth < 1100 ? 2 : 3;
+        overflowHolder.style.transition = 'unset';
+        resizeCard(cards, cardsCount);
+        // overflowHolder.style.transition = 'transform 0.3s';
     });
 
     // testimonials event to scroll cards with buttons
     const navbar = document.querySelectorAll('#testimonials .nav-line');
+    
     for (const navLine of navbar) {
         /* with following we find the number of bar clicked
             every bar has class with a "serial" number  */
         const number = parseInt((navLine.classList)[1].match(/[0-9]/g));
-        navLine.addEventListener('click', () => scrollTestimonials(navLine, number));
+        navLine.addEventListener('click', () => {
+            overflowHolder.style.transitionDuration = '300ms';
+            cardsCount = scrollTestimonials(navLine, number);
+            setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';}
+        ,400)
+        });
     }
 }
 
 
 //function to resize card when changing screen size
-function resizeCard(cards, bars, count) {
+function resizeCard(cards, count) {
 
     //resize cards
     const width = getCardWidth();
@@ -93,43 +101,9 @@ function resizeCard(cards, bars, count) {
     }
     //move first card appropriate amount
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
-    console.log(overflowHolder.style);
-    overflowHolder.style.transform = `translate(-${width}px)`;
-
-
-
-
-    // attempt to make "correct" amount of bars
-
-    //find out how much cards are displayed
-    const winWidth = window.innerWidth;
-    const cardsCount = winWidth < 768 ? 1 : winWidth < 1100 ? 2 : 3;
-    // //check if there was increase or decrease in amount shown
-    // if (cardsCount === count) return count;
-    // else {
-    //     let barsList = bars.querySelectorAll('.nav-line'),
-    //             size = barsList.length;
-    //     if (cardsCount < count) { //descrease
-    //         //add a bar
-    //         bars.insertAdjacentHTML('beforeend', `<div class="nav-line line${size}"></div>`);
-    //         //new list now and diffent size
-    //         barsList = bars.querySelectorAll('.nav-line');
-    //         size++;
-    //         //a number of the new added bar
-    //         const number = parseInt((barsList[size-1].classList)[1].match(/[0-9]/g));
-    //         // add event listener for the new bar
-    //         barsList[size-1].addEventListener('click', () => scrollTestimonials(barsList[size-1], number));
-    //     } else {                        //increase
-    //         const isActive = barsList[size-1].classList;
-    //         if(isActive[2]) {
-    //             barsList[size-2].classList.add('active');
-    //         } 
-    //         barsList[size-1].remove(); //delete a bar
-    //     } 
-    // }
-    //reikia suzinoti, kiek korteliu rodoma ir kiek tagu atvaizduoti
-
-    return cardsCount;
+    overflowHolder.style.transform = `translate(-${width*count}px)`;
+    
+    return;
 }
 
 //function to get width
@@ -151,10 +125,12 @@ function scrollTestimonials(DOM, number) {
     const beforeNumber = parseInt((beforeDOM.classList)[1].match(/[0-9]/g));
     const cardWidth = getCardWidth();
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
-    if (number === beforeNumber) return;
+    overflowHolder.style.transitionDuration = '300ms';
+    if (number === beforeNumber) return number+1;
     beforeDOM.classList.remove('active');
     overflowHolder.style.transform = `translate(-${cardWidth+cardWidth*number}px)`;
     DOM.classList.add('active');
+    return number+1;
 }
 
 export {renderTestimonials, testimonialsEvents};
