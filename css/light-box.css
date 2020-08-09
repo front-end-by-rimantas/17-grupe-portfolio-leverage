@@ -21,7 +21,21 @@
         max-height: 100vh;
         animation: light-box 0.8s forwards;
     }
-        .light-box .image img{
+    .light-box .image > div{
+        position: relative;
+    }
+        .light-box .image > div i{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 65px;
+            color: rgba(0,0,0,.65);
+        }
+        .light-box .image > div i:hover{
+            color: red;
+        }
+        .light-box .image img,video{
             max-height: 100vh;
             max-width: 100%;
             animation: light-box 0.8s forwards;
