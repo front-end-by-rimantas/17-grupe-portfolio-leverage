@@ -12,6 +12,7 @@ function renderGallery(dataType) {
             lightBoxImage.push(img);
         }
     }
+    console.log(imagesArray);
     let count = 0;
     function backOnClick(event) {
         count = count - 1;
