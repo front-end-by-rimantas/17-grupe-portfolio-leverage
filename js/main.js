@@ -47,7 +47,7 @@ window.addEventListener('scroll', function () {
 /*************************
  * HERO
  *************************/
-
+renderHero('#hero', hero[0]);
 
 /*************************
  * FEATURES
