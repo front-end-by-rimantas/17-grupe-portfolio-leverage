@@ -23,7 +23,7 @@
             #main_footer .company p {
                 margin-top: 20px;
                 text-align: center;
-                color: #6f6f6f;
+                color: #8E8E8E;
                 font-size: 16px;
                 line-height: 30px;
 
@@ -61,7 +61,7 @@
                 text-align: center;
                 padding: 8px;
                 text-decoration: none;
-                color: #6f6f6f;
+                color: #8E8E8E;
             }
                 #main_footer .get-in-touch a:hover {
                     color: #5900ff;
@@ -69,14 +69,14 @@
                 #main_footer .get-in-touch > a > .fa {
                     margin-right: 5px;
                     margin-top: 3px;
-                    padding: 0 7px;
+                    padding: 0 5px;
                 }
             #main_footer .get-in-touch >.send-a-message-button {
                 text-align: center;
                 grid-column: span 12;
                 font-size: 16px;
                 line-height: 24px;
-                padding: 9px 17px;
+                padding: 9px 16px;
                 font-weight: 400;
                 width: fit-content;
                 margin: auto;
@@ -103,7 +103,7 @@
                 text-align: center;
                 text-decoration: none;
                 padding: 8px;
-                color: #6f6f6f;
+                color: #8E8E8E;
             }
                 #main_footer .our-services a:hover {
                     color: #5900ff;
@@ -120,42 +120,54 @@
             }
             #main_footer .popular-tags a {
                 display: inline-block;
-                border: 1px solid #6f6f6f;
-                padding: 5px 16px;
+                border: 1px solid #4D4D4D;
+                padding: 4px 15px;
                 text-decoration: none;
-                color: #6f6f6f;
+                color: #8E8E8E;
                 margin-left: 3px;
                 margin-bottom: 4px;
+                margin-top: 5px;
             }
                 #main_footer .popular-tags a:hover {
                     color: #5900ff;
                     border: 1px solid #5900ff;
                 }
 #rights {
-    background-color: #00000040;
+    background-color:#0D0D0D;
     text-align: center;
-    color: #6f6f6f; 
+    color: #8E8E8E; 
     font-family: Poppins, sans-serif;
     font-size: 15px;
     padding: 10px;
 }
     #rights .left {
-            font-family: Poppins, sans-serif;
-            padding: 16px 30px;
+        font-family: Poppins, sans-serif;
+        padding: 16px 20px;
         }
     #rights .right {
-            padding: 17px;
-            font-family: Poppins, sans-serif;
+        padding: 16px 20px;
+        font-family: Poppins, sans-serif;
         }
         #rights .right a {
             text-decoration: none;
             color: #5900ff;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 24px;
         }
 
+@media (min-width: 768px) {
+    #rights .left {
+        width: 50%;
+        float: left;
+    }
+    #rights .right {
+        width: 50%;
+        float: left;
+}
+
 @media (min-width: 992px) {
     #main_footer .company {
+        text-align: left;
         grid-column: span 3;
     }
         #main_footer .lever {
@@ -168,6 +180,7 @@
             text-align: left;
         }
             #main_footer .social a {
+                
             }
     #main_footer .get-in-touch {
         grid-column: span 3;
@@ -186,10 +199,10 @@
         }
         #main_footer .get-in-touch a {
             text-align: left;
-            padding: 8px 8px 8px 0;
+            padding: 8px 0px 8px 0;
         }
         #main_footer .get-in-touch >.send-a-message-button {
-            
+            margin-left: 0px;
         }
     #main_footer .our-services {
         text-align: left;
@@ -199,6 +212,7 @@
         }
         #main_footer .our-services a {
             text-align: left;
+            padding: 8px 8px 8px 0;
         }
     #main_footer .popular-tags {
         text-align: left;
@@ -208,5 +222,6 @@
         }
         #main_footer .popular-tags a {
             text-align: left;
+            margin-top: 5px;
         }
 }
