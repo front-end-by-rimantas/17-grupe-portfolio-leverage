@@ -62,17 +62,12 @@ function renderCards(data){
 
 function testimonialsEvents(){
     // testimonials event listener to resize cards and change navbar size
+    //cards return array of all testimonials cards
     const cards = document.querySelectorAll('#testimonials .testimonial');
-    const winWidth = window.innerWidth;
+    //overflowHolder is flex that contains all testimonials
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
-    const translate = parseInt((overflowHolder.style.transform).match(/[0-9]/g).join(''));
-    const cardWidth = getCardWidth();
-    let cardsCount = Math.round(translate / cardWidth);
-    window.addEventListener('resize', ()=> {
-        overflowHolder.style.transition = 'unset';
-        resizeCard(cards, cardsCount);
-        // overflowHolder.style.transition = 'transform 0.3s';
-    });
+    let cardsCount = 1;
+    window.addEventListener('resize', ()=> {resizeCard(cards, cardsCount);});
 
     // testimonials event to scroll cards with buttons
     const navbar = document.querySelectorAll('#testimonials .nav-line');
@@ -82,10 +77,12 @@ function testimonialsEvents(){
             every bar has class with a "serial" number  */
         const number = parseInt((navLine.classList)[1].match(/[0-9]/g));
         navLine.addEventListener('click', () => {
+            /* for smooth scroll transition duration is activated 
+               setTimeout returns transition duration to default value
+               after the cards have smoothly shifted */
             overflowHolder.style.transitionDuration = '300ms';
             cardsCount = scrollTestimonials(navLine, number);
-            setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';}
-        ,400)
+            setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400)
         });
     }
 }
@@ -108,20 +105,24 @@ function resizeCard(cards, count) {
 
 //function to get width
 function getCardWidth(){
+    //since overflowHolder is flex, it is wider, than screen
+    //so widthHolder is closest parent, that determines width
     const widthHolder = document.querySelector('#testimonials .testimonials');
     const holderWidth = widthHolder.offsetWidth;
     const winWidth = window.innerWidth;
     let width = 0;
-    if (winWidth < 768) width = holderWidth;
-    else if (winWidth < 1100) width = holderWidth/2;
-    else  width = (Math.floor(holderWidth/3));
+    if (winWidth < 768) width = holderWidth; //one card per view
+    else if (winWidth < 1100) width = holderWidth/2; //two cards per view
+    else  width = (Math.floor(holderWidth/3)); //three cards per view
     return width;
 }
 
 
 // function for event listener 'click'
 function scrollTestimonials(DOM, number) {
+    //find active button that will loose its class
     const beforeDOM = DOM.closest('.navbar').querySelector('.active');
+    //active buttons number
     const beforeNumber = parseInt((beforeDOM.classList)[1].match(/[0-9]/g));
     const cardWidth = getCardWidth();
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
