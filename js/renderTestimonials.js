@@ -1,8 +1,11 @@
-
 function renderTestimonials(data, selector) {
     renderTestimonialsStructure(data, selector);
     renderCards(data);
 }
+/*  renderTestimonials function was split into two because renderCards
+    has to find element that is created in renderTestimonialsStructure
+    and calculate card width from its parent element */
+
 
 function renderTestimonialsStructure(data, selector) {
     const DOM = document.querySelector(selector);
@@ -22,7 +25,7 @@ function renderTestimonialsStructure(data, selector) {
                     </div>
                 </div>
                 <div class="testimonials">
-                    <div class="overflow-holder" style="transform: translate(0px);"></div>
+                    <div class="overflow-holder" data-move="0" style="transform: translate(0px);"></div>
                     <div class="navbar">${navbar}</div>
                 </div>`;
     return DOM.innerHTML = HTML;
@@ -57,16 +60,21 @@ function renderCards(data){
                         </div>`;
     }
     DOM.style.transform = `translate(-${width}px)`;
+    DOM.dataset.move = width;
     return DOM.innerHTML = HTML;
 }
-
+let moveMouse = () => {};
 function testimonialsEvents(){
-    // testimonials event listener to resize cards and change navbar size
+    // testimonials event listener to resize cards on window resize
     //cards return array of all testimonials cards
     const cards = document.querySelectorAll('#testimonials .testimonial');
     //overflowHolder is flex that contains all testimonials
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
+    //cardsCount is variable which knows how many cards are hidden on the left side
+    //on loading it is one card
     let cardsCount = 1;
+
+    //testimonials event to resize cards when window is resized
     window.addEventListener('resize', ()=> {resizeCard(cards, cardsCount);});
 
     // testimonials event to scroll cards with buttons
@@ -85,8 +93,24 @@ function testimonialsEvents(){
             setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400)
         });
     }
+    
+    //testimonials event that will move cards on drag
+    let startX = overflowHolder.dataset.move;
+    overflowHolder.addEventListener('mousedown',  ()=>{
+        console.log('mouse down at...', startX);
+        window.addEventListener('mousemove', moveMouse = () => mouseMoving(event));
+        window.addEventListener('mouseup', mouseReleased);
+    })
 }
-
+function mouseMoving(event){
+    console.log('mouse is moving...');
+    const x = event.movementX;
+}
+function mouseReleased(event){
+    console.log('mouse released...');
+    window.removeEventListener('mousemove', moveMouse);
+    window.removeEventListener('mouseup', mouseReleased);
+}
 
 //function to resize card when changing screen size
 function resizeCard(cards, count) {
@@ -99,7 +123,7 @@ function resizeCard(cards, count) {
     //move first card appropriate amount
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
     overflowHolder.style.transform = `translate(-${width*count}px)`;
-    
+    overflowHolder.dataset.move = width;
     return;
 }
 
@@ -130,8 +154,12 @@ function scrollTestimonials(DOM, number) {
     if (number === beforeNumber) return number+1;
     beforeDOM.classList.remove('active');
     overflowHolder.style.transform = `translate(-${cardWidth+cardWidth*number}px)`;
+    overflowHolder.dataset.move = cardWidth+cardWidth*number;
     DOM.classList.add('active');
     return number+1;
 }
+
+
+
 
 export {renderTestimonials, testimonialsEvents};
