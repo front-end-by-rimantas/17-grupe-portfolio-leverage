@@ -1,3 +1,186 @@
 #hero {
-    height: 100vh;
+    position: relative;
+    height: 95vh;
+} 
+    #hero > .row > .hero-cont {
+        margin-top: 10px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+        #hero .hero-cont > .content {
+            width: 60%;
+        }
+            #hero .content > h1 {
+                margin:  10px 0;
+                font-family: 'Roboto', sans-serif;
+                font-size: 68px;
+                font-weight: 900;
+                text-align: left;
+                animation-name:  title;
+                animation-duration: 1.2s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease;
+            }
+                @keyframes title {
+                    0% {
+                        opacity: 0;
+                        transform: scale(1.1) translateY(100px);
+                    }
+                    33% {
+                        transform: scale(1) translateY(0);
+                        opacity: 1;
+                    }
+                    66% {
+
+                    }
+                    100% {
+                        transform: scale(1) translateY(0);
+                        opacity: 1;
+                    }
+                }
+
+                #hero .content > h1.gradient-text {
+                    background-image: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent; 
+                    -moz-background-clip: text;
+                    -moz-text-fill-color: transparent;
+                }
+            #hero .content > p {
+                font-family: 'Roboto', sans-serif;
+                color: rgb(111, 111, 111);
+                font-size: 20px;
+                text-align: left;
+                margin: 20px 20px 20px 0px;
+                max-width: 500px;
+                animation-name:  title1;
+                animation-duration: 1.2s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease;
+            }
+
+            @keyframes title1 {
+                0% {
+                    opacity: 0;
+                    transform: scale(1.1) translateY(100px);
+                }
+                33% {
+                    opacity: 0;
+                    transform: scale(1.1) translateY(100px);
+                }
+                66% {
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
+                    margin-top: 0px;
+                }
+                100% {
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
+                    margin-top: 0px;
+                }
+            }
+            #hero .content > a {
+                margin: 5px 0;
+                animation-name:  title3;
+                animation-duration: 1.2s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease;
+            }
+            @keyframes title3 {
+                0% {
+                    opacity: 0;
+                    transform: scale(1.1) translateY(100px);
+                }
+                33% {
+                    opacity: 0;
+                    transform: scale(1.1) translateY(100px);
+                }
+                66% {
+                    opacity: 0;
+                    transform: scale(1.1) translateY(100px);
+                }
+                100% {
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
+                    margin-top: 0px;
+                }
+            }
+
+            
+            #hero a > .hero-icon {
+                color: #ffffff;
+                margin-top: 4px;
+                margin-right: 10px;
+            }
+    
+    #hero > .hero-img-wrapper {
+        height: 85%;
+        position: absolute;
+        bottom: 0;
+        right: 10%;
+        z-index: 1;
+    }
+        #hero .hero-img-wrapper > img {
+            height: 100%;
+            animation-name:  title1;
+            animation-duration: 1.2s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+
+@media (max-width: 374px) {
+    #hero .content > h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px){ 
+
+    #hero {
+        height: 95vh;
+    }
+
+    #hero > .row > .hero-cont {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #hero .hero-cont > .content {
+        width: 100%;
+    }
+        #hero .content > h1 {
+            font-size: 50px;
+            text-align: center;
+        }
+            
+        #hero .content > p {
+            position: absolute;
+            color: rgba(0,0,0,0);
+        }
+        #hero .content > a {
+            margin: 5px 0;
+        }
+
+        #hero > .hero-img-wrapper {
+            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            transform: translate(0);
+        }
+            #hero .hero-img-wrapper > img {
+                height: 100%;
+                overflow: hidden;
+            }
+}
+
+@media (min-width: 987px){ 
+    #hero {
+        height: 100vh;
+    }
+    #hero .content > h1 {
+        margin:  30px 0;
+        font-size: 100px;
+    }
 }
