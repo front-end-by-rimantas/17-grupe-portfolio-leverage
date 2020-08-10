@@ -35,6 +35,7 @@
         grid-column: 2 / 3;
         width: 100%;
         overflow: hidden;
+        background-image: url();
     }
         #testimonials .testimonials > .overflow-holder {
             display: flex;
@@ -63,8 +64,11 @@
                     text-align: center;
                     box-shadow: 0 0 15px #0000001a;
                     min-height: max-content;
+                    cursor: default;
+                    
                     /* transition: transform 0.3s; */
                     }
+                    
                     #testimonials .testimonial > .card:hover {
                         transform: translate(0, -2%);
                         color: #fff;
@@ -87,6 +91,9 @@
                         overflow: hidden;
                         align-self: center;
                         margin-bottom: 24px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
                     }
                         #testimonials .card > .person > img {
                             width: 100%;
@@ -97,6 +104,10 @@
                         font-size: 24px;
                         font-weight: 600;
                         text-transform: capitalize;
+                    }
+                    #testimonials .testimonial > .card > h4::selection,
+                    #testimonials .testimonial > .card > p::selection {
+                        background-color: transparent;
                     }
                     #testimonials .card > p {
                         height: 75px;

@@ -1,6 +1,12 @@
+import { testimonials } from '../data/testimonials.js';
+
 function renderTestimonials(data, selector) {
     renderTestimonialsStructure(data, selector);
-    renderCards(data);
+    const overflowHolder =  document.querySelector('#testimonials .overflow-holder')
+    renderCards(data, overflowHolder);
+    const width = getCardWidth();
+    overflowHolder.style.transform = `translate(-${width}px)`;
+    overflowHolder.dataset.move = width;
 }
 /*  renderTestimonials function was split into two because renderCards
     has to find element that is created in renderTestimonialsStructure
@@ -32,8 +38,7 @@ function renderTestimonialsStructure(data, selector) {
 }
 
 //function to render cards
-function renderCards(data){
-    const DOM = document.querySelector('#testimonials .overflow-holder');
+function renderCards(data, DOM){
     const size = data.length;
     let HTML = '';
     const width = getCardWidth();
@@ -46,22 +51,24 @@ function renderCards(data){
         if (i < 0) {iteration = size+i;}
         else if (i >= size) {iteration = i - size}
         // const iteration = i < 0 ? size-i-1 : (i>=size ? i-size : i);
-        let rate = '';
-        for (let j = 0; j < data[iteration].rating; j++) {
-            rate += '<i class="fa fa-star-o" aria-hidden="true"></i>';
-        }
-        HTML += `<div class="testimonial" style="width: ${width}px;">
+        HTML += renderSingleCard(data[iteration], width);
+    }
+    return DOM.innerHTML = HTML;
+}
+function renderSingleCard(data, width){
+    // console.log(data);
+    let rate = '';
+    for (let i = 0; i < data.rating; i++) {
+        rate += '<i class="fa fa-star-o" aria-hidden="true"></i>';
+    }
+    return `<div class="testimonial" data-index="${data.index}" style="width: ${width}px;">
                             <div class="card">
-                                <div class="person"><img src="./img/${data[iteration].picture}.jpg" alt="persons picture"></div>
-                                <h4>${data[iteration].name}</h4>
-                                <p>${data[iteration].content}</p>
+                                <div class="person" style="background-image: url(./img/${data.picture}.jpg)"></div>
+                                <h4>${data.name}</h4>
+                                <p>${data.content}</p>
                                 <div class="rating">${rate}</div>
                             </div>
-                        </div>`;
-    }
-    DOM.style.transform = `translate(-${width}px)`;
-    DOM.dataset.move = width;
-    return DOM.innerHTML = HTML;
+                        </div>`
 }
 
 
@@ -104,14 +111,46 @@ function testimonialsEvents(){
         window.addEventListener('mousemove', moveMouse = () => {
             startX = mouseMoving(event, overflowHolder, startX);
         });
+        console.log('width:',overflowHolder.offsetWidth);
         window.addEventListener('mouseup',releaseMouse = () => {
             startX = mouseReleased(overflowHolder);
         });
     })
 }
+
 function mouseMoving(event, overflowHolder, startX){
     const x = event.movementX;
+    const cards = overflowHolder.querySelectorAll('.testimonial');
+    const cardWidth = getCardWidth()
     let position = parseFloat(overflowHolder.dataset.move) - x;
+    //in case scroll reaches last card, function needs to add more and at the sime time,
+    //remove from other side
+    const winWidth = window.innerWidth;
+    let cardsShown = 1;
+    if (winWidth < 768) cardsShown = 1;
+    else if (winWidth < 1023) cardsShown = 2;
+    else cardsShown = 3;
+    //reaching start of overflowHolder
+    if (position < cardWidth){
+        const index = parseInt(cards[0].dataset.index);
+        const HTML = renderSingleCard(testimonials[index === 0 ? testimonials.length-1 : index-1], cardWidth);
+        overflowHolder.insertAdjacentHTML('afterbegin', HTML);
+        cards[cards.length-1].remove();
+        overflowHolder.style.transform = `translate(-${position+cardWidth}px)`;
+        overflowHolder.dataset.move = position+cardWidth;
+        return;
+
+        //reaching the end of overflowHolder
+    } else if (position > cardWidth*(cards.length-cardsShown-1)) {
+        const index = parseInt(cards[cards.length-1].dataset.index);
+        const HTML = renderSingleCard(testimonials[index === testimonials.length-1 ? 0 : index+1], cardWidth);
+        console.log(HTML);
+        overflowHolder.insertAdjacentHTML('beforeend', HTML);
+        cards[0].remove();
+        overflowHolder.style.transform = `translate(-${position-cardWidth}px)`;
+        overflowHolder.dataset.move = position-cardWidth;
+        return;
+    }
     // if (position <= 0 || position > overflowHolder.offsetWidth) return;
     overflowHolder.style.transform = `translate(-${position}px)`;
     overflowHolder.dataset.move = position;
@@ -122,21 +161,40 @@ function mouseReleased(overflowHolder){
     let position = parseFloat(overflowHolder.dataset.move);
     //reikia gauti korteles ploti
     const cardWidth = getCardWidth();
+    //how much cards are hidden on the left
     const coef = Math.floor(position/cardWidth);
+    //since card can be partly hidden, we need to determine
+    //where to scroll left or right
+
+    //min is the position of cards left side, max - of the right
     const min = position - coef*cardWidth;
     const max = (coef+1)*cardWidth - position;
-    console.log(min, max);
+
+    //we find all testimonial cards and navbar lines
+    const cards = overflowHolder.querySelectorAll('.testimonial');
+    const barLines = overflowHolder.closest('.testimonials').querySelectorAll('.nav-line');
+    //removal of active class from bars
+    for (const line of barLines) {
+        line.classList.remove('active');
+    }
+    let indexActive = 0;
+    //if card if hidden more than a half, it gets hidden after mouse up
+    //also we must change active state of navbar line
     if (min < max) {
+        indexActive = parseInt(cards[coef].dataset.index);
         position = coef*cardWidth;
         overflowHolder.dataset.move = position;
         overflowHolder.style.transform = `translate(-${position}px)`;
     } else {
+        indexActive = parseInt(cards[coef+1].dataset.index);
+        console.log(indexActive);
         position = (coef+1)*cardWidth;
         overflowHolder.dataset.move = position;
         overflowHolder.style.transform = `translate(-${position}px)`;
     }
-    //reikia padalinti is korteles plo
 
+    barLines[indexActive].classList.add('active');
+    // temporarily turning on transition for smooth scroll to position
     overflowHolder.style.transitionDuration = '300ms';
     console.log('mouse released...');
     window.removeEventListener('mousemove', moveMouse);
