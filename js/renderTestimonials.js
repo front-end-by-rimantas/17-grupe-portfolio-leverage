@@ -63,7 +63,11 @@ function renderCards(data){
     DOM.dataset.move = width;
     return DOM.innerHTML = HTML;
 }
+
+
+//empty functions for later use in event listeners mouseMove and mouseUp
 let moveMouse = () => {};
+let releaseMouse = () => {};
 function testimonialsEvents(){
     // testimonials event listener to resize cards on window resize
     //cards return array of all testimonials cards
@@ -97,19 +101,48 @@ function testimonialsEvents(){
     //testimonials event that will move cards on drag
     let startX = overflowHolder.dataset.move;
     overflowHolder.addEventListener('mousedown',  ()=>{
-        console.log('mouse down at...', startX);
-        window.addEventListener('mousemove', moveMouse = () => mouseMoving(event));
-        window.addEventListener('mouseup', mouseReleased);
+        window.addEventListener('mousemove', moveMouse = () => {
+            startX = mouseMoving(event, overflowHolder, startX);
+        });
+        window.addEventListener('mouseup',releaseMouse = () => {
+            startX = mouseReleased(overflowHolder);
+        });
     })
 }
-function mouseMoving(event){
-    console.log('mouse is moving...');
+function mouseMoving(event, overflowHolder, startX){
     const x = event.movementX;
+    let position = parseFloat(overflowHolder.dataset.move) - x;
+    // if (position <= 0 || position > overflowHolder.offsetWidth) return;
+    overflowHolder.style.transform = `translate(-${position}px)`;
+    overflowHolder.dataset.move = position;
+    return position;
 }
-function mouseReleased(event){
+function mouseReleased(overflowHolder){
+    // istraukia, kiek pasislinkusi juosta
+    let position = parseFloat(overflowHolder.dataset.move);
+    //reikia gauti korteles ploti
+    const cardWidth = getCardWidth();
+    const coef = Math.floor(position/cardWidth);
+    const min = position - coef*cardWidth;
+    const max = (coef+1)*cardWidth - position;
+    console.log(min, max);
+    if (min < max) {
+        position = coef*cardWidth;
+        overflowHolder.dataset.move = position;
+        overflowHolder.style.transform = `translate(-${position}px)`;
+    } else {
+        position = (coef+1)*cardWidth;
+        overflowHolder.dataset.move = position;
+        overflowHolder.style.transform = `translate(-${position}px)`;
+    }
+    //reikia padalinti is korteles plo
+
+    overflowHolder.style.transitionDuration = '300ms';
     console.log('mouse released...');
     window.removeEventListener('mousemove', moveMouse);
-    window.removeEventListener('mouseup', mouseReleased);
+    window.removeEventListener('mouseup', releaseMouse);
+    setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400);
+    return position;
 }
 
 //function to resize card when changing screen size
