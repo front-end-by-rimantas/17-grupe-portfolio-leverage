@@ -35,11 +35,20 @@
         .light-box .image > div i:hover{
             color: red;
         }
+        .light-box .remove {
+            display: none;
+        }
         .light-box .image img,video{
             max-height: 100vh;
             max-width: 100%;
             animation: light-box 0.8s forwards;
         }
+        .light-box .image video{
+            cursor: pointer;
+        }
+            .light-box .image video:hover{
+                cursor: pointer;
+            }
         .light-box .image i{
             position: absolute;
             font-size: 40px;

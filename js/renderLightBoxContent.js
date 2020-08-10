@@ -15,7 +15,7 @@ function renderLightBoxContent(size, imageClicked, dataType) {
                 </div>
                 <div class="image">
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <div>
+                    <div class="gallery">
                         ${imageClicked}
                     </div>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>

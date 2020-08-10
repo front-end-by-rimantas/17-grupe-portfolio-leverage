@@ -43,7 +43,8 @@
             }
                 #contact .contacts-content .action-progress .progress-bar .fill{
                     height: 6px;
-                    background-color: #5900ff;
+                    background: rgb(131,64,255);
+                    background: linear-gradient(90deg, rgba(131,64,255,1) 15%, rgba(89,0,255,1) 65%);
                     width: 20%;
                 }
             #contact .contacts-content .action-progress > .steps {
@@ -64,13 +65,17 @@
                     line-height: 40px;
                     color: white;
                     border-radius: 50%;
-                    background-color: #5900ff;
+                    background: rgb(131,64,255);
+                    background: linear-gradient(90deg, rgba(131,64,255,1), rgba(89,0,255,1), rgba(131,64,255,1));
+                    background-size: 300%;
+                    position: relative;
                     font-family: 'Roboto', sans-serif;
                     margin-bottom: 10px;
                     font-weight: 500;
+                    animation: contacts 1s infinite;
                 }
                     #contact .contacts-content .action-progress > .steps > .step > .number.deactive {
-                        background-color: #ddd;
+                        background: #ddd;
                         color: black;
                     }
                 #contact .contacts-content .action-progress > .steps > .step > .step-name {
@@ -100,7 +105,7 @@
             object-fit: cover;
 
         }
-        #contact .contacts-video a {
+        #contact .contacts-video .gallery {
             display: none;
         }
         #contact .contacts-video > .mask-radius {
@@ -165,5 +170,14 @@
     #contact .contacts-video > .play-button {
         right: 40px;
         bottom: 30px;
+    }
+}
+
+@keyframes contacts {
+    0% {
+        background-position: 0%; 
+    }   
+    100% {
+        background-position: 100%;
     }
 }
