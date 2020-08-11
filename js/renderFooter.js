@@ -1,3 +1,4 @@
+
 function renderFooter( selector, data) {
     const DOM = document.querySelector(selector);
     let HTML = '';
