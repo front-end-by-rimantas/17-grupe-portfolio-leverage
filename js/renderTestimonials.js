@@ -109,9 +109,9 @@ function testimonialsEvents(){
             /* for smooth scroll transition duration is activated 
                setTimeout returns transition duration to default value
                after the cards have smoothly shifted */
-            overflowHolder.style.transitionDuration = '300ms';
+            
             cardsCount = scrollTestimonials(navLine, number);
-            setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400)
+            setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},600)
         });
     }
     
@@ -156,8 +156,8 @@ function scrollTestimonials(DOM, number) {
             hiddenWidth += cardWidth;
             cards = overflowHolder.querySelectorAll('.testimonial');
         }
-    } else if (checkWidth+hiddenWidth > cardWidth*(cards.length - 1 - cardsShown) ) {
-        const cardsNeeded = 1+(checkWidth+hiddenWidth - cardWidth*(cards.length - 1 - cardsShown)) / cardWidth;
+    } else if (checkWidth+hiddenWidth >= cardWidth*(cards.length - cardsShown) ) {
+        const cardsNeeded = 1+(checkWidth+hiddenWidth - cardWidth*(cards.length - cardsShown)) / cardWidth;
         for (let i = 0; i < cardsNeeded; i++) {
             const index = parseInt(cards[cards.length-1].dataset.index);
             const HTML = renderSingleCard(testimonials[index === testimonials.length-1 ? 0 : index+1], cardWidth);
@@ -169,13 +169,15 @@ function scrollTestimonials(DOM, number) {
             cards = overflowHolder.querySelectorAll('.testimonial');
         }
     }
+    setTimeout(()=>{return},1000);
     console.log('width after',hiddenWidth);
     if (number === beforeNumber) return cardsHidden;
+    overflowHolder.style.transitionDuration = '300ms';
     beforeDOM.classList.remove('active');
-    overflowHolder.style.transform = `translate(-${hiddenWidth+cardWidth*diff}px)`;
-    overflowHolder.dataset.move = `${hiddenWidth+cardWidth*diff}`;
+    overflowHolder.style.transform = `translate(-${hiddenWidth+checkWidth}px)`;
+    overflowHolder.dataset.move = `${hiddenWidth+checkWidth}`;
     DOM.classList.add('active');
-    return Math.floor((hiddenWidth+cardWidth*diff) / cardWidth);
+    return Math.floor((hiddenWidth+checkWidth) / cardWidth);
 }
 
 
