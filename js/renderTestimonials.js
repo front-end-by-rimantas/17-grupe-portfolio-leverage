@@ -1,8 +1,12 @@
 import { testimonials } from '../data/testimonials.js';
 
+// variables, that will be used thoughout this file
+let cardsShown = 1;
+let overflowHolder = null;
+
 function renderTestimonials(data, selector) {
     renderTestimonialsStructure(data, selector);
-    const overflowHolder =  document.querySelector('#testimonials .overflow-holder')
+    overflowHolder =  document.querySelector('#testimonials .overflow-holder')
     renderCards(data, overflowHolder);
     const width = getCardWidth();
     overflowHolder.style.transform = `translate(-${width}px)`;
@@ -16,13 +20,13 @@ function renderTestimonials(data, selector) {
 function renderTestimonialsStructure(data, selector) {
     const DOM = document.querySelector(selector);
     const winWidth = window.innerWidth;
-    let cardsShown = 1;
+    
     if (winWidth < 768) cardsShown = 1;
     else if (winWidth < 1023) cardsShown = 2;
     else cardsShown = 3;
     let navbar = '';
     for (let i = 0; i < data.length; i++){
-        navbar += `<div class="nav-line line${i}${i===0 ? ' active' : ''}"></div>`;
+        navbar += `<div class="nav-line ${i===0 ? ' active' : ''}" data-lineNo="${i}"></div>`;
     }
     let HTML = `<div class="row">
                     <div class="intro col-12">
@@ -56,7 +60,6 @@ function renderCards(data, DOM){
     return DOM.innerHTML = HTML;
 }
 function renderSingleCard(data, width){
-    // console.log(data);
     let rate = '';
     for (let i = 0; i < data.rating; i++) {
         rate += '<i class="fa fa-star-o" aria-hidden="true"></i>';
@@ -72,10 +75,15 @@ function renderSingleCard(data, width){
 }
 
 
+
+
+
+
 //empty functions for later use in event listeners mouseMove and mouseUp
 let moveMouse = () => {};
 let releaseMouse = () => {};
 function testimonialsEvents(){
+
     // testimonials event listener to resize cards on window resize
     //cards return array of all testimonials cards
     const cards = document.querySelectorAll('#testimonials .testimonial');
@@ -84,17 +92,20 @@ function testimonialsEvents(){
     //cardsCount is variable which knows how many cards are hidden on the left side
     //on loading it is one card
     let cardsCount = 1;
-
+    
     //testimonials event to resize cards when window is resized
     window.addEventListener('resize', ()=> {resizeCard(cards, cardsCount);});
+
+
+
 
     // testimonials event to scroll cards with buttons
     const navbar = document.querySelectorAll('#testimonials .nav-line');
     
     for (const navLine of navbar) {
         /* with following we find the number of bar clicked
-            every bar has class with a "serial" number  */
-        const number = parseInt((navLine.classList)[1].match(/[0-9]/g));
+            every bar has dataset with a "serial" number  */
+        const number = parseInt(navLine.dataset.lineNo);
         navLine.addEventListener('click', () => {
             /* for smooth scroll transition duration is activated 
                setTimeout returns transition duration to default value
@@ -105,20 +116,24 @@ function testimonialsEvents(){
         });
     }
     
+
+
+
     //testimonials event that will move cards on drag
-    let startX = overflowHolder.dataset.move;
     overflowHolder.addEventListener('mousedown',  ()=>{
         window.addEventListener('mousemove', moveMouse = () => {
-            startX = mouseMoving(event, overflowHolder, startX);
+            mouseMoving(event, overflowHolder);
         });
-        console.log('width:',overflowHolder.offsetWidth);
         window.addEventListener('mouseup',releaseMouse = () => {
-            startX = mouseReleased(overflowHolder);
+            mouseReleased(overflowHolder);
         });
     })
 }
 
-function mouseMoving(event, overflowHolder, startX){
+
+
+
+function mouseMoving(event, overflowHolder){
     const x = event.movementX;
     const cards = overflowHolder.querySelectorAll('.testimonial');
     const cardWidth = getCardWidth()
@@ -126,10 +141,6 @@ function mouseMoving(event, overflowHolder, startX){
     //in case scroll reaches last card, function needs to add more and at the sime time,
     //remove from other side
     const winWidth = window.innerWidth;
-    let cardsShown = 1;
-    if (winWidth < 768) cardsShown = 1;
-    else if (winWidth < 1023) cardsShown = 2;
-    else cardsShown = 3;
     //reaching start of overflowHolder
     if (position < cardWidth){
         const index = parseInt(cards[0].dataset.index);
@@ -144,7 +155,6 @@ function mouseMoving(event, overflowHolder, startX){
     } else if (position > cardWidth*(cards.length-cardsShown-1)) {
         const index = parseInt(cards[cards.length-1].dataset.index);
         const HTML = renderSingleCard(testimonials[index === testimonials.length-1 ? 0 : index+1], cardWidth);
-        console.log(HTML);
         overflowHolder.insertAdjacentHTML('beforeend', HTML);
         cards[0].remove();
         overflowHolder.style.transform = `translate(-${position-cardWidth}px)`;
@@ -154,7 +164,7 @@ function mouseMoving(event, overflowHolder, startX){
     // if (position <= 0 || position > overflowHolder.offsetWidth) return;
     overflowHolder.style.transform = `translate(-${position}px)`;
     overflowHolder.dataset.move = position;
-    return position;
+    return;
 }
 function mouseReleased(overflowHolder){
     // istraukia, kiek pasislinkusi juosta
@@ -187,7 +197,6 @@ function mouseReleased(overflowHolder){
         overflowHolder.style.transform = `translate(-${position}px)`;
     } else {
         indexActive = parseInt(cards[coef+1].dataset.index);
-        console.log(indexActive);
         position = (coef+1)*cardWidth;
         overflowHolder.dataset.move = position;
         overflowHolder.style.transform = `translate(-${position}px)`;
@@ -196,11 +205,10 @@ function mouseReleased(overflowHolder){
     barLines[indexActive].classList.add('active');
     // temporarily turning on transition for smooth scroll to position
     overflowHolder.style.transitionDuration = '300ms';
-    console.log('mouse released...');
     window.removeEventListener('mousemove', moveMouse);
     window.removeEventListener('mouseup', releaseMouse);
     setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400);
-    return position;
+    return;
 }
 
 //function to resize card when changing screen size
@@ -238,7 +246,7 @@ function scrollTestimonials(DOM, number) {
     //find active button that will loose its class
     const beforeDOM = DOM.closest('.navbar').querySelector('.active');
     //active buttons number
-    const beforeNumber = parseInt((beforeDOM.classList)[1].match(/[0-9]/g));
+    const beforeNumber = parseInt(beforeDOM.dataset.lineNo);
     const cardWidth = getCardWidth();
     const overflowHolder = document.querySelector('#testimonials .overflow-holder');
     overflowHolder.style.transitionDuration = '300ms';
