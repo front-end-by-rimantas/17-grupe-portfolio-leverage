@@ -26,7 +26,7 @@ function renderTestimonialsStructure(data, selector) {
     else cardsShown = 3;
     let navbar = '';
     for (let i = 0; i < data.length; i++){
-        navbar += `<div class="nav-line ${i===0 ? ' active' : ''}" data-lineNo="${i}"></div>`;
+        navbar += `<div class="nav-line ${i===0 ? ' active' : ''}" data-lineno="${i}"></div>`;
     }
     let HTML = `<div class="row">
                     <div class="intro col-12">
@@ -88,7 +88,6 @@ function testimonialsEvents(){
     //cards return array of all testimonials cards
     const cards = document.querySelectorAll('#testimonials .testimonial');
     //overflowHolder is flex that contains all testimonials
-    const overflowHolder = document.querySelector('#testimonials .overflow-holder');
     //cardsCount is variable which knows how many cards are hidden on the left side
     //on loading it is one card
     let cardsCount = 1;
@@ -105,7 +104,7 @@ function testimonialsEvents(){
     for (const navLine of navbar) {
         /* with following we find the number of bar clicked
             every bar has dataset with a "serial" number  */
-        const number = parseInt(navLine.dataset.lineNo);
+        const number = parseInt(navLine.dataset.lineno);
         navLine.addEventListener('click', () => {
             /* for smooth scroll transition duration is activated 
                setTimeout returns transition duration to default value
@@ -131,6 +130,23 @@ function testimonialsEvents(){
 }
 
 
+// function for event listener 'click'
+function scrollTestimonials(DOM, number) {
+    //find active button that will loose its class
+    const beforeDOM = DOM.closest('.navbar').querySelector('.active');
+    //active buttons number
+    const beforeNumber = parseInt(beforeDOM.dataset.lineno);
+    const cardWidth = getCardWidth();
+    const hiddenWidth = parseFloat(overflowHolder.dataset.move)
+    const cardsHidden = Math.floor(hiddenWidth / cardWidth);
+    const diff = number - beforeNumber;
+    if (number === beforeNumber) return cardsHidden;
+    beforeDOM.classList.remove('active');
+    overflowHolder.style.transform = `translate(-${hiddenWidth+cardWidth*diff}px)`;
+    overflowHolder.dataset.move = `${hiddenWidth+cardWidth*diff}`;
+    DOM.classList.add('active');
+    return Math.floor((hiddenWidth+cardWidth*diff) / cardWidth);
+}
 
 
 function mouseMoving(event, overflowHolder){
@@ -220,9 +236,8 @@ function resizeCard(cards, count) {
         card.style.width = `${width}px`;
     }
     //move first card appropriate amount
-    const overflowHolder = document.querySelector('#testimonials .overflow-holder');
     overflowHolder.style.transform = `translate(-${width*count}px)`;
-    overflowHolder.dataset.move = width;
+    overflowHolder.dataset.move = width*count;
     return;
 }
 
@@ -241,22 +256,6 @@ function getCardWidth(){
 }
 
 
-// function for event listener 'click'
-function scrollTestimonials(DOM, number) {
-    //find active button that will loose its class
-    const beforeDOM = DOM.closest('.navbar').querySelector('.active');
-    //active buttons number
-    const beforeNumber = parseInt(beforeDOM.dataset.lineNo);
-    const cardWidth = getCardWidth();
-    const overflowHolder = document.querySelector('#testimonials .overflow-holder');
-    overflowHolder.style.transitionDuration = '300ms';
-    if (number === beforeNumber) return number+1;
-    beforeDOM.classList.remove('active');
-    overflowHolder.style.transform = `translate(-${cardWidth+cardWidth*number}px)`;
-    overflowHolder.dataset.move = cardWidth+cardWidth*number;
-    DOM.classList.add('active');
-    return number+1;
-}
 
 
 
