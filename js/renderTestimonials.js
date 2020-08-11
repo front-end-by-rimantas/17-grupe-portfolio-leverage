@@ -66,7 +66,7 @@ function renderSingleCard(data, width){
     }
     return `<div class="testimonial" data-index="${data.index}" style="width: ${width}px;">
                             <div class="card">
-                                <div class="person" style="background-image: url(./img/${data.picture}.jpg)"></div>
+                                <div draggable="false" class="person" style="background-image: url(./img/${data.picture}.jpg)"></div>
                                 <h4 draggable="false">${data.name}</h4>
                                 <p draggable="false">${data.content}</p>
                                 <div class="rating" draggable="false">${rate}</div>
