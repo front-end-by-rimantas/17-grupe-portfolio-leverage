@@ -43,9 +43,12 @@
             }
                 #contact .contacts-content .action-progress .progress-bar .fill{
                     height: 6px;
-                    background: rgb(131,64,255);
-                    background: linear-gradient(90deg, rgba(131,64,255,1) 15%, rgba(89,0,255,1) 65%);
                     width: 20%;
+                    background: rgb(140,88,237);
+                    background: radial-gradient(circle, rgba(140,88,237,1) 18%, rgba(89,0,255,1) 63%);
+                    background-size: 400%;
+                    animation: contacts 1.5s infinite;
+                    animation-direction: reverse;
                 }
             #contact .contacts-content .action-progress > .steps {
                 display: inline-block;
@@ -65,14 +68,15 @@
                     line-height: 40px;
                     color: white;
                     border-radius: 50%;
-                    background: rgb(131,64,255);
-                    background: linear-gradient(90deg, rgba(131,64,255,1), rgba(89,0,255,1), rgba(131,64,255,1));
-                    background-size: 300%;
+                    background: rgb(140,88,237);
+                    background: radial-gradient(circle, rgba(140,88,237,1) 18%, rgba(89,0,255,1) 63%);
+                    background-size: 400%;
                     position: relative;
                     font-family: 'Roboto', sans-serif;
                     margin-bottom: 10px;
                     font-weight: 500;
-                    animation: contacts 1s infinite;
+                    animation: contacts 1.5s infinite;
+                    animation-direction: reverse;
                 }
                     #contact .contacts-content .action-progress > .steps > .step > .number.deactive {
                         background: #ddd;

@@ -6,7 +6,6 @@ function renderLightBoxGallery(dataType) {
         event.target.closest('body').querySelector('.light-box').classList.add('show');
         const imageCount = imagesArray.length;
         const clickedImageHTML = event.target.outerHTML;
-        console.log(clickedImageHTML);
         renderLightBoxContent(imageCount, clickedImageHTML, dataType);
     }
     for (let i = 0; i < imagesArray.length; i++) {
