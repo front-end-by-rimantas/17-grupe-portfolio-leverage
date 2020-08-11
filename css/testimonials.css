@@ -94,6 +94,7 @@
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: cover;
+                        user-select: none;
                     }
                         #testimonials .card > .person > img {
                             width: 100%;
@@ -104,6 +105,7 @@
                         font-size: 24px;
                         font-weight: 600;
                         text-transform: capitalize;
+                        user-select: none;
                     }
                     #testimonials .testimonial > .card > h4::selection,
                     #testimonials .testimonial > .card > p::selection {
@@ -116,15 +118,18 @@
                         font-weight: 400;
                         line-height: 24px;
                         color: #6f6f6f;
+                        user-select: none;
                     }
                     #testimonials .card > .rating {
                         margin-top: 8px;
+                        user-select: none;
                     }
                         #testimonials .card > .rating > .fa {
                             margin: 8px 0;
                             font-size: 27px;
                             width: 38px;
                             color: #5900ff;
+                            user-select: none;
                         }
 
         /* navigation bar for cards */
