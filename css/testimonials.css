@@ -7,7 +7,7 @@
 #testimonials {
     padding: 130px 0;
 }
-
+    /* intro of testimonials section */
     #testimonials .intro {
         margin-bottom: 50px;
         display: flex;
@@ -29,9 +29,11 @@
             max-width: 800px;
             align-self: center;
         }
+
+    /* carousel part of testimonials */
     #testimonials .testimonials {
-        width: 100vw;
-        padding: 0 50px;
+        grid-column: 2 / 3;
+        width: 100%;
         overflow: hidden;
     }
         #testimonials .testimonials > .overflow-holder {
@@ -39,35 +41,22 @@
             width: 100%;
             flex-direction: row;
             flex-wrap: nowrap;
-            overflow-x: visible;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: 10px;
+            /* transition-duration: 3s; */
+            /* transition: transform 0.3s; */
         }
             #testimonials .overflow-holder > .testimonial {
-                margin-right: 30px;
+                margin: 10px 0 0;
                 flex-shrink: 0;
-                margin-top: 10px;
+                padding: 5px 10px;
+                /* margin-top: 10px; */
                 
             }
-                #testimonials .testimonial > .card:hover {
-                    transform: translate(0, -2%);
-                    color: #fff;
-                    background: #8340ff;
-                    background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
-                    background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
-                    background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
-                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
-                }
-                #testimonials .testimonial > .card:hover p {
-                    color: #fff;
-                }
-                #testimonials .testimonial > .card:hover .fa {
-                    color: #fff;
-                }
                 #testimonials .testimonial > .card {
-                    padding: 35px 50px;
+                    padding: 30px 40px;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -75,8 +64,23 @@
                     text-align: center;
                     box-shadow: 0 0 15px #0000001a;
                     min-height: max-content;
-                    transition: transform 0.8s;
-                }
+                    /* transition: transform 0.3s; */
+                    }
+                    #testimonials .testimonial > .card:hover {
+                        transform: translate(0, -2%);
+                        color: #fff;
+                        background: #8340ff;
+                        background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                        background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                        background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
+                    }
+                    #testimonials .testimonial > .card:hover p {
+                        color: #fff;
+                    }
+                    #testimonials .testimonial > .card:hover .fa {
+                        color: #fff;
+                    }
                     #testimonials .card > .person {
                         width: 100px;
                         height: 100px;
@@ -112,6 +116,8 @@
                             width: 38px;
                             color: #5900ff;
                         }
+
+        /* navigation bar for cards */
         #testimonials .testimonials > .navbar {
             margin-top: 35px;
             display: flex;
@@ -128,10 +134,27 @@
                 #testimonials .navbar > .nav-line:hover {
                     background-color: #6f6f6f;
                 }
-                #testimonials .navbar > .nav-line:first-child {
+                #testimonials .navbar > .nav-line.active {
                     background: #8340ff;
                     background: -moz-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
                     background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
                     background: linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
                     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8340ff",endColorstr="#5900ff",GradientType=1);
                 }
+
+
+@media (max-width: 420px) {
+    #testimonials .intro > h2 {
+        font-size: 35px;
+    }
+}
+@media (max-width: 380px) {
+    #testimonials .card > p {
+        height: unset;
+    }
+}
+@media (max-width: 330px) {
+    #testimonials .intro > h2 {
+        font-size: 30px;
+    }
+}
