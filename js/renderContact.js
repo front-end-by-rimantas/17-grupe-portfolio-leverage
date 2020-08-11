@@ -1,28 +1,109 @@
-import renderLightBoxContent from './renderLightBoxContent.js'
+import renderContactLightBox from './renderContactLightBox.js'
+import renderLightBoxGallery from './renderLightBoxGallery.js';
+import contact from '../data/contact.js';
+
 function renderContact() {
-    const contactsVideo = document.querySelector('#contact .contacts-video');
+    const selector = '#contact';
+    const { firstStepData, secondStepData } = contact;
+    //Render contact section
+    const DOM = document.querySelector(selector);
+    let HTML = `<div class="row col-12 contacts">
+                    <div class="row col-6 contacts-content">
+                        <h2 class="contacts-title">${firstStepData.title}</h2>
+                        <p class="contacts-description">${firstStepData.description}</p>
+                        <div class="action-progress">
+                            <div class="progress-bar">
+                                <div class="fill"></div>
+                            </div>
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="number">1</div>
+                                    <p class="step-name">${firstStepData.firstStepName}</p>
+                                </div>
+                                <div class="step">
+                                    <div class="number deactive">2</div>
+                                    <p class="step-name">${firstStepData.secondStepName}</p>
+                                </div>
+                                <div class="step">
+                                    <div class="number deactive">3</div>
+                                    <p class="step-name">${firstStepData.thirdStepName}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="${firstStepData.input1}">
+                        <input type="email" placeholder="${firstStepData.input2}">
+                        <input type="tel" placeholder="${firstStepData.input3}">
+                        <div class="button next">Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="row col-6 contacts-video">
+                        <img src="${firstStepData.videoImagePath}" alt="contact-image">
+                        <div class="gallery" data-type="gallery2">
+                            <video controls poster="${firstStepData.videoPosterPath}">
+                                <source src="${firstStepData.videoPath}" type="video/mp4">
+                                <source src="${firstStepData.videoPath}" type="video/ogg">
+                                Jūsų naršyklė nepalaiko vaizdo įrašų tag'ų.
+                            </video>
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        </div>
+                        <div class="mask-radius"></div>
+                        <div class="play-button">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>`
+    DOM.innerHTML = HTML;
+    //Render lightBox
+    renderContactLightBox();
 
-    function openLightBox(event) {
-        event.target.closest('body').querySelector('.light-box').classList.add('show');
-        const HTML = `<video controls poster="https://i.ytimg.com/vi_webp/7e90gBu4pas/maxresdefault.webp" data-type="gallery2">
-                            <source src="./video/contactsVideo.mp4" type="video/mp4">
-                            <source src="./video/contactsVideo.mp4" type="video/ogg">
-                            Jūsų naršyklė nepalaiko vaizdo įrašų tag'ų.
-                        </video>
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>`
-        renderLightBoxContent(1, HTML, 'gallery2');
-        const videoPlay = document.querySelector('.light-box .image .gallery > i')
-
-        videoPlay.addEventListener('click', (event) => {
-            const arrows = event.target.parentElement.parentElement.querySelectorAll('.fa');
-            for (let i = 0; i < arrows.length; i++) {
-                arrows[i].classList.add('remove');
-            }
-            const video = event.target.parentElement.querySelector('video');
-            video.play();
-        })
+    //Second step after click NEXT
+    const nextButton = document.querySelector('.contacts-content > .next');
+    function renderSecondStep() {
+        const DOM = document.querySelector('.contacts');
+        HTML = `<div class="row col-6 contacts-content">
+                    <h2 class="contacts-title">${secondStepData.title}</h2>
+                    <p class="contacts-description">${secondStepData.description}</p>
+                    <div class="action-progress">
+                        <div class="progress-bar">
+                            <div class="fill second"></div>
+                        </div>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="number">1</div>
+                                <p class="step-name">${secondStepData.firstStepName}</p>
+                            </div>
+                            <div class="step">
+                                <div class="number">2</div>
+                                <p class="step-name">${secondStepData.secondStepName}</p>
+                            </div>
+                            <div class="step">
+                                <div class="number deactive">3</div>
+                                <p class="step-name">${secondStepData.thirdStepName}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="${secondStepData.input1}">
+                    <input type="text" placeholder="${secondStepData.input2}">
+                    <select style="color: grey;" name="budgetRange" id="budgetRange-select">
+                        <option value="">${secondStepData.input3}</option>
+                        <option value="dog">Less than &dollar;2.000</option>
+                        <option value="cat">&dollar;2.000 - &dollar;5.000</option>
+                        <option value="hamster">&dollar;5.000 - &dollar;10.000</option>
+                        <option value="parrot">&dollar;10.000+</option>
+                    </select>
+                    <div class="button prev">Prev <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></div>
+                    <div class="button next">Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div>
+                </div>
+                <div class="row col-6 contacts-video">
+                    <img data-type="gallery2" src="${secondStepData.imagePath}" alt="contact-image">
+                </div>`
+        DOM.innerHTML = HTML;
+        renderLightBoxGallery('gallery2');
+        // const nextButton = document.querySelector('.contacts-content > .next');
+        const prevButton = document.querySelector('.contacts-content > .prev');
+        prevButton.addEventListener('click', renderContact);
     }
-    contactsVideo.addEventListener('click', openLightBox);
+    nextButton.addEventListener('click', renderSecondStep);
+
     return;
 }
 

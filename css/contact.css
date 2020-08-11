@@ -50,6 +50,9 @@
                     animation: contacts 1.5s infinite;
                     animation-direction: reverse;
                 }
+                #contact .contacts-content .action-progress .progress-bar .fill.second{
+                    width: 50%;
+                }
             #contact .contacts-content .action-progress > .steps {
                 display: inline-block;
                 width: 100%;
@@ -92,6 +95,7 @@
                 }
         #contact .contacts-content .button {
             margin-top: 10px;
+            margin-right: 20px;
         }
             #contact .contacts-content .button i {
                 font-size: 18px;

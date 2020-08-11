@@ -6,8 +6,36 @@
     padding: 10px 15px;
     background: transparent;
     border: 1px solid #c3c3c3;
-    color: #c3c3c3;
+    color: #111;
     font-size: 18px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+#contact .contacts-content input:focus {
+    border: 1px solid grey;
+    outline: none;
+}
+#contact .contacts-content select {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: transparent;
+    border: 1px solid #c3c3c3;
+    color: #111;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+#contact .contacts-content select option {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 18px;
+}
+#contact .contacts-content select:focus {
+    border: 1px solid grey;
+    outline: none;
 }
