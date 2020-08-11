@@ -62,9 +62,9 @@ function renderCards(data, DOM){
 function renderSingleCard(data, width){
     let rate = '';
     for (let i = 0; i < data.rating; i++) {
-        rate += '<i class="fa fa-star-o" aria-hidden="true"></i>';
+        rate += '<i class="fa fa-star-o" aria-hidden="true" draggable="false"></i>';
     }
-    return `<div class="testimonial" data-index="${data.index}" style="width: ${width}px;">
+    return `<div class="testimonial" data-index="${data.index}" style="width: ${width}px;" draggable="false">
                             <div class="card">
                                 <div draggable="false" class="person" style="background-image: url(./img/${data.picture}.jpg)"></div>
                                 <h4 draggable="false">${data.name}</h4>
@@ -93,7 +93,7 @@ function testimonialsEvents(){
     let cardsCount = 1;
     
     //testimonials event to resize cards when window is resized
-    window.addEventListener('resize', ()=> {resizeCard(cards, cardsCount);});
+    window.addEventListener('resize', ()=> {resizeCard(cardsCount);});
 
 
 
@@ -111,7 +111,7 @@ function testimonialsEvents(){
                after the cards have smoothly shifted */
             
             cardsCount = scrollTestimonials(navLine, number);
-            setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},600)
+            // setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400);
         });
     }
     
@@ -136,9 +136,9 @@ function scrollTestimonials(DOM, number) {
     const beforeDOM = DOM.closest('.navbar').querySelector('.active');
     //active buttons number
     const beforeNumber = parseInt(beforeDOM.dataset.lineno);
+    if (number === beforeNumber) return cardsHidden;
     const cardWidth = getCardWidth();
     let hiddenWidth = parseFloat(overflowHolder.dataset.move);
-    console.log('width before',hiddenWidth);
     const cardsHidden = Math.floor(hiddenWidth / cardWidth);
     const diff = number - beforeNumber;
     const checkWidth = diff*cardWidth;
@@ -147,7 +147,6 @@ function scrollTestimonials(DOM, number) {
     if (-checkWidth >= hiddenWidth) {
         const cardsNeeded = ((-checkWidth - hiddenWidth) / cardWidth)+1;
         for (let i = 0; i < cardsNeeded; i++) {
-            cards[cards.length-1].remove();
             const index = parseInt(cards[0].dataset.index);
             const HTML = renderSingleCard(testimonials[index === 0 ? testimonials.length -1: index-1], cardWidth);
             overflowHolder.insertAdjacentHTML('afterbegin', HTML);
@@ -155,6 +154,7 @@ function scrollTestimonials(DOM, number) {
             overflowHolder.dataset.move = `${hiddenWidth+cardWidth}`;
             hiddenWidth += cardWidth;
             cards = overflowHolder.querySelectorAll('.testimonial');
+            cards[cards.length-1].remove();
         }
     } else if (checkWidth+hiddenWidth >= cardWidth*(cards.length - cardsShown) ) {
         const cardsNeeded = 1+(checkWidth+hiddenWidth - cardWidth*(cards.length - cardsShown)) / cardWidth;
@@ -169,14 +169,14 @@ function scrollTestimonials(DOM, number) {
             cards = overflowHolder.querySelectorAll('.testimonial');
         }
     }
-    setTimeout(()=>{return},1000);
-    console.log('width after',hiddenWidth);
-    if (number === beforeNumber) return cardsHidden;
+    setTimeout(() => {
     overflowHolder.style.transitionDuration = '300ms';
-    beforeDOM.classList.remove('active');
-    overflowHolder.style.transform = `translate(-${hiddenWidth+checkWidth}px)`;
-    overflowHolder.dataset.move = `${hiddenWidth+checkWidth}`;
     DOM.classList.add('active');
+    beforeDOM.classList.remove('active');
+        overflowHolder.style.transform = `translate(-${hiddenWidth+checkWidth}px)`;
+        overflowHolder.dataset.move = `${hiddenWidth+checkWidth}`;
+        setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},300)
+    },10);
     return Math.floor((hiddenWidth+checkWidth) / cardWidth);
 }
 
@@ -256,12 +256,13 @@ function mouseReleased(overflowHolder){
     window.removeEventListener('mousemove', moveMouse);
     window.removeEventListener('mouseup', releaseMouse);
     setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400);
+    
     return Math.floor(position/cardWidth);
 }
 
 //function to resize card when changing screen size
-function resizeCard(cards, count) {
-
+function resizeCard(count) {
+    const cards = overflowHolder.querySelectorAll('.testimonial');
     //resize cards
     const width = getCardWidth();
     for(const card of cards) {
@@ -269,7 +270,7 @@ function resizeCard(cards, count) {
     }
     //move first card appropriate amount
     overflowHolder.style.transform = `translate(-${width*count}px)`;
-    overflowHolder.dataset.move = width*count;
+    overflowHolder.dataset.move = `${width*count}`;
     return;
 }
 
