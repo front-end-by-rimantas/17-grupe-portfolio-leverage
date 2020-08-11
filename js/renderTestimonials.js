@@ -137,9 +137,39 @@ function scrollTestimonials(DOM, number) {
     //active buttons number
     const beforeNumber = parseInt(beforeDOM.dataset.lineno);
     const cardWidth = getCardWidth();
-    const hiddenWidth = parseFloat(overflowHolder.dataset.move)
+    let hiddenWidth = parseFloat(overflowHolder.dataset.move);
+    console.log('width before',hiddenWidth);
     const cardsHidden = Math.floor(hiddenWidth / cardWidth);
     const diff = number - beforeNumber;
+    const checkWidth = diff*cardWidth;
+    // we might need to create new cardswhen scrolling left of right
+    let cards = overflowHolder.querySelectorAll('.testimonial');
+    if (-checkWidth >= hiddenWidth) {
+        const cardsNeeded = ((-checkWidth - hiddenWidth) / cardWidth)+1;
+        for (let i = 0; i < cardsNeeded; i++) {
+            cards[cards.length-1].remove();
+            const index = parseInt(cards[0].dataset.index);
+            const HTML = renderSingleCard(testimonials[index === 0 ? testimonials.length -1: index-1], cardWidth);
+            overflowHolder.insertAdjacentHTML('afterbegin', HTML);
+            overflowHolder.style.transform = `translate(-${hiddenWidth+cardWidth}px)`;
+            overflowHolder.dataset.move = `${hiddenWidth+cardWidth}`;
+            hiddenWidth += cardWidth;
+            cards = overflowHolder.querySelectorAll('.testimonial');
+        }
+    } else if (checkWidth+hiddenWidth > cardWidth*(cards.length - 1 - cardsShown) ) {
+        const cardsNeeded = 1+(checkWidth+hiddenWidth - cardWidth*(cards.length - 1 - cardsShown)) / cardWidth;
+        for (let i = 0; i < cardsNeeded; i++) {
+            const index = parseInt(cards[cards.length-1].dataset.index);
+            const HTML = renderSingleCard(testimonials[index === testimonials.length-1 ? 0 : index+1], cardWidth);
+            overflowHolder.insertAdjacentHTML('beforeend', HTML);
+            cards[0].remove();
+            overflowHolder.style.transform = `translate(-${hiddenWidth-cardWidth}px)`;
+            overflowHolder.dataset.move = `${hiddenWidth-cardWidth}`;
+            hiddenWidth -= cardWidth;
+            cards = overflowHolder.querySelectorAll('.testimonial');
+        }
+    }
+    console.log('width after',hiddenWidth);
     if (number === beforeNumber) return cardsHidden;
     beforeDOM.classList.remove('active');
     overflowHolder.style.transform = `translate(-${hiddenWidth+cardWidth*diff}px)`;
