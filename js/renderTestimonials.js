@@ -67,9 +67,9 @@ function renderSingleCard(data, width){
     return `<div class="testimonial" data-index="${data.index}" style="width: ${width}px;">
                             <div class="card">
                                 <div class="person" style="background-image: url(./img/${data.picture}.jpg)"></div>
-                                <h4>${data.name}</h4>
-                                <p>${data.content}</p>
-                                <div class="rating">${rate}</div>
+                                <h4 draggable="false">${data.name}</h4>
+                                <p draggable="false">${data.content}</p>
+                                <div class="rating" draggable="false">${rate}</div>
                             </div>
                         </div>`
 }
@@ -124,7 +124,7 @@ function testimonialsEvents(){
             mouseMoving(event, overflowHolder);
         });
         window.addEventListener('mouseup',releaseMouse = () => {
-            mouseReleased(overflowHolder);
+            cardsCount = mouseReleased(overflowHolder);
         });
     })
 }
@@ -256,7 +256,7 @@ function mouseReleased(overflowHolder){
     window.removeEventListener('mousemove', moveMouse);
     window.removeEventListener('mouseup', releaseMouse);
     setTimeout(() => {overflowHolder.style.transitionDuration = '0ms';},400);
-    return;
+    return Math.floor(position/cardWidth);
 }
 
 //function to resize card when changing screen size
