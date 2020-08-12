@@ -1,0 +1,75 @@
+#hidden_menu * {
+    font-family: 'Poppins', sans-serif;
+    color: #2f323a;
+}
+    #hidden_menu .fa {
+        font-family: 'FontAwesome';
+    }
+#hidden_menu {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000cc;
+    z-index: 200;
+}
+#hidden_menu.clicked{
+    z-index: 200;
+}
+    #hidden_menu > .menu {
+        position: absolute;
+        max-width: 500px;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #eee;
+        overflow: auto;
+    }
+    #hidden_menu > .menu > .header {
+        display: inline-block;
+        width: 100%;
+        padding: 25px;
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+        #hidden_menu .header > .fa {
+            display: inline-block;
+            float: right;
+            width: 24px;
+            line-height: 24px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2f323a;
+        }
+            #hidden_menu .header > .fa:hover {
+                color: #6819fd;
+            }
+    #hidden_menu > .menu > .menu-container {
+        display: inline-block;
+        width: 100%;
+        min-height: calc(100vh - 74px);
+        padding: 25px;
+    }
+        #hidden_menu .navtab{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        #hidden_menu .navtab > .menu-element {
+            width: 100%;
+            
+        }
+            #hidden_menu .menu-element > .menu-link {
+                font-size: 24px;
+                line-height: 24px;
+                font-weight: 800px;
+                text-transform: capitalize;
+                text-decoration: none;
+            }

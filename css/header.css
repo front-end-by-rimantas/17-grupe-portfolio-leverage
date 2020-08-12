@@ -187,11 +187,11 @@
 
 
         /* drop down menu (appears only after hover) */
-        .drop-down {
+        #main_header .drop-down {
             position: relative;
             
         }
-            .drop-down > .drop-menu1 {
+            #main_header .drop-down > .drop-menu1 {
                 display: inline-block;
                 transition: all 0.3s;
                 transition-timing-function: ease;
@@ -208,26 +208,26 @@
                 visibility: hidden;
                 
             }
-            .drop-down.active > .drop-menu1 {
+            #main_header .drop-down.active > .drop-menu1 {
                 visibility: unset;
                 opacity: 1;
                 
             }
-                .drop-down > .drop-menu1 > .drop-element {
+                #main_header .drop-down > .drop-menu1 > .drop-element {
                     display: inline-block;
                     width: 100%;
                 }
-                    .drop-down > .drop-menu1 > .drop-element:hover  .drop-link1 {
+                    #main_header .drop-down > .drop-menu1 > .drop-element:hover  .drop-link1 {
                         color: #6819fd;
                     }
-                    .drop-down  .down-cont {
+                    #main_header .drop-down  .down-cont {
                         display: inline-block;
                         float: left;
                         width: 100%;
                         cursor: pointer;
                         position: relative;
                     }    
-                        .drop-down > .drop-menu1 > .drop-element .down-cont > .drop-link1 {
+                        #main_header .drop-down > .drop-menu1 > .drop-element .down-cont > .drop-link1 {
                                 display: inline-block;
                                 float: left;
                                 font-family: 'Poppins', sans-serif;
@@ -238,11 +238,11 @@
                                 width: max-content;
                                 text-transform: capitalize;
                             }
-                        .drop-down > .drop-menu1 > .drop-element  .drop-link1 > .fa {
+                        #main_header .drop-down > .drop-menu1 > .drop-element  .drop-link1 > .fa {
                             margin-top: 4px;
                             margin-left: 5px;
                         }
-                    .drop-down > .drop-menu1 > .drop-element  .drop-menu2 {
+                    #main_header .drop-down > .drop-menu1 > .drop-element  .drop-menu2 {
                         display: inline-block;
                         opacity: 0;
                         visibility: hidden;
@@ -254,20 +254,20 @@
                         transition: all 0.3s;
                         transition-timing-function: ease;
                     }
-                    /* .drop-down > .drop-menu1 > .drop-element  .drop-menu2, */
-                    .drop-down.active > .drop-menu1 > .drop-element.active  .drop-menu2 {
+                    /* #main_header .drop-down > .drop-menu1 > .drop-element  .drop-menu2, */
+                    #main_header .drop-down.active > .drop-menu1 > .drop-element.active  .drop-menu2 {
                         visibility: unset;
                         opacity: 1;
                         
                     }
-                    .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont {
+                    #main_header .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont {
                         width: 100%;
                         cursor: pointer;
                     }
-                        .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont:hover .drop-link2 {
+                        #main_header .drop-down > .drop-menu1 > .drop-element  .drop-menu2 > .down-cont:hover .drop-link2 {
                             color: #6819fd;
                         }
-                    .drop-down > .drop-menu1 .down-cont > .drop-link2 {
+                    #main_header .drop-down > .drop-menu1 .down-cont > .drop-link2 {
                         display: inline-block;
                         font-family: 'Poppins', sans-serif;
                         font-size: 16px;

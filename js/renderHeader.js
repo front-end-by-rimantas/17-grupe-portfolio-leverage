@@ -15,6 +15,7 @@ function renderHeader(data, selector) { //main function to render header content
                         ${renderNavtab(links.navtab)}
                     </div>
                 </div>`;
+    renderHiddenMenu(links.navtab)
     return DOM.innerHTML = HTML;    // separate functions are used to render different parts of links tab
 }
 
@@ -137,6 +138,11 @@ function renderNavtab(data) {
     return `<div class="${data.class}">
                 ${HTML}
             </div>`;
+}
+
+function renderHiddenMenu (data){
+    const DOM = document.querySelector('#hidden_menu .menu-container')
+    return DOM.innerHTML = renderNavtab(data)
 }
 
 // function for event listener that shows drop menu level 1
