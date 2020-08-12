@@ -1,3 +1,5 @@
+const selector = '#contact';
+
 const firstStepData = {
     title: 'Let\'s talk?',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue lectus augue. Sed pharetra ornare vulputate.',
@@ -22,5 +24,18 @@ const secondStepData = {
     input2: 'Manager',
     input3: 'What\'s your budget range?'
 }
+const thirdStepData = {
+    title: 'Checkout Now',
+    description: 'Integer non nunc volutpat, faucibus ante eu, faucibus elit. Praesent ultricies, velit in tempus lobortis, orci massa posuere.',
+    firstStepName: 'Personal details',
+    secondStepName: 'Company budget',
+    thirdStepName: 'Service setup',
+    imagePath: './img/about-4.jpg',
+    inputMessage: 'Message',
+}
+const sendMessage = {
+    successMessage: 'Your message was sent successful. Thanks.',
+    imagePath: './img/about-leverage.jpg'
+}
 
-export default { firstStepData, secondStepData };
+export default { selector, firstStepData, secondStepData, thirdStepData, sendMessage };

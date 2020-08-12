@@ -1,3 +1,4 @@
+/* first step */
 #contact .contacts-content input {
     display: inline-block;
     width: 100%;
@@ -16,6 +17,7 @@
     border: 1px solid grey;
     outline: none;
 }
+/* second step */
 #contact .contacts-content select {
     display: inline-block;
     width: 100%;
@@ -36,6 +38,27 @@
     font-size: 18px;
 }
 #contact .contacts-content select:focus {
+    border: 1px solid grey;
+    outline: none;
+}
+/* third step */
+#contact .contacts-content textarea {
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: transparent;
+    border: 1px solid #c3c3c3;
+    color: #111;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    min-height: 112px;
+    max-height: 300px;
+    resize: vertical;
+}
+#contact .contacts-content textarea:focus {
     border: 1px solid grey;
     outline: none;
 }

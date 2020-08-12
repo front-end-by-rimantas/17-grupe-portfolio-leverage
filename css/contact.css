@@ -11,9 +11,44 @@
     position: absolute;
     top: -22px
 }
-    #contact .contacts-content {
-
+#contact .contacts.no-before::before {
+    display: none;
+}
+    #contact .contacts-content.sent {
+        background-color: #f5f5f5;
+        box-shadow: 0px 0px 10px #ccc;
+        text-align: center;
+        padding: 35px;
+        height: 575px;
+        position: relative;
     }
+        #contact .contacts-content.sent .sent-block {
+            display: inline-block;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+            #contact .contacts-content.sent .sent-block > i {
+                width: 100%;
+                font-size: 100px;
+                background: -webkit-linear-gradient(rgba(131,64,255,1), rgba(89,0,255,1));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            #contact .contacts-content.sent .sent-block > .successMessage {
+                display: inline-block;
+                width: 80%;
+                font-size: 30px;
+                background: -webkit-linear-gradient(rgba(131,64,255,1), rgba(89,0,255,1));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-transform: none;
+            }
+            #contact .contacts-content.sent .sent-block > .refresh > i {
+                margin-right: 10px;
+            }
         #contact .contacts-content .contacts-title {
             margin: 0;
             font-size: 40px;
@@ -52,6 +87,9 @@
                 }
                 #contact .contacts-content .action-progress .progress-bar .fill.second{
                     width: 50%;
+                }
+                #contact .contacts-content .action-progress .progress-bar .fill.third{
+                    width: 80%;
                 }
             #contact .contacts-content .action-progress > .steps {
                 display: inline-block;
