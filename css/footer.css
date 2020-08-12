@@ -12,8 +12,10 @@
             padding: 16px;
         }
             #main_footer .lever {
-                color: #8340ff;
-                color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
+                background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text
                 text-decoration: none;
                 font-size: 35px;
                 font-weight: 700;
@@ -34,8 +36,10 @@
                 text-align: center;
             }
                 #main_footer .social a {
-                    color: #8340ff;
-                    color: linear-gradient(45deg, var(#8340ff) 15%, var(#5900ff) 65%);
+                    background: -webkit-linear-gradient(45deg, #8340ff 15%, #5900ff 65%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text
                     line-height: 20px;
                     font-size: 24px;
                     width: 70px;
@@ -133,6 +137,7 @@
                 margin-bottom: 4px;
                 margin-top: 5px;
                 cursor: pointer;
+                margin-right: 5px;
             }
                 #main_footer .popular-tags a:hover {
                     color: #5900ff;
