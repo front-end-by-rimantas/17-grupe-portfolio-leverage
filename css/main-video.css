@@ -113,11 +113,16 @@
     #main_video  h2 {
         color:black;
         text-align: center;
+        font-family: 'Roboto', sans-serif
     }
 
     #main_video p {
         width: calc(100% - 30px);
         margin: 0 15px;
+        font-family: 'Roboto', sans-serif;
+        color:rgb(111, 111, 111);
+        font-size: 18px;
+
     }
     #videolink > img {
         width: calc(100% - 30px);
