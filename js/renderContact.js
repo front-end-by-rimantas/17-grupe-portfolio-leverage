@@ -89,7 +89,7 @@ function renderContact() {
                         <option value="hamster">&dollar;5.000 - &dollar;10.000</option>
                         <option value="parrot">&dollar;10.000+</option>
                     </select>
-                    <div class="button prev">Prev <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></div>
+                    <div class="button prev"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Prev</div>
                     <div class="button next">Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div>
                 </div>
                 <div class="row col-6 contacts-video">
@@ -125,7 +125,7 @@ function renderContact() {
                             </div>
                         </div>
                         <textarea type="text" rows="7" placeholder="${thirdStepData.inputMessage}"></textarea>
-                        <div class="button prev">Prev <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></div>
+                        <div class="button prev"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Prev</div>
                         <div class="button next">Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div>
                     </div>
                     <div class="row col-6 contacts-video">
