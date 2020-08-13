@@ -35,16 +35,12 @@
         grid-column: 2 / 3;
         width: 100%;
         overflow: hidden;
-        background-image: url();
     }
         #testimonials .testimonials > .overflow-holder {
             display: flex;
             width: 100%;
             flex-direction: row;
             flex-wrap: nowrap;
-            /* scroll-snap-type: x mandatory; */
-            /* scroll-behavior: smooth; */
-            /* -webkit-overflow-scrolling: touch; */
             scrollbar-width: 10px;
             transition-duration: 0s;
         }
@@ -52,7 +48,6 @@
                 margin: 10px 0 0;
                 flex-shrink: 0;
                 padding: 5px 10px;
-                /* margin-top: 10px; */
                 
             }
                 #testimonials .testimonial > .card {
@@ -65,8 +60,6 @@
                     box-shadow: 0 0 15px #0000001a;
                     min-height: max-content;
                     cursor: default;
-                    
-                    /* transition: transform 0.3s; */
                     }
                     
                     #testimonials .testimonial > .card:hover {
