@@ -1,7 +1,6 @@
 
 function renderFooter( selector, data) {
     const DOM = document.querySelector(selector);
-    console.log(DOM);
     let HTML = '';
     const size = data.length
     for ( let i=0; i<size; i++ ) {
