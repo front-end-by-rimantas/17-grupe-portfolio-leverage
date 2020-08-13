@@ -13,9 +13,15 @@
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
 }
+#contact .contacts-content > .validation {
+    border: 1px solid red;
+}
 #contact .contacts-content input:focus {
     border: 1px solid grey;
     outline: none;
+}
+#contact .contacts-content .validation:focus {
+    border: 1px solid red;
 }
 /* second step */
 #contact .contacts-content select {

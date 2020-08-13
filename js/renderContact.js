@@ -1,6 +1,7 @@
 import renderContactLightBox from './renderContactLightBox.js'
 import renderLightBoxGallery from './renderLightBoxGallery.js';
 import contact from '../data/contact.js';
+import renderContactsValidationFirstStep from './renderContactsValidationFirstStep.js';
 
 function renderContact() {
     const { selector, firstStepData, secondStepData, thirdStepData, sendMessage } = contact;
@@ -56,6 +57,13 @@ function renderContact() {
 
     //Second step after click NEXT
     const nextButton = document.querySelector('.contacts-content > .next');
+    function renderSecondStepAndValidateData() {
+        if (!renderContactsValidationFirstStep()) {
+            console.log('nepraejo');
+            return
+        }
+        renderSecondStep();
+    }
     function renderSecondStep() {
         const DOM = document.querySelector('.contacts');
         HTML = `<div class="row col-6 contacts-content">
@@ -165,7 +173,7 @@ function renderContact() {
         prevButton.addEventListener('click', renderContact);
         nextButton.addEventListener('click', renderThirdStep);
     }
-    nextButton.addEventListener('click', renderSecondStep);
+    nextButton.addEventListener('click', renderSecondStepAndValidateData);
 
     return;
 }
