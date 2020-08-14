@@ -2,6 +2,8 @@ import renderContactLightBox from './renderContactLightBox.js'
 import renderLightBoxGallery from './renderLightBoxGallery.js';
 import contact from '../data/contact.js';
 import renderContactsValidationFirstStep from './renderContactsValidationFirstStep.js';
+import renderContactsValidationSecondStep from './renderContactsValidationSecondStep.js';
+import renderContactsValidationLastStep from './renderContactsValidationLastStep.js';
 
 function renderContact() {
     const { selector, firstStepData, secondStepData, thirdStepData, sendMessage } = contact;
@@ -59,7 +61,6 @@ function renderContact() {
     const nextButton = document.querySelector('.contacts-content > .next');
     function renderSecondStepAndValidateData() {
         if (!renderContactsValidationFirstStep()) {
-            console.log('nepraejo');
             return
         }
         renderSecondStep();
@@ -89,13 +90,13 @@ function renderContact() {
                         </div>
                     </div>
                     <input type="text" placeholder="${secondStepData.input1}">
-                    <input type="text" placeholder="${secondStepData.input2}">
+                    <input name="manager" type="text" placeholder="${secondStepData.input2}">
                     <select style="color: grey;" name="budgetRange" id="budgetRange-select">
                         <option value="">${secondStepData.input3}</option>
-                        <option value="dog">Less than &dollar;2.000</option>
-                        <option value="cat">&dollar;2.000 - &dollar;5.000</option>
-                        <option value="hamster">&dollar;5.000 - &dollar;10.000</option>
-                        <option value="parrot">&dollar;10.000+</option>
+                        <option value="1">Less than &dollar;2.000</option>
+                        <option value="2">&dollar;2.000 - &dollar;5.000</option>
+                        <option value="3">&dollar;5.000 - &dollar;10.000</option>
+                        <option value="4">&dollar;10.000+</option>
                     </select>
                     <div class="button prev"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Prev</div>
                     <div class="button next">Next <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div>
@@ -108,6 +109,12 @@ function renderContact() {
         const nextButton = document.querySelector('.contacts-content > .next');
         const prevButton = document.querySelector('.contacts-content > .prev');
 
+        function renderThirdStepAndValidateData() {
+            if (!renderContactsValidationSecondStep()) {
+                return
+            }
+            renderThirdStep();
+        }
         function renderThirdStep() {
             const DOM = document.querySelector('.contacts');
             HTML = `<div class="row col-6 contacts-content">
@@ -144,6 +151,12 @@ function renderContact() {
 
             const prevButton = document.querySelector('.contacts-content > .prev');
             const nextButton = document.querySelector('.contacts-content > .next');
+            function renderSendDataAndValidateData() {
+                if (!renderContactsValidationLastStep()) {
+                    return
+                }
+                renderAndSendData()
+            }
             function renderAndSendData() {
                 const DOM = document.querySelector(selector);
                 HTML = `<div class="row col-12 contacts no-before">
@@ -167,11 +180,11 @@ function renderContact() {
                 refreshButton.addEventListener('click', refresh);
             }
             prevButton.addEventListener('click', renderSecondStep);
-            nextButton.addEventListener('click', renderAndSendData);
+            nextButton.addEventListener('click', renderSendDataAndValidateData);
         }
 
         prevButton.addEventListener('click', renderContact);
-        nextButton.addEventListener('click', renderThirdStep);
+        nextButton.addEventListener('click', renderThirdStepAndValidateData);
     }
     nextButton.addEventListener('click', renderSecondStepAndValidateData);
 
