@@ -2,4 +2,13 @@ function renderPortfolio() {
     return;
 }
 
-export default renderPortfolio;
+
+function setActive() {
+    
+
+}
+
+
+
+
+export {renderPortfolio};

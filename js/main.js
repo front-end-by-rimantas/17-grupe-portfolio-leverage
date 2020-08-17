@@ -22,7 +22,7 @@ import renderAbout from './renderAbout.js';
 import renderMainVideo from './renderMainVideo.js';
 import { contentIsVisible, renderSkillContent } from './renderSkills.js';
 import { renderServices } from './renderServices.js';
-import renderPortfolio from './renderPortfolio.js';
+import {renderPortfolio} from './renderPortfolio.js';
 import { renderTestimonials, testimonialsEvents } from './renderTestimonials.js';
 import renderContact from './renderContact.js';
 import renderFooter from './renderFooter.js';
@@ -78,6 +78,25 @@ renderServices('#services .row', services);
 /*************************
  * PORTFOLIO
  *************************/
+renderPortfolio();
+// setButtonSelected();
+const buttons = document.querySelectorAll(".filter > .filter-btn");
+const buttonsSizeA = buttons.length;
+
+function setButtonSelected(event) {
+    // console.log(event.target);
+    setActiveOff(event);
+    event.target.classList.add("button-active");
+}
+
+function setActiveOff(event) {
+    const activeButton = document.querySelector(".filter > .filter-btn.button-active");
+    activeButton.classList.remove("button-active");
+}
+
+for(let i = 0; i < buttonsSizeA; i++) {
+    buttons[i].addEventListener("click", setButtonSelected);
+}
 
 /*************************
  * TESTIMONIALS
