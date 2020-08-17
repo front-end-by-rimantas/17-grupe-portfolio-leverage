@@ -1,6 +1,6 @@
 const primaryHtml = `<div class="row">
 <div class="col-12">
-    <h2 >Wach the Video</h2>
+    <h2 >Watch the Video</h2>
     <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora at laudantium doloribus voluptas, porro aliquid.
     </p>
@@ -13,8 +13,7 @@ const primaryHtml = `<div class="row">
         </div>
     </div>
 
-    
-</div>`;
+    <div class="vertical-dash"></div></div>`;
 
 const videoHtml =
 `<div id="player" class="col-12">
