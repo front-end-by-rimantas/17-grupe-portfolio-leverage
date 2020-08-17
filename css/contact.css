@@ -1,6 +1,7 @@
 #contact .contacts {
     position: relative;
     gap: 45px;
+    overflow: hidden;
 }
 #contact .contacts::before {
     content: '';

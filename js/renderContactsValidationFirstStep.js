@@ -24,7 +24,8 @@ function renderContactsValidationFirstStep() {
     } else {
         inputEmailDOM.classList.add('validation-success');
     }
-    if (inputPhoneDOM.value === '') {
+    const phoneNr = inputPhoneDOM.value;
+    if (!isFinite(phoneNr) || phoneNr == '') {
         inputPhoneDOM.classList.add('validation');
         // console.log('Invalid Phone Number');
         validation = false;

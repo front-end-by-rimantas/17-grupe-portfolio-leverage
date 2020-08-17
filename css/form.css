@@ -12,6 +12,7 @@
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
+    animation: formAnimation 0.5s;
 }
 body #contact .contacts-content > .validation {
     border: 1px solid red;
@@ -40,6 +41,7 @@ body #contact .contacts-content > .validation {
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
+    animation: formAnimation 0.5s;
 }
 #contact .contacts-content select option {
     font-family: 'Roboto', sans-serif;
@@ -66,8 +68,20 @@ body #contact .contacts-content > .validation {
     min-height: 112px;
     max-height: 300px;
     resize: vertical;
+    animation: formAnimation 0.5s;
 }
 #contact .contacts-content textarea:focus {
     border: 1px solid grey;
     outline: none;
+}
+
+@keyframes formAnimation {
+    0% {
+        margin: 10px 1000px;
+        opacity: 0;
+    }
+    100% {
+        margin: 10px 0px;
+        opacity: 1;
+    }
 }
