@@ -79,7 +79,7 @@ function renderNavtab(data, position = 'header') {
                 const level2 = dropMenu1[j];        //level2 accesses each object in the dropdown area
 
                 // in case there is "dropdown" parameter in the object, rightArrow contains right (">") icon
-                let rightArrow = (level2.dropDown && position === 'header') ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '<i class="fa fa-angle-down" aria-hidden="true"></i>';
+                let rightArrow = (level2.dropDown)? (position === 'header' ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '<i class="fa fa-angle-down" aria-hidden="true"></i>') : '';
                 let HTML2 = '';
                 //this html the will be inserted into HTML1 (empty if there is no level 2 drowdown menu)
 
@@ -237,6 +237,15 @@ function menuButtonClicked() {
     //new event listener will be created to turn off hidden menu
     const closeBtn = DOM.querySelector('.close-btn');
     closeBtn.addEventListener('click', closeButtonClicked);
+    //event listeners for drop down menus
+    const dropDownMenus = document.querySelectorAll('#hidden_menu .drop-down .menu-link');
+    for (const menu of dropDownMenus){
+        menu.addEventListener('click',()=> dropDownMenuLvl1(menu));
+    }
+    const dropDownMenusLvl2 = document.querySelectorAll('#hidden_menu .down-cont .drop-menu2');
+    for (const menu of dropDownMenusLvl2){
+        menu.closest('.down-cont').querySelector('.drop-link1').addEventListener('click',()=> dropDownMenuLvl2(event));
+    }
 }
 
 //function for close button in hidden menu
@@ -245,6 +254,14 @@ function closeButtonClicked(event){
     DOM.classList.remove('visible');
     //remove event listener for close button
     event.target.removeEventListener('click', closeButtonClicked);
+}
+
+//function to drop down menus
+function dropDownMenuLvl1(DOM) {
+    DOM.closest('.drop-down').classList.toggle('visible');
+}
+function dropDownMenuLvl2(event){
+    event.target.closest('.down-cont').classList.toggle('visible');
 }
 
 export { renderHeader, headerEventListeners };
