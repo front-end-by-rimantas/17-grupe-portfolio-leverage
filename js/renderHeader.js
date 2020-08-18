@@ -163,6 +163,17 @@ function headerEventListeners(){
     //menu button listener
     const menuButtonDOM = document.querySelector('#main_header .menu-button');
     menuButtonDOM.addEventListener('click', menuButtonClicked);
+
+    //event listeners for drop down menus
+    const dropDownMenus = document.querySelectorAll('#hidden_menu .drop-down .drop-menu1');
+    for (const menu of dropDownMenus){
+        menu.closest('.menu-element').querySelector('.menu-link').addEventListener('click',function add() {dropDownMenuLvl1(menu)});
+    }
+    const dropDownMenusLvl2 = document.querySelectorAll('#hidden_menu .drop-menu2');
+    for (const menu of dropDownMenusLvl2){
+        menu.closest('.down-cont').querySelector('.drop-link1').addEventListener('click',function remove() {dropDownMenuLvl2(menu)});
+    }
+
     return;
 }
 
@@ -237,15 +248,7 @@ function menuButtonClicked() {
     //new event listener will be created to turn off hidden menu
     const closeBtn = DOM.querySelector('.close-btn');
     closeBtn.addEventListener('click', closeButtonClicked);
-    //event listeners for drop down menus
-    const dropDownMenus = document.querySelectorAll('#hidden_menu .drop-down .menu-link');
-    for (const menu of dropDownMenus){
-        menu.addEventListener('click',()=> dropDownMenuLvl1(menu));
-    }
-    const dropDownMenusLvl2 = document.querySelectorAll('#hidden_menu .down-cont .drop-menu2');
-    for (const menu of dropDownMenusLvl2){
-        menu.closest('.down-cont').querySelector('.drop-link1').addEventListener('click',()=> dropDownMenuLvl2(event));
-    }
+    
 }
 
 //function for close button in hidden menu
@@ -254,14 +257,19 @@ function closeButtonClicked(event){
     DOM.classList.remove('visible');
     //remove event listener for close button
     event.target.removeEventListener('click', closeButtonClicked);
+    //remove all active classes
+    const visibleElements = document.querySelectorAll('#hidden_menu .visible');
+    for (const element of visibleElements) {
+        element.classList.remove('visible');
+    }
 }
 
 //function to drop down menus
 function dropDownMenuLvl1(DOM) {
     DOM.closest('.drop-down').classList.toggle('visible');
 }
-function dropDownMenuLvl2(event){
-    event.target.closest('.down-cont').classList.toggle('visible');
+function dropDownMenuLvl2(DOM){
+    DOM.closest('.down-cont').classList.toggle('visible');
 }
 
 export { renderHeader, headerEventListeners };
