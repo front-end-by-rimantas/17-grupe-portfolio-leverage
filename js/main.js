@@ -92,7 +92,7 @@ testimonialsEvents();
 /*************************
  * FOOTER
  *************************/
-
+renderFooter('#main_footer .row', footer);
 /*************************
  * LIGHTBOX
  *************************/
