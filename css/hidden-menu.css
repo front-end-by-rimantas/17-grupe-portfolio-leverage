@@ -14,12 +14,13 @@
     right: 0;
     background-color: #00000088;
     z-index: 200;
-    transition-duration: 1s;
+    transition-duration: 0.3s;
     opacity: 0;
 }
 #hidden_menu.visible{
     display: inline-block;
     opacity: 1;
+    z-index: 200;
 }
     #hidden_menu > .menu {
         position: absolute;
@@ -31,9 +32,9 @@
         background-color: #eee;
         overflow: auto;
         transform: translate(100%);
-        transition: transform 1s;
+        transition: all 0.3s;
     }
-    #hidden_menu.visible > .menu{
+    #hidden_menu.visible > .menu.visible{
         transform: translate(0%);
     }
     #hidden_menu > .menu > .header {

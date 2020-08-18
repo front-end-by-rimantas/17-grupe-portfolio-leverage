@@ -243,8 +243,16 @@ function windowScrolling(startPosition) {
 //function for menu button event listener after hidden menu is made visible,
 //event listeners will be created
 function menuButtonClicked() {
+
     const DOM = document.querySelector('#hidden_menu');
-    DOM.classList.add('visible');
+    DOM.style.display = 'inline-block';
+    //for appearance animation to work, setTimeout must be used
+    setTimeout(()=>{
+        DOM.classList.add('visible');
+        setTimeout(()=>{
+            DOM.querySelector('.menu').classList.toggle('visible');
+        },200)
+    },50)
     //new event listener will be created to turn off hidden menu
     const closeBtn = DOM.querySelector('.close-btn');
     closeBtn.addEventListener('click', closeButtonClicked);
@@ -254,7 +262,14 @@ function menuButtonClicked() {
 //function for close button in hidden menu
 function closeButtonClicked(event){
     const DOM = document.querySelector('#hidden_menu');
-    DOM.classList.remove('visible');
+    DOM.querySelector('.menu').classList.toggle('visible');
+    setTimeout(()=>{
+        DOM.classList.remove('visible');
+        setTimeout(()=>{
+        DOM.style.display = 'none';
+        
+        },300)
+    },300)
     //remove event listener for close button
     event.target.removeEventListener('click', closeButtonClicked);
     //remove all active classes
