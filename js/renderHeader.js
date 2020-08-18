@@ -50,7 +50,7 @@ function renderIcons(data) {
 /* this function is used to render navtab
     navtab has 3 lavels of rendering, since some items
     have dropdown menus inside of them */
-function renderNavtab(data) {
+function renderNavtab(data, position = 'header') {
     const navtab = data.content,    //navtab variable accesses an area in description (see header.js)
         size = navtab.length;
     let HTML = '';
@@ -79,7 +79,7 @@ function renderNavtab(data) {
                 const level2 = dropMenu1[j];        //level2 accesses each object in the dropdown area
 
                 // in case there is "dropdown" parameter in the object, rightArrow contains right (">") icon
-                let rightArrow = (level2.dropDown) ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '';
+                let rightArrow = (level2.dropDown && position === 'header') ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '<i class="fa fa-angle-down" aria-hidden="true"></i>';
                 let HTML2 = '';
                 //this html the will be inserted into HTML1 (empty if there is no level 2 drowdown menu)
 
@@ -142,7 +142,28 @@ function renderNavtab(data) {
 
 function renderHiddenMenu (data){
     const DOM = document.querySelector('#hidden_menu .menu-container')
-    return DOM.innerHTML = renderNavtab(data)
+    return DOM.innerHTML = renderNavtab(data, 'hidden-menu')
+}
+
+//header & hidden menu event listeners
+function headerEventListeners(){
+    const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
+    for (let i = 0; i < headerDOM.length; i++) {
+        headerDOM[i].addEventListener('mouseenter', dropMenuLevel1);
+    }
+    // header event listener for scrolling
+    let startPosition = window.pageYOffset;
+    window.addEventListener('scroll', function () {
+        windowScrolling(startPosition);
+        startPosition = window.scrollY;
+    });
+
+    // hidden manu event listeners
+
+    //menu button listener
+    const menuButtonDOM = document.querySelector('#main_header .menu-button');
+    menuButtonDOM.addEventListener('click', menuButtonClicked);
+    return;
 }
 
 // function for event listener that shows drop menu level 1
@@ -208,5 +229,23 @@ function windowScrolling(startPosition) {
 
 }
 
-export { renderHeader, dropMenuLevel1, windowScrolling };
+//function for menu button event listener after hidden menu is made visible,
+//event listeners will be created
+function menuButtonClicked() {
+    const DOM = document.querySelector('#hidden_menu');
+    DOM.classList.add('visible');
+    //new event listener will be created to turn off hidden menu
+    const closeBtn = DOM.querySelector('.close-btn');
+    closeBtn.addEventListener('click', closeButtonClicked);
+}
+
+//function for close button in hidden menu
+function closeButtonClicked(event){
+    const DOM = document.querySelector('#hidden_menu');
+    DOM.classList.remove('visible');
+    //remove event listener for close button
+    event.target.removeEventListener('click', closeButtonClicked);
+}
+
+export { renderHeader, headerEventListeners };
 

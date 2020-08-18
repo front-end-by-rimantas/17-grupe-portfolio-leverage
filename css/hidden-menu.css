@@ -6,7 +6,7 @@
         font-family: 'FontAwesome';
     }
 #hidden_menu {
-    display: inline-block;
+    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -14,9 +14,12 @@
     right: 0;
     background-color: #000000cc;
     z-index: 200;
+    transition-duration: 1s;
+    opacity: 0;
 }
-#hidden_menu.clicked{
-    z-index: 200;
+#hidden_menu.visible{
+    display: inline-block;
+    opacity: 1;
 }
     #hidden_menu > .menu {
         position: absolute;
@@ -27,6 +30,11 @@
         right: 0;
         background-color: #eee;
         overflow: auto;
+        transform: translate(101%);
+        transition-duration: 1s;
+    }
+    #hidden_menu.visible > .menu{
+        transform: translate(0%);
     }
     #hidden_menu > .menu > .header {
         display: inline-block;
@@ -67,9 +75,77 @@
             
         }
             #hidden_menu .menu-element > .menu-link {
+                display: inline-block;
+                width: 100%;
                 font-size: 24px;
                 line-height: 24px;
-                font-weight: 800px;
+                font-weight: 600;
                 text-transform: capitalize;
                 text-decoration: none;
+                padding: 10px 0;
             }
+                #hidden_menu .menu-element > .menu-link:hover, 
+                #hidden_menu .menu-element > .menu-link:hover > .fa {
+                    color: #6819fd;
+                }
+                #hidden_menu .menu-element > .menu-link > .fa {
+                    display: inline-block;
+                    font-size: 35px;
+                    line-height: 15px;
+                    float: right;
+                    margin-top: 4px;
+                }
+            #hidden_menu .menu-element > .drop-menu1{
+                padding-left: 20px;
+                margin-bottom: 15px;
+            }
+                #hidden_menu .drop-menu1 > .drop-element {
+                    display: inline-block;
+                            width: 100%;
+                }
+                    #hidden_menu .drop-menu1 > .drop-element > .down-cont {
+                        display: inline-block;
+                            width: 100%;
+                        }
+                        #hidden_menu .drop-menu1 .drop-link1 {
+                            color: #6f6f6f;
+                            display: inline-block;
+                            width: 100%;
+                            font-size: 16px;
+                            font-weight: 600;
+                            text-decoration: none;
+                            text-transform: capitalize;
+                            margin-bottom: 10px;
+                        }
+                            #hidden_menu .drop-menu1 .drop-link1:hover,
+                            #hidden_menu .drop-menu1 .drop-link1:hover > .fa {
+                                color: #6819fd;
+                            }
+                        #hidden_menu .drop-menu1 .drop-link1 .fa {
+                            font-size: 35px;
+                            line-height: 15px;
+                            float: right;
+                            margin-top: 4px;
+                        }
+                        #hidden_menu .drop-element > .down-cont > .drop-menu2 {
+                            display: inline-block;
+                            width: 100%;
+                        }
+                            #hidden_menu .drop-menu2 > .down-cont {
+                                display: inline-block;
+                                width: 100%;
+                                padding-left: 20px;
+                                margin-bottom: 10px;
+                            }
+                            #hidden_menu .drop-menu2 > .down-cont > .drop-link2 {
+                                display: inline-block;
+                                width: 100%;
+                                text-decoration: none;
+                                font-size-adjust: 16px;
+                                font-weight: 400;
+                                text-transform: capitalize;
+                                color: #6f6f6f;
+                            }
+                                #hidden_menu .drop-menu2 > .down-cont > .drop-link2:hover {
+                                    color: #6819fd;
+                                }
