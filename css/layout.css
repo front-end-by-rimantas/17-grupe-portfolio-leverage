@@ -12,7 +12,8 @@ body {
         "portfolio"
         "testimonials"
         "contact"
-        "footer";
+        "footer"
+        "copyrights"
 }
 
 #main_header {grid-area: header;}
@@ -26,6 +27,9 @@ body {
 #testimonials {grid-area: testimonials;}
 #contact {grid-area: contact;}
 #main_footer {grid-area: footer;}
+#rights {grid-area: copyrights;}
+
+
 
 .container {
     display: grid;

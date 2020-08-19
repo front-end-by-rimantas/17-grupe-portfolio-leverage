@@ -19,7 +19,7 @@ function renderHero(selector, data) {
             <div class="content col-6">
                 <h1 class="gradient-text">${data.title}</h1>
                 <p>${data.description}</p>
-                <a href="#about_us${data.button.href}" class="button"><i class="${data.button.icon} hero-icon" aria-hidden="true"></i>${data.button.text}</a>
+                <a href="${data.button.href}" class="button"><i class="${data.button.icon} hero-icon" aria-hidden="true"></i>${data.button.text}</a>
             </div>
         </div>
     </div>

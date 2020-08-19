@@ -1,3 +1,4 @@
+/* first step */
 #contact .contacts-content input {
     display: inline-block;
     width: 100%;
@@ -6,8 +7,81 @@
     padding: 10px 15px;
     background: transparent;
     border: 1px solid #c3c3c3;
-    color: #c3c3c3;
+    color: #111;
     font-size: 18px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    animation: formAnimation 0.5s;
+}
+body #contact .contacts-content > .validation {
+    border: 1px solid red;
+}
+#contact .contacts-content > .validation-success {
+    border: 1px solid green;
+}
+#contact .contacts-content input:focus {
+    border: 1px solid grey;
+    outline: none;
+}
+#contact .contacts-content .validation:focus {
+    border: 1px solid red;
+}
+/* second step */
+#contact .contacts-content select {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: transparent;
+    border: 1px solid #c3c3c3;
+    color: #111;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    animation: formAnimation 0.5s;
+}
+#contact .contacts-content select option {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 18px;
+}
+#contact .contacts-content select:focus {
+    border: 1px solid grey;
+    outline: none;
+}
+/* third step */
+#contact .contacts-content textarea {
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: transparent;
+    border: 1px solid #c3c3c3;
+    color: #111;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    min-height: 112px;
+    max-height: 300px;
+    resize: vertical;
+    animation: formAnimation 0.5s;
+}
+#contact .contacts-content textarea:focus {
+    border: 1px solid grey;
+    outline: none;
+}
+
+@keyframes formAnimation {
+    0% {
+        margin: 10px 1000px;
+        opacity: 0;
+    }
+    100% {
+        margin: 10px 0px;
+        opacity: 1;
+    }
 }
