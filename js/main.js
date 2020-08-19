@@ -88,6 +88,7 @@ testimonialsEvents();
 /*************************
  * CONTACT
  *************************/
+renderContact();
 
 /*************************
  * FOOTER

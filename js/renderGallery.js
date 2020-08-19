@@ -12,6 +12,10 @@ function renderGallery(dataType) {
             lightBoxImage.push(img);
         }
     }
+    if (lightBoxImage.length <= 1) {
+        galleryBack.classList.add('remove');
+        galleryForward.classList.add('remove');
+    }
     let count = 0;
     function backOnClick(event) {
         count = count - 1;
