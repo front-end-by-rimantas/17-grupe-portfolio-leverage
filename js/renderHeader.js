@@ -251,8 +251,10 @@ function menuButtonClicked() {
         DOM.classList.add('visible');
         setTimeout(()=>{
             DOM.querySelector('.menu').classList.toggle('visible');
-        },200)
-    },50)
+        },200);
+    },50);
+    const body = document.querySelector('body');
+    body.classList.add('noscroll');
     //new event listener will be created to turn off hidden menu
     const closeBtn = DOM.querySelector('.close-btn');
     closeBtn.addEventListener('click', closeButtonClicked);
@@ -261,6 +263,8 @@ function menuButtonClicked() {
 
 //function for close button in hidden menu
 function closeButtonClicked(event){
+    const body = document.querySelector('body');
+    body.classList.remove('noscroll');
     const DOM = document.querySelector('#hidden_menu');
     DOM.querySelector('.menu').classList.toggle('visible');
     setTimeout(()=>{
@@ -270,6 +274,7 @@ function closeButtonClicked(event){
         
         },300)
     },300)
+    
     //remove event listener for close button
     event.target.removeEventListener('click', closeButtonClicked);
     //remove all active classes
