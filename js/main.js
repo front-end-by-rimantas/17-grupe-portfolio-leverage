@@ -15,7 +15,7 @@ import footer from '../data/footer.js';
 
 
 // import rendering functions
-import { renderHeader, dropMenuLevel1, windowScrolling } from './renderHeader.js';
+import { renderHeader, headerEventListeners } from './renderHeader.js';
 import renderHero from './renderHero.js';
 import { renderFeatures } from './renderFeatures.js';
 import renderAbout from './renderAbout.js';
@@ -32,17 +32,7 @@ import renderLightBoxGallery from './renderLightBoxGallery.js';
  * HEADER
  *************************/
 renderHeader(header, '#main_header > .row');
-// header event listener for drop down menus
-const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
-for (let i = 0; i < headerDOM.length; i++) {
-    headerDOM[i].addEventListener('mouseenter', dropMenuLevel1)
-}
-// header event listener for scrolling
-let startPosition = window.pageYOffset;
-window.addEventListener('scroll', function () {
-    windowScrolling(startPosition);
-    startPosition = window.scrollY;
-});
+headerEventListeners();
 
 /*************************
  * HERO

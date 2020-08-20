@@ -1,0 +1,168 @@
+body.noscroll {
+    overflow: hidden;
+}
+#hidden_menu * {
+    font-family: 'Poppins', sans-serif;
+    color: #2f323a;
+}
+    #hidden_menu .fa {
+        font-family: 'FontAwesome';
+    }
+#hidden_menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000088;
+    z-index: 200;
+    transition-duration: 0.3s;
+    opacity: 0;
+}
+#hidden_menu.visible{
+    display: inline-block;
+    opacity: 1;
+    z-index: 200;
+}
+    #hidden_menu > .menu {
+        position: absolute;
+        max-width: 500px;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #eee;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        transform: translate(100%);
+        transition: all 0.3s;
+    }
+    #hidden_menu.visible > .menu.visible{
+        transform: translate(0%);
+    }
+    #hidden_menu > .menu > .header {
+        display: inline-block;
+        width: 100%;
+        padding: 25px;
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+        #hidden_menu .header > .fa {
+            display: inline-block;
+            float: right;
+            width: 24px;
+            line-height: 24px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2f323a;
+        }
+            #hidden_menu .header > .fa:hover {
+                color: #6819fd;
+            }
+    #hidden_menu > .menu > .menu-container {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        width: 100%;
+        min-height: calc(100vh - 74px);
+        padding: 25px;
+    }
+        #hidden_menu .navtab{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        #hidden_menu .navtab > .menu-element {
+            width: 100%;
+            
+        }
+            #hidden_menu .menu-element > .menu-link {
+                display: inline-block;
+                width: 100%;
+                font-size: 24px;
+                line-height: 36px;
+                font-weight: 600;
+                text-transform: capitalize;
+                text-decoration: none;
+                padding: 10px 0;
+            }
+                #hidden_menu .menu-element > .menu-link:hover, 
+                #hidden_menu .menu-element > .menu-link:hover > .fa {
+                    color: #6819fd;
+                }
+                #hidden_menu .menu-element > .menu-link > .fa {
+                    display: inline-block;
+                    font-size: 35px;
+                    line-height: 15px;
+                    float: right;
+                    margin-top: 4px;
+                }
+            #hidden_menu .menu-element > .drop-menu1{
+                display: none;
+                width: 100%;
+                padding-left: 20px;
+                margin-bottom: 15px;
+            }
+            #hidden_menu .menu-element.visible > .drop-menu1{
+                display: inline-block;
+            }
+                #hidden_menu .drop-menu1 > .drop-element {
+                    display: inline-block;
+                            width: 100%;
+                }
+                    #hidden_menu .drop-menu1 > .drop-element > .down-cont {
+                        display: inline-block;
+                            width: 100%;
+                        }
+                        #hidden_menu .drop-menu1 .drop-link1 {
+                            color: #6f6f6f;
+                            display: inline-block;
+                            width: 100%;
+                            font-size: 16px;
+                            font-weight: 600;
+                            text-decoration: none;
+                            text-transform: capitalize;
+                            margin-bottom: 10px;
+                        }
+                            #hidden_menu .drop-menu1 .drop-link1:hover,
+                            #hidden_menu .drop-menu1 .drop-link1:hover > .fa {
+                                color: #6819fd;
+                            }
+                        #hidden_menu .drop-menu1 .drop-link1 .fa {
+                            font-size: 35px;
+                            line-height: 15px;
+                            float: right;
+                            margin-top: 4px;
+                        }
+                        #hidden_menu .drop-element > .down-cont > .drop-menu2 {
+                            display: none;
+                            width: 100%;
+                        }
+                        #hidden_menu .drop-element > .down-cont.visible > .drop-menu2 {
+                            display: inline-block;
+                        }
+                            #hidden_menu .drop-menu2 > .down-cont {
+                                display: inline-block;
+                                width: 100%;
+                                padding-left: 20px;
+                                margin-bottom: 10px;
+                            }
+                            #hidden_menu .drop-menu2 > .down-cont > .drop-link2 {
+                                display: inline-block;
+                                width: 100%;
+                                text-decoration: none;
+                                font-size-adjust: 16px;
+                                font-weight: 400;
+                                text-transform: capitalize;
+                                color: #6f6f6f;
+                            }
+                                #hidden_menu .drop-menu2 > .down-cont > .drop-link2:hover {
+                                    color: #6819fd;
+                                }
