@@ -15,6 +15,7 @@ function renderHeader(data, selector) { //main function to render header content
                         ${renderNavtab(links.navtab)}
                     </div>
                 </div>`;
+    renderHiddenMenu(links.navtab)
     return DOM.innerHTML = HTML;    // separate functions are used to render different parts of links tab
 }
 
@@ -49,7 +50,7 @@ function renderIcons(data) {
 /* this function is used to render navtab
     navtab has 3 lavels of rendering, since some items
     have dropdown menus inside of them */
-function renderNavtab(data) {
+function renderNavtab(data, position = 'header') {
     const navtab = data.content,    //navtab variable accesses an area in description (see header.js)
         size = navtab.length;
     let HTML = '';
@@ -78,7 +79,7 @@ function renderNavtab(data) {
                 const level2 = dropMenu1[j];        //level2 accesses each object in the dropdown area
 
                 // in case there is "dropdown" parameter in the object, rightArrow contains right (">") icon
-                let rightArrow = (level2.dropDown) ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '';
+                let rightArrow = (level2.dropDown)? (position === 'header' ? `<i class="fa fa-angle-right" aria-hidden="true"></i>` : '<i class="fa fa-angle-down" aria-hidden="true"></i>') : '';
                 let HTML2 = '';
                 //this html the will be inserted into HTML1 (empty if there is no level 2 drowdown menu)
 
@@ -137,6 +138,43 @@ function renderNavtab(data) {
     return `<div class="${data.class}">
                 ${HTML}
             </div>`;
+}
+
+function renderHiddenMenu (data){
+    const DOM = document.querySelector('#hidden_menu .menu-container')
+    return DOM.innerHTML = renderNavtab(data, 'hidden-menu')
+}
+
+//header & hidden menu event listeners
+function headerEventListeners(){
+    const headerDOM = document.querySelectorAll('#main_header .navtab > .drop-down');
+    for (let i = 0; i < headerDOM.length; i++) {
+        headerDOM[i].addEventListener('mouseenter', dropMenuLevel1);
+    }
+    // header event listener for scrolling
+    let startPosition = window.pageYOffset;
+    window.addEventListener('scroll', function () {
+        windowScrolling(startPosition);
+        startPosition = window.scrollY;
+    });
+
+    // hidden manu event listeners
+
+    //menu button listener
+    const menuButtonDOM = document.querySelector('#main_header .menu-button');
+    menuButtonDOM.addEventListener('click', menuButtonClicked);
+
+    //event listeners for drop down menus
+    const dropDownMenus = document.querySelectorAll('#hidden_menu .drop-down .drop-menu1');
+    for (const menu of dropDownMenus){
+        menu.closest('.menu-element').querySelector('.menu-link').addEventListener('click',function add() {dropDownMenuLvl1(menu)});
+    }
+    const dropDownMenusLvl2 = document.querySelectorAll('#hidden_menu .drop-menu2');
+    for (const menu of dropDownMenusLvl2){
+        menu.closest('.down-cont').querySelector('.drop-link1').addEventListener('click',function remove() {dropDownMenuLvl2(menu)});
+    }
+
+    return;
 }
 
 // function for event listener that shows drop menu level 1
@@ -202,5 +240,57 @@ function windowScrolling(startPosition) {
 
 }
 
-export { renderHeader, dropMenuLevel1, windowScrolling };
+//function for menu button event listener after hidden menu is made visible,
+//event listeners will be created
+function menuButtonClicked() {
+
+    const DOM = document.querySelector('#hidden_menu');
+    DOM.style.display = 'inline-block';
+    //for appearance animation to work, setTimeout must be used
+    setTimeout(()=>{
+        DOM.classList.add('visible');
+        setTimeout(()=>{
+            DOM.querySelector('.menu').classList.toggle('visible');
+        },200);
+    },50);
+    const body = document.querySelector('body');
+    body.classList.add('noscroll');
+    //new event listener will be created to turn off hidden menu
+    const closeBtn = DOM.querySelector('.close-btn');
+    closeBtn.addEventListener('click', closeButtonClicked);
+    
+}
+
+//function for close button in hidden menu
+function closeButtonClicked(event){
+    const body = document.querySelector('body');
+    body.classList.remove('noscroll');
+    const DOM = document.querySelector('#hidden_menu');
+    DOM.querySelector('.menu').classList.toggle('visible');
+    setTimeout(()=>{
+        DOM.classList.remove('visible');
+        setTimeout(()=>{
+        DOM.style.display = 'none';
+        
+        },300)
+    },300)
+    
+    //remove event listener for close button
+    event.target.removeEventListener('click', closeButtonClicked);
+    //remove all active classes
+    const visibleElements = document.querySelectorAll('#hidden_menu .visible');
+    for (const element of visibleElements) {
+        element.classList.remove('visible');
+    }
+}
+
+//function to drop down menus
+function dropDownMenuLvl1(DOM) {
+    DOM.closest('.drop-down').classList.toggle('visible');
+}
+function dropDownMenuLvl2(DOM){
+    DOM.closest('.down-cont').classList.toggle('visible');
+}
+
+export { renderHeader, headerEventListeners };
 
